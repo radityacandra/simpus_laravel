@@ -24,3 +24,7 @@ body{
 label.search-label  { color: #000000; }
 
 #result-box { margin-top: 2%; }
+
+.lihat      { margin: 0; }
+
+table tbody tr td { vertical-align: middle !important; }

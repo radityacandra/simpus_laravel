@@ -82,6 +82,7 @@
             <th>Tahun Terbit</th>
             <th>Pengarang</th>
             <th>Penerbit</th>
+            <th>Action</th>
           </tr>
           </thead>
           <tbody>
@@ -91,6 +92,7 @@
             <td>2016</td>
             <td>Porlantini Sulistyaningsih</td>
             <td>Prentice-Hall</td>
+            <td><a class="btn btn-primary lihat" href="<?php echo url('detail'); ?>">Lihat</a></td>
           </tr>
 
           <tr>
@@ -99,6 +101,7 @@
             <td>2016</td>
             <td>Porlantini Sulistyaningsih</td>
             <td>Prentice-Hall</td>
+            <td><a class="btn btn-primary lihat" href="<?php echo url('detail'); ?>">Lihat</a></td>
           </tr>
 
           <tr>
@@ -107,6 +110,7 @@
             <td>2016</td>
             <td>Porlantini Sulistyaningsih</td>
             <td>Prentice-Hall</td>
+            <td><a class="btn btn-primary lihat" href="<?php echo url('detail'); ?>">Lihat</a></td>
           </tr>
 
           <tr>
@@ -115,6 +119,7 @@
             <td>2016</td>
             <td>Porlantini Sulistyaningsih</td>
             <td>Prentice-Hall</td>
+            <td><a class="btn btn-primary lihat" href="<?php echo url('detail'); ?>">Lihat</a></td>
           </tr>
           </tbody>
         </table>
