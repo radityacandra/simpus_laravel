@@ -1,0 +1,22 @@
+html{
+  min-height:100%;/* make sure it is at least as tall as the viewport */
+  position:relative;
+}
+
+body{
+  height:100%;
+  background-color: #9acfea;
+}
+
+.navbar   { margin-bottom: 0; }
+
+#login    { color: #FFFFFF; }
+
+.form-group { margin-top: 4px; }
+
+.form-control { padding: 7px; }
+
+.btn      { color: #FFFFFF !important;
+  background-color: #0fb2fc;
+  margin-top: 30px; }
+.btn:not(.btn-raised):not(.btn-link):hover  { background-color: #2aabd2 !important; }

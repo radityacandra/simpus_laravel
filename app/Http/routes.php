@@ -26,3 +26,6 @@ Route::get('/search', function(){
 Route::get('/detail', function(){
   return view('detail');
 });
+Route::get('/coba', function(){
+  return view('pdf_view');
+});
