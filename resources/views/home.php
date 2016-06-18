@@ -25,7 +25,7 @@
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="javascript:void(0)">Beranda</a></li>
-          <li><a href="javascript:void(0)">Pencarian Spesifik</a></li>
+          <li><a href="<?php echo url('search'); ?>">Pencarian Spesifik</a></li>
           <li><a href="javascript:void(0)">Pinjaman Saya</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
