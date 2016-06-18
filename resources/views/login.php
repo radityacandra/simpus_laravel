@@ -48,7 +48,7 @@
 
 <!--body-->
 <div id="content">
-  <div class="panel panel-default col-md-8 col-md-offset-2" style="padding: 0; margin-top: 13%;">
+  <div class="panel panel-default col-md-8 col-md-offset-2" style="padding: 0; margin-top: 10%;">
     <div class="panel-body" style="padding: 0;">
       <div class="col-md-6" style="margin-top: 50px; text-align: center; ">
         <img src="<?php echo url('img/ic-book.png'); ?>" style="width: 200px; display: block; margin: 0 auto" align="middle">
