@@ -49,7 +49,7 @@
   <!--search box-->
   <div class="col-md-3" id="search-box">
     <div class="panel panel-default">
-      <div class="panel-heading">Pencarian</div>
+      <div class="panel-heading" style="text-align: center; background-color: #009688; color: #FFFFFF;">Pencarian</div>
       <div class="panel-body">
         <form>
           <label class="search-label">Judul Buku</label>

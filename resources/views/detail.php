@@ -50,7 +50,7 @@
   <div class="col-md-3" id="search-box">
     <div class="panel panel-default">
       <div class="panel-body">
-        <a class="btn btn-primary col-md-12" href="#"><h4><i class="fa fa-book" aria-hidden="true"></i> Lihat PDF</h4></a>
+        <a class="btn btn-primary col-md-12" href="<?php echo url('view_pdf'); ?>"><h4><i class="fa fa-book" aria-hidden="true"></i> Lihat PDF</h4></a>
         <a class="btn btn-primary col-md-12 green" href="#"><h4><i class="fa fa-home" aria-hidden="true"></i> Pinjam</h4><h6>(Tidak Tersedia)</h6></a>
         <a class="btn btn-primary col-md-12 red" href="#"><h4>Kembali ke pencarian</h4></a>
       </div>
