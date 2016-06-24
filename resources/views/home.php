@@ -143,11 +143,93 @@
       </div>
 
     </div>
+
+    <div class="col-md-12" style="margin-bottom: 2%;">
+      <a href="#" style="float: right;">Lihat Lebih Banyak>></a>
+    </div>
   </div>
 
-  <div class="col-md-offset-1 col-md-10" style="margin-bottom: 2%;">
-    <a href="#" style="float: right;">Lihat Lebih Banyak>></a>
+  <div class="col-md-offset-1 col-md-10">
+    <h3>Download Populer</h3>
+
+    <div class="grid">
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="img col-md-12">
+              <div><img src="<?php echo url('img/thumbnail-placeholder.png'); ?>"></div>
+            </div>
+            <div class="meta">
+              <h4>Lorem Ipsum Dolor Sit Amet</h4>
+              <h6>Raditya Chandra Buana</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="img col-md-12">
+              <div><img src="<?php echo url('img/thumbnail-placeholder.png'); ?>"></div>
+            </div>
+            <div class="meta">
+              <h4>Lorem Ipsum Dolor Sit Amet</h4>
+              <h6>Raditya Chandra Buana</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="img col-md-12">
+              <div><img src="<?php echo url('img/thumbnail-placeholder.png'); ?>"></div>
+            </div>
+            <div class="meta">
+              <h4>Lorem Ipsum Dolor Sit Amet</h4>
+              <h6>Raditya Chandra Buana</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="img col-md-12">
+              <div><img src="<?php echo url('img/thumbnail-placeholder.png'); ?>"></div>
+            </div>
+            <div class="meta">
+              <h4>Lorem Ipsum Dolor Sit Amet</h4>
+              <h6>Raditya Chandra Buana</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="img col-md-12">
+              <div><img src="<?php echo url('img/thumbnail-placeholder.png'); ?>"></div>
+            </div>
+            <div class="meta">
+              <h4>Test <br>Drive</h4>
+              <h6>Raditya Chandra Buana</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-12" style="margin-bottom: 2%;">
+      <a href="#" style="float: right;">Lihat Lebih Banyak>></a>
+    </div>
   </div>
+
 </div>
 
 <div class="footer col-md-12">

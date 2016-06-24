@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-  return view('welcome');
+  return view('login');
 });
 Route::get('/login', function(){
   return view('login');
@@ -29,3 +29,9 @@ Route::get('/detail', function(){
 Route::get('/view_pdf', function(){
   return view('pdf_view');
 });
+
+Route::get('/tambah_buku', function (){
+  return view('upload_book');
+});
+
+Route::post('/tambah_buku', 'UploadBookController@retrieveBookData');

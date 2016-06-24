@@ -77,13 +77,13 @@
             <tr>
               <td class="col-md-4"><h4>Nama Pengarang</h4></td>
               <td class="col-md-1"><h4>=</h4></td>
-              <td><h4>Porlantini Sulistyaningsih</h4></td>
+              <td><a href="#"><h4>Porlantini Sulistyaningsih</h4></a></td>
             </tr>
 
             <tr>
               <td class="col-md-4"><h4>Tahun Terbit</h4></td>
               <td class="col-md-1"><h4>=</h4></td>
-              <td><h4>2016</h4></td>
+              <td><a href="#"><h4>2016</h4></a></td>
             </tr>
 
             <tr>
@@ -101,7 +101,25 @@
             <tr>
               <td class="col-md-4"><h4>Penerbit</h4></td>
               <td class="col-md-1"><h4>=</h4></td>
-              <td><h4>Prentice - Hall</h4></td>
+              <td><a href="#"><h4>Prentice - Hall</h4></a></td>
+            </tr>
+
+            <tr>
+              <td class="col-md-4"><h4>Tanggal Ditambahkan</h4></td>
+              <td class="col-md-1"><h4>=</h4></td>
+              <td><h4>17 April 2016</h4></td>
+            </tr>
+
+            <tr>
+              <td class="col-md-4"><h4>Nama Pengunggah</h4></td>
+              <td class="col-md-1"><h4>=</h4></td>
+              <td><h4>Raditya Chandra Buana</h4></td>
+            </tr>
+
+            <tr>
+              <td class="col-md-4"><h4>Kategori</h4></td>
+              <td class="col-md-1"><h4>=</h4></td>
+              <td><a href="#"><h4>Matematika</h4></a></td>
             </tr>
           </table>
         </div>
