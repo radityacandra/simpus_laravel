@@ -50,7 +50,7 @@
   <div class="col-md-10  col-md-offset-1">
     <div class="panel panel-default">
       <div class="panel-body" style="margin-top: 1%;">
-        <form class="form-horizontal" method="post" enctype="multipart/form-data" id="formaddbook">
+        <form class="form-horizontal" method="post" action="http://localhost:8000/tambah_buku" enctype="multipart/form-data" id="formaddbook">
           <fieldset>
             <legend><h1>Tambah Data Buku</h1></legend>
             <div class="form-group">
@@ -93,21 +93,32 @@
 
             <div class="form-group">
               <label class="col-md-2">File PDF</label>
+              <div id="filepreview" style="display: none" class="col-md-4">
+                <div class="panel panel-default">
+                  <div class="panel-body" id="namaPdf">
+                    <img src="<?php echo url('img/ic-pdf.png'); ?>" class="col-md-4">
+                  </div>
+                </div>
+              </div>
               <div class="col-md-4" id="fileloadbutton">
                 <input type="text" readonly="" name="file_pdf[]" placeholder="Pilih PDF ebook.." class="form-control col-md-10">
-                <input id="filePdf" type="file" id="inputFile" name="file_pdf">
+                <input id="filePdf" type="file" name="file_pdf">
               </div>
+              <div id="fileuploadstatus" style="display: none"><img src="<?php echo url('img/loader.gif')?>" alt="Uploading...."/></div>
             </div>
 
             <div class="form-group">
               <div class="col-md-12">
                 <label class="col-md-2">Kategori Buku</label>
-                <div class="col-md-5">
+                <div class="col-md-4">
                   <select id="kategori_buku" class="form-control" name="kategori_buku">
                     <option>Matematika</option>
                     <option>Bahasa Indonesia</option>
                     <option>Bahasa Inggris</option>
                   </select>
+                </div>
+                <div class="col-md-4">
+                  <input type="text" name="kategori_baru" placeholder="Kategori Baru" class="form-control">
                 </div>
               </div>
             </div>
@@ -148,6 +159,7 @@
   $.material.init();
 </script>
 <script type="text/javascript">
+  //upload ebook image cover handler
   $(document).ready(function () {
     $('#thumbimg').on('change', function () {
       var A = $('#imageloadstatus');
@@ -164,6 +176,43 @@
           A.hide();
           B.hide();
           C.show();
+        },
+        error: function () {
+          A.hide();
+          B.show();
+        }
+      }).submit();
+    });
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#filePdf').on('change', function () {
+      var A = $('#fileuploadstatus');
+      var B = $('#fileloadbutton');
+      var C = $('#filepreview');
+      var file_pdf = document.getElementById("filePdf").value;
+      if (file_pdf) {
+        var startIndex = (file_pdf.indexOf('\\') >= 0 ? file_pdf.lastIndexOf('\\') : file_pdf.lastIndexOf('/'));
+        var filename = file_pdf.substring(startIndex);
+        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+          filename = filename.substring(1);
+        }
+        file_pdf = filename;
+      }
+      $('#formaddbook').ajaxForm({
+        target: '#filepreview',
+        beforeSubmit: function () {
+          A.show();
+          B.hide();
+        },
+        success: function () {
+          A.hide();
+          console.log("success");
+          B.hide();
+          C.show();
+          $("#namaPdf").append('<p style="vertical-align: middle">'+file_pdf+'</p>');
         },
         error: function () {
           A.hide();

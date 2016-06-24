@@ -530,7 +530,7 @@ $.fn.ajaxSubmit = function(options) {
             expResult = data.match(exp);
            if(expResult == null)
            {
-            alert("Something went wrong.");
+            //alert("Something went wrong.");
            }
            else{
 			$(options.target).prepend(data);

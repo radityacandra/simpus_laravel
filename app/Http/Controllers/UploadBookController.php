@@ -19,8 +19,6 @@ class UploadBookController extends Controller
 
     if ($request->hasFile('img_cover')){
       $thumbnailCover = $request->file('img_cover');
-      /*echo $thumbnailCover->getClientOriginalName();
-      echo $thumbnailCover->getClientOriginalExtension();*/
       $extension = $thumbnailCover->getClientOriginalExtension();
 
       $filename = stripslashes($thumbnailCover->getClientOriginalName());
@@ -34,6 +32,19 @@ class UploadBookController extends Controller
       if (in_array($extension, array(".jpg", ".png", ".gif", ".bmp",".jpeg"))){
 
       }
+    }
+
+    $uploadFileDir = public_path().'/pdf-ebook/';
+    //TODO handle ebook pdf upload request
+    if ($request->hasFile('file_pdf')){
+      $pdfEbook = $request->file('file_pdf');
+      
+      $filename = stripslashes($pdfEbook->getClientOriginalName());
+      $filename = trim($filename);
+      $filename = str_replace(' ', '_', $filename);
+      $filename = time().$filename;
+      
+      $pdfEbook->move($uploadFileDir, $filename);
     }
 
     $judul_buku = "";
