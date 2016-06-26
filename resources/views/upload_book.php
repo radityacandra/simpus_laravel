@@ -44,10 +44,98 @@
   </div>
 </div>
 
+<!--sidebar-->
+<div class="col-md-2 sidebar">
+  <ul>
+    <li>
+      <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a role="button" href="<?php echo url('map_bus');
+              ?>"
+                 aria-expanded="true" aria-controls="collapseOne">
+                <i class="fa fa-user"></i> Halaman Admin
+              </a>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"
+                 aria-expanded="false" aria-controls="collapseTwo">
+                <i class="fa fa-book"></i> E-Book
+              </a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <ul class="list-group" style="color: #000000; ">
+              <li><a href="<?php echo url('list_bus/operation'); ?>"><i class="fa fa-bus"></i> Semua Bus
+                  Operasi</a></li>
+              <li><a href="<?php echo url('list_bus/maintenance'); ?>"><i class="fa fa-bus"></i> Semua Bus
+                  Perbaikan</a></li>
+              <li><a href="<?php echo url('daftar_bus'); ?>"><i class="fa fa-plus"></i> Registrasi Bus</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree"
+                 aria-expanded="false" aria-controls="collapseThree">
+                <i class="fa fa-object-group"></i> Kategori
+              </a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <ul class="list-group" style="color: #000000; ">
+              <li><a href="<?php echo url('list_halte'); ?>"><i class="fa fa-home"></i> Semua Halte</a></li>
+              <li><a href="<?php echo url('daftar_halte'); ?>"><i class="fa fa-plus"></i> Tambah Halte</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="panel-group" id="accordion4" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapseFour"
+                 aria-expanded="false" aria-controls="collapseFour">
+                <i class="fa fa-users"></i> Keanggotaan
+              </a>
+            </h4>
+          </div>
+          <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <ul class="list-group" style="color: #000000; ">
+              <li><a href="<?php echo url('arrival_schedule') ?>"><i class="fa fa-list"></i> Semua Jadwal
+                  Kedatangan</a></li>
+              <li><i class="fa fa-search"></i> Filter Jadwal Kedatangan</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
 <!--body-->
 <div id="content">
   <!--search result table-->
-  <div class="col-md-10  col-md-offset-1">
+  <div class="col-md-10">
     <div class="panel panel-default">
       <div class="panel-body" style="margin-top: 1%;">
         <form class="form-horizontal" method="post" action="http://localhost:8000/tambah_buku" enctype="multipart/form-data" id="formaddbook">
@@ -118,12 +206,19 @@
                   </select>
                 </div>
                 <div class="col-md-4">
-                  <input type="text" name="kategori_baru" placeholder="Kategori Baru" class="form-control">
+                  <input type="text" name="kategori_baru" placeholder="Kategori Baru" id="kategori_baru" class="form-control">
                 </div>
               </div>
             </div>
 
-            <input name="_token" type="hidden" value="<?php echo csrf_token(); ?>" id="token">
+            <div class="form-group">
+              <label class="col-md-2">Deskripsi Buku</label>
+              <div class="col-md-8">
+                <textarea class="form-control" rows="3" name="deskripsi_buku" id="deskripsi_buku"></textarea>
+              </div>
+            </div>
+
+            <input name="_token" type="hidden" value="<?php echo $token; ?>" id="token">
           </fieldset>
         </form>
         <div class="form-group" style="margin: 0 2%;">
@@ -234,6 +329,8 @@
       var tahun_terbit = document.getElementById("tahun_terbit").value;
       var kategori_buku = document.getElementById("kategori_buku").value;
       var token = document.getElementById("token").value;
+      var deskripsi_buku = document.getElementById("deskripsi_buku").value;
+      var kategori_baru = document.getElementById("kategori_baru").value;
 
       $.post("http://localhost/simperpus/tambah_buku",
           {
@@ -242,7 +339,8 @@
             penerbit_buku: penerbit_buku,
             tahun_terbit: tahun_terbit,
             kategori_buku: kategori_buku,
-            _token: token
+            _token: token,
+            deskripsi_buku: deskripsi_buku
           }, function (data, status) {
             $('#modal').modal('toggle');
             window.location.href = 'http://www.google.com';

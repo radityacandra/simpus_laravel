@@ -5,6 +5,7 @@ html{
 
 body{
     height:100%;
+    width: 100%;
 }
 
 .navbar   { margin-bottom: 0; }
@@ -29,6 +30,18 @@ form      { margin-top: 4%; }
     overflow: auto;
     float: left; }
 .img div img  { width:100%; height:auto; display: block; float: left; }
+
+/*sidebar*/
+.sidebar     { margin-top: 1%; }
+.sidebar ul  { border: #31b0d5 solid 2px;
+    padding: 0; }
+.sidebar li { list-style: none;
+    border-bottom: #C3C3C3 solid 1px; }
+.sidebar li:hover { background-color: rgba(153, 153, 153, 1) !important;
+    color: #FFFFFF; }
+.panel-group  { margin-bottom: 0 !important; }
+.list-group  { border: 0 !important; }
+.list-group li  { padding: 4px 4px 4px 8px; }
 
 .meta     { margin-top:8px; display: block; float: left; }
 
