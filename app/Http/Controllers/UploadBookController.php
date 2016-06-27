@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helper\RandomString;
 use Illuminate\Http\Request;
 
+use Validator;
 use App\Http\Requests;
 use League\Flysystem\Config;
 
@@ -29,31 +30,37 @@ class UploadBookController extends Controller
     $token = $request->input('_token');
 
     if ($request->hasFile('img_cover')){
-      $thumbnailCover = $request->file('img_cover');
-      $extension = $thumbnailCover->getClientOriginalExtension();
+      if($request->hasFile('file_pdf') != true){
+        $thumbnailCover = $request->file('img_cover');
+        $extension = $thumbnailCover->getClientOriginalExtension();
 
-      $filename = stripslashes($thumbnailCover->getClientOriginalName());
-      $filename = trim($filename);
-      $filename = str_replace(' ', '_', $filename);
-      $filename = time().$filename;
+        $filename = stripslashes($thumbnailCover->getClientOriginalName());
+        $filename = trim($filename);
+        $filename = str_replace(' ', '_', $filename);
+        $filename = time().$filename;
 
-      $thumbnailCover->move($uploadDir, $filename);
-      echo '<img src="'.url('img/cover-thumbs').'/'.$filename.'" class="imgList col-md-12">';
+        $thumbnailCover->move($uploadDir, $filename);
+        echo '<img src="'.url('img/cover-thumbs').'/'.$filename.'" class="imgList col-md-12">';
 
-      if (in_array($extension, array(".jpg", ".png", ".gif", ".bmp",".jpeg"))){
+        if (in_array($extension, array(".jpg", ".png", ".gif", ".bmp",".jpeg"))){
 
+        }
+        $bukuModel->update([
+            'thumb_cover_ptr' => 'img/cover-thumbs/'.$filename,
+            'token'           => $token
+        ]);
+        $bukuModel->thumb_cover_ptr = 'img/cover-thumbs/'.$filename;
+        $bukuModel->token = $token;
+        $bukuModel->save();
+
+        header("Access-Control-Allow-Origin: *");
+        return null;
       }
-      $bukuModel->update([
-        'thumb_cover_ptr' => 'img/cover-thumbs/'.$filename,
-        'token'           => $token
-      ]);
-      $bukuModel->thumb_cover_ptr = 'img/cover-thumbs/'.$filename;
-      $bukuModel->token = $token;
-      $bukuModel->save();
-
-      header("Access-Control-Allow-Origin: *");
-      return null;
     }
+
+    $this->validate($request, [
+        'file_pdf' => 'max:10240',
+    ]);
 
     $uploadFileDir = public_path().'/pdf-ebook/';
     //TODO handle ebook pdf upload request
