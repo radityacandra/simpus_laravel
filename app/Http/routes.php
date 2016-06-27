@@ -42,6 +42,10 @@ Route::get('/kategori', function (){
   return view('all_category');
 });
 
+Route::get('/kategori/add', 'AddCategoryController@displayAddCategoryView');
+
+Route::post('/kategori/add', 'AddCategoryController@retrieveAddCategory');
+
 Route::get('/member', function (){
   return view('all_member');
 });
@@ -52,3 +56,7 @@ Route::get('/admin', function (){
 
 Route::get('/member/add', 'AddMemberController@displayAddMemberPage');
 Route::post('/member/add', 'AddMemberController@retrieveMemberData');
+
+Route::get('admin/home', function (){
+  return view('dashboard_admin');
+});
