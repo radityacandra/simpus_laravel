@@ -105,7 +105,7 @@ class BookSeeder extends Seeder
     Buku::create([
         'judul'   => 'Biologi 1 Kelas X SMA/MA',
         'penulis' => 'Riana Yani, et al.',
-        'thumb_cover_ptr' => 'img/cover-thumbs/xbiologi.jpg',
+        'thumb_cover_ptr' => 'img/cover-thumbs/xbiologi1.jpg',
         'penerbit'=> 'Buku Sekolah Elektronik',
         'tahun_terbit'  => 2009,
         'abstrak' => 'Dalam buku ini dijelaskan tentang Reproduksi Manusia',

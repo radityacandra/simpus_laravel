@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
     $faker->addProvider(new Faker\Provider\en_ZA\PhoneNumber($faker));
 
     for ($i = 0; $i<100; $i++){
-      $nim = $faker->numberBetween(1999090994, 9999999999);
+      $nim = $faker->numberBetween(111111, 999999);
       User::create([
           'name'    => $faker->name,
           'email'   => $faker->email,
