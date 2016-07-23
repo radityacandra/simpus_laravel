@@ -17,18 +17,14 @@ Route::get('/', function () {
 Route::get('/login', function(){
   return view('login');
 });
-Route::get('/home', function(){
-  return view('home');
-});
-Route::get('/search', function(){
-  return view('search');
-});
-Route::get('/detail', function(){
-  return view('detail');
-});
-Route::get('/view_pdf', function(){
-  return view('pdf_view');
-});
+	
+Route::get('/home', 'HomeMemberController@displayHomeView');
+
+Route::get('/search', 'SpecificSearchController@displaySearchView');
+
+Route::get('/detail/{buku_id}', 'DetailBookController@displayDetailBookView');
+
+Route::get('/view_pdf/{buku_id}', 'ViewPdfController@displayViewPdf');
 
 Route::get('/tambah_buku', 'UploadBookController@displayUploadBook');
 

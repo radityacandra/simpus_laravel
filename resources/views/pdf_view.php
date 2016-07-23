@@ -70,7 +70,7 @@
   $.material.init();
 </script>
 <script type="text/javascript">
-  PDFObject.embed("<?php echo url('pdf/EE_FORM_Juni_2016.pdf'); ?>", "#container-pdf");
+  PDFObject.embed("<?php echo url($buku['ebook_ptr']); ?>", "#container-pdf");
 </script>
 </body>
 </html>
