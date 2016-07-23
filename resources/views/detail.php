@@ -50,9 +50,9 @@
   <div class="col-md-3" id="search-box">
     <div class="panel panel-default">
       <div class="panel-body">
-        <a class="btn btn-primary col-md-12" href="<?php echo url('view_pdf'); ?>"><h4><i class="fa fa-book" aria-hidden="true"></i> Lihat PDF</h4></a>
+        <a class="btn btn-primary col-md-12" href="<?php echo url('view_pdf/'.$buku['buku_id']); ?>"><h4><i class="fa fa-book" aria-hidden="true"></i> Lihat PDF</h4></a>
         <a class="btn btn-primary col-md-12 green" href="#"><h4><i class="fa fa-home" aria-hidden="true"></i> Pinjam</h4><h6>(Tidak Tersedia)</h6></a>
-        <a class="btn btn-primary col-md-12 red" href="#"><h4>Kembali ke pencarian</h4></a>
+        <a class="btn btn-primary col-md-12 red" href="<?php echo url('search'); ?>"><h4>Kembali ke pencarian</h4></a>
       </div>
     </div>
   </div>
@@ -63,7 +63,7 @@
       <div class="panel-body">
         <h1>Informasi Buku</h1>
         <div class="col-md-4">
-          <img src="<?php echo url('img/thumbnail-placeholder.png') ?>" class="col-md-12">
+          <img src="<?php echo url($buku['thumb_cover_ptr']); ?>" class="col-md-12">
         </div>
 
         <div class="col-md-8">
@@ -71,19 +71,25 @@
             <tr>
               <td class="col-md-4"><h4>Judul Buku</h4></td>
               <td class="col-md-1"><h4>=</h4></td>
-              <td><h4>Lorem Ipsum Dolor Sit Amet</h4></td>
+              <td><h4><?php echo $buku['judul']; ?></h4></td>
             </tr>
+	
+	          <tr>
+		          <td class="col-md-4"><h4>Abstrak</h4></td>
+		          <td class="col-md-1"><h4>=</h4></td>
+		          <td><h4><?php echo $buku['abstrak']; ?></h4></td>
+	          </tr>
 
             <tr>
               <td class="col-md-4"><h4>Nama Pengarang</h4></td>
               <td class="col-md-1"><h4>=</h4></td>
-              <td><a href="#"><h4>Porlantini Sulistyaningsih</h4></a></td>
+              <td><a href="#"><h4><?php echo $buku['penulis']; ?></h4></a></td>
             </tr>
 
             <tr>
               <td class="col-md-4"><h4>Tahun Terbit</h4></td>
               <td class="col-md-1"><h4>=</h4></td>
-              <td><a href="#"><h4>2016</h4></a></td>
+              <td><a href="#"><h4><?php echo $buku['tahun_terbit']; ?></h4></a></td>
             </tr>
 
             <tr>
@@ -101,7 +107,7 @@
             <tr>
               <td class="col-md-4"><h4>Penerbit</h4></td>
               <td class="col-md-1"><h4>=</h4></td>
-              <td><a href="#"><h4>Prentice - Hall</h4></a></td>
+              <td><a href="#"><h4><?php echo $buku['penerbit']; ?></h4></a></td>
             </tr>
 
             <tr>
