@@ -86,43 +86,27 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>1</td>
-            <td>Lorem Ipsum Dolor Sit Amet</td>
-            <td>2016</td>
-            <td>Porlantini Sulistyaningsih</td>
-            <td>Prentice-Hall</td>
-            <td><a class="btn btn-primary lihat" href="<?php echo url('detail'); ?>">Lihat</a></td>
-          </tr>
-
-          <tr>
-            <td>2</td>
-            <td>Lorem Ipsum Dolor Sit Amet</td>
-            <td>2016</td>
-            <td>Porlantini Sulistyaningsih</td>
-            <td>Prentice-Hall</td>
-            <td><a class="btn btn-primary lihat" href="<?php echo url('detail'); ?>">Lihat</a></td>
-          </tr>
-
-          <tr>
-            <td>3</td>
-            <td>Lorem Ipsum Dolor Sit Amet</td>
-            <td>2016</td>
-            <td>Porlantini Sulistyaningsih</td>
-            <td>Prentice-Hall</td>
-            <td><a class="btn btn-primary lihat" href="<?php echo url('detail'); ?>">Lihat</a></td>
-          </tr>
-
-          <tr>
-            <td>4</td>
-            <td>Lorem Ipsum Dolor Sit Amet</td>
-            <td>2016</td>
-            <td>Porlantini Sulistyaningsih</td>
-            <td>Prentice-Hall</td>
-            <td><a class="btn btn-primary lihat" href="<?php echo url('detail'); ?>">Lihat</a></td>
-          </tr>
+          
+          <?php
+          $counter = 1;
+          foreach ($viewData['result_buku'] as $buku){ ?>
+	          <tr>
+		          <td><?php echo $counter; ?></td>
+		          <td><?php echo $buku->judul; ?></td>
+		          <td><?php echo $buku->tahun_terbit; ?></td>
+		          <td><?php echo $buku->penulis; ?></td>
+		          <td><?php echo $buku->penerbit; ?></td>
+		          <td><a class="btn btn-primary lihat" href="<?php echo url('detail/'.$buku->buku_id); ?>">Lihat</a></td>
+	          </tr>
+          <?php
+	          $counter++;
+          }
+          ?>
+          
           </tbody>
         </table>
+	      
+	      <?php echo $viewData['result_buku']->render(); ?>
       </div>
     </div>
   </div>

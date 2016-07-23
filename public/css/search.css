@@ -28,3 +28,5 @@ label.search-label  { color: #000000; }
 .lihat      { margin: 0; }
 
 table tbody tr td { vertical-align: middle !important; }
+
+ul.pagination   { float: right; }
