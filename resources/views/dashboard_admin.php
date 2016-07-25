@@ -25,8 +25,8 @@
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
           <li><a href="<?php echo url('home'); ?>">Beranda</a></li>
-          <li class="active"><a href="javascript:void(0)">Pencarian Spesifik</a></li>
-          <li><a href="javascript:void(0)">Pinjaman Saya</a></li>
+          <li><a href="<?php echo url('search'); ?>">Pencarian Spesifik</a></li>
+          <li><a href="<?php echo url('home'); ?>">Pinjaman Saya</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
@@ -52,9 +52,7 @@
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
-              <a role="button" href="<?php echo url('map_bus');
-              ?>"
-                 aria-expanded="true" aria-controls="collapseOne">
+              <a role="button" href="<?php echo url('admin/home'); ?>" aria-expanded="true" aria-controls="collapseOne">
                 <i class="fa fa-user"></i> Halaman Admin
               </a>
             </h4>
@@ -68,19 +66,15 @@
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" id="headingTwo">
             <h4 class="panel-title">
-              <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"
-                 aria-expanded="false" aria-controls="collapseTwo">
+              <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <i class="fa fa-book"></i> E-Book
               </a>
             </h4>
           </div>
           <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
             <ul class="list-group" style="color: #000000; ">
-              <li><a href="<?php echo url('list_bus/operation'); ?>"><i class="fa fa-bus"></i> Semua Bus
-                  Operasi</a></li>
-              <li><a href="<?php echo url('list_bus/maintenance'); ?>"><i class="fa fa-bus"></i> Semua Bus
-                  Perbaikan</a></li>
-              <li><a href="<?php echo url('daftar_bus'); ?>"><i class="fa fa-plus"></i> Registrasi Bus</a></li>
+              <li><a href="<?php echo url('semua_buku'); ?>"><i class="fa fa-book"></i> Kelola Buku</a></li>
+              <li><a href="<?php echo url('daftar_bus'); ?>"><i class="fa fa-plus"></i> Tambah Data Buku</a></li>
             </ul>
           </div>
         </div>
@@ -92,16 +86,15 @@
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" id="headingThree">
             <h4 class="panel-title">
-              <a role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree"
-                 aria-expanded="false" aria-controls="collapseThree">
+              <a role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 <i class="fa fa-object-group"></i> Kategori
               </a>
             </h4>
           </div>
           <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
             <ul class="list-group" style="color: #000000; ">
-              <li><a href="<?php echo url('list_halte'); ?>"><i class="fa fa-home"></i> Semua Halte</a></li>
-              <li><a href="<?php echo url('daftar_halte'); ?>"><i class="fa fa-plus"></i> Tambah Halte</a></li>
+              <li><a href="<?php echo url('kategori'); ?>"><i class="fa fa-object-group"></i> Kelola Kategori</a></li>
+              <li><a href="<?php echo url('kategori/add'); ?>"><i class="fa fa-plus"></i> Tambah Kategori</a></li>
             </ul>
           </div>
         </div>
@@ -113,17 +106,17 @@
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" id="headingFour">
             <h4 class="panel-title">
-              <a role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapseFour"
-                 aria-expanded="false" aria-controls="collapseFour">
+              <a role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <i class="fa fa-users"></i> Keanggotaan
               </a>
             </h4>
           </div>
           <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
             <ul class="list-group" style="color: #000000; ">
-              <li><a href="<?php echo url('arrival_schedule') ?>"><i class="fa fa-list"></i> Semua Jadwal
-                  Kedatangan</a></li>
-              <li><i class="fa fa-search"></i> Filter Jadwal Kedatangan</li>
+              <li><a href="<?php echo url('member') ?>"><i class="fa fa-users"></i> Kelola Member</a></li>
+	            <li><a href="<?php echo url('admin') ?>"><i class="fa fa-users"></i> Kelola Admin</a></li>
+	            <li><a href="<?php echo url('member/add') ?>"><i class="fa fa-plus"></i> Tambah Member</a></li>
+	            <li><a href="<?php echo url('member/add') ?>"><i class="fa fa-plus"></i> Tambah Admin</a></li>
             </ul>
           </div>
         </div>
@@ -139,7 +132,7 @@
     <h1>Selamat Datang, Raditya Chandra Buana!</h1>
     <div class="row">
       <div class="col-md-4" style="margin-top: 1%;">
-        <div class="panel panel-default" style="cursor: pointer;" onclick="window.location='http://google.com';">
+        <div class="panel panel-default" style="cursor: pointer;" onclick="window.location='<?php echo url('tambah_buku'); ?>';">
           <div class="panel-body">
             <div class="col-md-12">
               <img src="<?php echo url('img/ic-addbook.png'); ?>" class="col-md-12">
@@ -150,7 +143,7 @@
       </div>
 
       <div class="col-md-4" style="margin-top: 1%;">
-        <div class="panel panel-default" style="cursor: pointer;" onclick="window.location='http://google.com';">
+        <div class="panel panel-default" style="cursor: pointer;" onclick="window.location='<?php echo url('member/add'); ?>';">
           <div class="panel-body">
             <div class="col-md-12">
               <img src="<?php echo url('img/ic-adduser.png'); ?>" class="col-md-12">
@@ -161,7 +154,7 @@
       </div>
 
       <div class="col-md-4" style="margin-top: 1%;">
-        <div class="panel panel-default" style="cursor: pointer;" onclick="window.location='http://google.com';">
+        <div class="panel panel-default" style="cursor: pointer;" onclick="window.location='<?php echo url('kategori'); ?>';">
           <div class="panel-body">
             <div class="col-md-12">
               <img src="<?php echo url('img/ic-category.png'); ?>" class="col-md-12">
@@ -178,10 +171,6 @@
           <div class="panel-heading">Paling Banyak Dibaca</div>
           <div class="panel-body">
             <table class="table table-hover">
-              <!--<thead>
-              <th>Judul Buku</th>
-              <th>Dibaca</th>
-              </thead>-->
               <tbody>
               
               <?php foreach ($viewData['buku_popular'] as $buku){ ?>
