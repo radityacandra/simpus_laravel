@@ -167,43 +167,19 @@
           </thead>
 
           <tbody>
-          <tr>
-            <td style="vertical-align: middle">1011</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle"><a class="btn btn-default"><i class="fa fa-trash-o"></i> Hapus</a></td>
-          </tr>
-
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle"><a class="btn btn-default"><i class="fa fa-trash-o"></i> Hapus</a></td>
-          </tr>
-
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle"><a class="btn btn-default"><i class="fa fa-trash-o"></i> Hapus</a></td>
-          </tr>
-
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle"><a class="btn btn-default"><i class="fa fa-trash-o"></i> Hapus</a></td>
-          </tr>
-
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle"><a class="btn btn-default"><i class="fa fa-trash-o"></i> Hapus</a></td>
-          </tr>
-
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle"><a class="btn btn-default"><i class="fa fa-trash-o"></i> Hapus</a></td>
-          </tr>
+          
+          <?php foreach ($viewData['list_kategori'] as $kategori){ ?>
+	          <tr>
+		          <td style="vertical-align: middle"><?php echo $kategori['id']; ?></td>
+		          <td style="vertical-align: middle"><?php echo $kategori['nama']; ?></td>
+		          <td style="vertical-align: middle"><a class="btn btn-default"><i class="fa fa-trash-o"></i> Hapus</a></td>
+	          </tr>
+          <?php } ?>
+          
           </tbody>
         </table>
+	      
+	      <?php echo $viewData['list_kategori']->render(); ?>
       </div>
     </div>
   </div>

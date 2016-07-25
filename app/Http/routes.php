@@ -30,13 +30,9 @@ Route::get('/tambah_buku', 'UploadBookController@displayUploadBook');
 
 Route::post('/tambah_buku', 'UploadBookController@retrieveBookData');
 
-Route::get('/semua_buku', function (){
-  return view('all_book');
-});
+Route::get('/semua_buku', 'AdminBookController@displayListBook');
 
-Route::get('/kategori', function (){
-  return view('all_category');
-});
+Route::get('/kategori', 'KategoriController@displayAllCategory');
 
 Route::get('/kategori/add', 'AddCategoryController@displayAddCategoryView');
 
@@ -53,6 +49,4 @@ Route::get('/admin', function (){
 Route::get('/member/add', 'AddMemberController@displayAddMemberPage');
 Route::post('/member/add', 'AddMemberController@retrieveMemberData');
 
-Route::get('admin/home', function (){
-  return view('dashboard_admin');
-});
+Route::get('admin/home', 'AdminHomeController@displayAdminHome');
