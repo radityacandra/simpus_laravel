@@ -179,90 +179,24 @@
     <div class="panel panel-default">
       <div class="panel-body" style="">
         <h1>Semua Buku Perpustakaan</h1>
-
-        <div class="container-book col-md-12" style="border-bottom: rgba(0,0,0,0.2) solid 1px; padding-bottom: 1%; margin-top: 1%;">
-          <img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-2">
-          <div class="meta-book col-md-8">
-            <h4>Buku Belajar Matematika (rumus phi)</h4>
-            <h5>Tahun terbit 2015</h5>
-            <h5>Penulis Andy Soraya</h5>
-            <h5>Penerbit Ganesha Exacta</h5>
-          </div>
-          <div class="action col-md-2">
-            <a href="#" class="btn btn-default col-md-12"><i class="fa fa-pencil-square-o"></i> Edit</a>
-            <a href="#" class="btn btn-default col-md-12"><i class="fa fa-trash-o"></i> Hapus</a>
-          </div>
-        </div>
-
-        <div class="container-book col-md-12" style="border-bottom: rgba(0,0,0,0.2) solid 1px; padding-bottom: 1%; margin-top: 1%;">
-          <img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-2">
-          <div class="meta-book col-md-8">
-            <h4>Buku Belajar Matematika (rumus phi)</h4>
-            <h5>Tahun terbit 2015</h5>
-            <h5>Penulis Andy Soraya</h5>
-            <h5>Penerbit Ganesha Exacta</h5>
-          </div>
-          <div class="action col-md-2">
-            <a href="#" class="btn btn-default col-md-12"><i class="fa fa-pencil-square-o"></i> Edit</a>
-            <a href="#" class="btn btn-default col-md-12"><i class="fa fa-trash-o"></i> Hapus</a>
-          </div>
-        </div>
-
-        <div class="container-book col-md-12" style="border-bottom: rgba(0,0,0,0.2) solid 1px; padding-bottom: 1%; margin-top: 1%;">
-          <img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-2">
-          <div class="meta-book col-md-8">
-            <h4>Buku Belajar Matematika (rumus phi)</h4>
-            <h5>Tahun terbit 2015</h5>
-            <h5>Penulis Andy Soraya</h5>
-            <h5>Penerbit Ganesha Exacta</h5>
-          </div>
-          <div class="action col-md-2">
-            <a href="#" class="btn btn-default col-md-12"><i class="fa fa-pencil-square-o"></i> Edit</a>
-            <a href="#" class="btn btn-default col-md-12"><i class="fa fa-trash-o"></i> Hapus</a>
-          </div>
-        </div>
-
-        <div class="container-book col-md-12" style="border-bottom: rgba(0,0,0,0.2) solid 1px; padding-bottom: 1%; margin-top: 1%;">
-          <img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-2">
-          <div class="meta-book col-md-8">
-            <h4>Buku Belajar Matematika (rumus phi)</h4>
-            <h5>Tahun terbit 2015</h5>
-            <h5>Penulis Andy Soraya</h5>
-            <h5>Penerbit Ganesha Exacta</h5>
-          </div>
-          <div class="action col-md-2">
-            <a href="#" class="btn btn-default col-md-12"><i class="fa fa-pencil-square-o"></i> Edit</a>
-            <a href="#" class="btn btn-default col-md-12"><i class="fa fa-trash-o"></i> Hapus</a>
-          </div>
-        </div>
-
-        <div class="container-book col-md-12" style="border-bottom: rgba(0,0,0,0.2) solid 1px; padding-bottom: 1%; margin-top: 1%;">
-          <img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-2">
-          <div class="meta-book col-md-8">
-            <h4>Buku Belajar Matematika (rumus phi)</h4>
-            <h5>Tahun terbit 2015</h5>
-            <h5>Penulis Andy Soraya</h5>
-            <h5>Penerbit Ganesha Exacta</h5>
-          </div>
-          <div class="action col-md-2">
-            <a href="#" class="btn btn-default col-md-12"><i class="fa fa-pencil-square-o"></i> Edit</a>
-            <a href="#" class="btn btn-default col-md-12"><i class="fa fa-trash-o"></i> Hapus</a>
-          </div>
-        </div>
-
-        <div class="container-book col-md-12" style="border-bottom: rgba(0,0,0,0.2) solid 1px; padding-bottom: 1%; margin-top: 1%;">
-          <img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-2">
-          <div class="meta-book col-md-8">
-            <h4>Buku Belajar Matematika (rumus phi)</h4>
-            <h5>Tahun terbit 2015</h5>
-            <h5>Penulis Andy Soraya</h5>
-            <h5>Penerbit Ganesha Exacta</h5>
-          </div>
-          <div class="action col-md-2">
-            <a href="#" class="btn btn-default col-md-12"><i class="fa fa-pencil-square-o"></i> Edit</a>
-            <a href="#" class="btn btn-default col-md-12"><i class="fa fa-trash-o"></i> Hapus</a>
-          </div>
-        </div>
+	      
+	      <?php foreach($viewData['list_buku'] as $buku){ ?>
+		      <div class="container-book col-md-12" style="border-bottom: rgba(0,0,0,0.2) solid 1px; padding-bottom: 1%; margin-top: 1%;">
+			      <img src="<?php echo url($buku->thumb_cover_ptr); ?>" class="col-md-2">
+			      <div class="meta-book col-md-8">
+				      <h4><?php echo $buku->judul; ?></h4>
+				      <h5>Tahun terbit <?php echo $buku->tahun_terbit; ?></h5>
+				      <h5>Penulis <?php echo $buku->penulis; ?></h5>
+				      <h5>Penerbit <?php echo $buku->penerbit; ?></h5>
+			      </div>
+			      <div class="action col-md-2">
+				      <a href="#" class="btn btn-default col-md-12"><i class="fa fa-pencil-square-o"></i> Edit</a>
+				      <a href="#" class="btn btn-default col-md-12"><i class="fa fa-trash-o"></i> Hapus</a>
+			      </div>
+		      </div>
+	      <?php } ?>
+	      
+	      <?php echo $viewData['list_buku']->render(); ?>
       </div>
     </div>
   </div>
