@@ -183,18 +183,14 @@
               <th>Dibaca</th>
               </thead>-->
               <tbody>
-              <tr>
-                <td>Efektif dan Aplikatif Berbahasa Indonesia</td>
-                <td>1232</td>
-              </tr>
-              <tr>
-                <td>Efektif dan Aplikatif Berbahasa Indonesia</td>
-                <td>1232</td>
-              </tr>
-              <tr>
-                <td>Efektif dan Aplikatif Berbahasa Indonesia</td>
-                <td>1232</td>
-              </tr>
+              
+              <?php foreach ($viewData['buku_popular'] as $buku){ ?>
+	              <tr>
+		              <td><?php echo $buku['judul']; ?></td>
+		              <td><?php echo $buku['view']; ?></td>
+	              </tr>
+              <?php } ?>
+              
               </tbody>
             </table>
           </div>
@@ -206,10 +202,14 @@
           <div class="panel-heading">Siswa Yang Terakhir Login</div>
           <div class="panel-body">
             <table class="table table-hover">
-              <tr>
-                <td>Raditya Chandra Buana</td>
-                <td>3 minutes 3 seconds ago</td>
-              </tr>
+	            
+	            <?php foreach ($viewData['recent_login'] as $user){ ?>
+		            <tr>
+			            <td><?php echo $user['name']; ?></td>
+			            <td><?php echo $user['last_login']; ?></td>
+		            </tr>
+	            <?php } ?>
+	            
             </table>
           </div>
         </div>
@@ -220,26 +220,14 @@
           <div class="panel-heading">Kategori Dengan Buku Paling Banyak</div>
           <div class="panel-body">
             <table class="table table-hover">
-              <tr>
-                <td>Matematika</td>
-                <td>32 Buku</td>
-              </tr>
-              <tr>
-                <td>Matematika</td>
-                <td>32 Buku</td>
-              </tr>
-              <tr>
-                <td>Matematika</td>
-                <td>32 Buku</td>
-              </tr>
-              <tr>
-                <td>Matematika</td>
-                <td>32 Buku</td>
-              </tr>
-              <tr>
-                <td>Matematika</td>
-                <td>32 Buku</td>
-              </tr>
+	            
+	            <?php foreach ($viewData['buku_kategori'] as $kategori){ ?>
+		            <tr>
+			            <td><?php echo $kategori['kategori']; ?></td>
+			            <td><?php echo $kategori['total']." Buku"; ?></td>
+		            </tr>
+	            <?php } ?>
+	            
             </table>
           </div>
         </div>
