@@ -51,7 +51,9 @@
     <div class="panel panel-default">
       <div class="panel-heading" style="text-align: center; background-color: #009688; color: #FFFFFF;">Pencarian</div>
       <div class="panel-body">
-        <form>
+        <form method="get"">
+	        <input type="hidden" name="submit" value="true">
+	        
           <label class="search-label">Judul Buku</label>
           <input type="text" name="judul_buku" placeholder="Ketikkan Judul..." class="form-control">
 
