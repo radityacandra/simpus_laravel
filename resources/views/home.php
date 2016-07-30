@@ -76,7 +76,7 @@
 			<?php
 			$bukuLatest = $viewData['buku_latest'];
 			foreach ($bukuLatest as $buku){ ?>
-				<div class="col-md-3 grid-latest">
+				<div class="col-md-3 grid-latest" style="cursor: pointer;" onclick="window.location='<?php echo url('detail').'/'.$buku['buku_id']; ?>';">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<div class="img col-md-12">
@@ -106,7 +106,7 @@
 			<?php
 			$bukuLatest = $viewData['buku_popular'];
 			foreach ($bukuLatest as $buku){ ?>
-				<div class="col-md-3 grid-popular">
+				<div class="col-md-3 grid-popular" style="cursor: pointer;" onclick="window.location='<?php echo url('detail').'/'.$buku['buku_id']; ?>';">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<div class="img col-md-12">
