@@ -50,3 +50,8 @@ Route::get('/member/add', 'AddMemberController@displayAddMemberPage');
 Route::post('/member/add', 'AddMemberController@retrieveMemberData');
 
 Route::get('admin/home', 'AdminHomeController@displayAdminHome');
+
+Route::get('admin/test_qr', 'PrintBookDataController@testQR');
+Route::get('admin/kelola_buku', function (){
+	return view('manage_book');
+});
