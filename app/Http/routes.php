@@ -38,18 +38,18 @@ Route::get('/kategori/add', 'AddCategoryController@displayAddCategoryView');
 
 Route::post('/kategori/add', 'AddCategoryController@retrieveAddCategory');
 
-Route::get('/member', function (){
-  return view('all_member');
-});
+Route::get('/member', 'MemberController@displayAllMember');
 
 Route::get('/admin', function (){
   return view('all_admin');
 });
 
 Route::get('/member/add', 'AddMemberController@displayAddMemberPage');
+
 Route::post('/member/add', 'AddMemberController@retrieveMemberData');
 
 Route::get('admin/home', 'AdminHomeController@displayAdminHome');
 
 Route::get('admin/test_qr', 'PrintBookDataController@testQR');
+
 Route::get('admin/kelola_buku/{id_buku}', 'PrintBookDataController@displayGeneralPage');

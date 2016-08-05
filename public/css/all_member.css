@@ -62,3 +62,6 @@ form      { margin-top: 4%; }
 .developer h5 a { color: #FFFFFF }
 
 .action     {  margin:0; }
+
+.pagination {  margin:0;
+    float: right; }

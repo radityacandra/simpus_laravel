@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Pencarian Spesifik Sistem Informasi Perpustakaan</title>
+  <title>Semua Data Member Sistem Informasi Perpustakaan</title>
   <link href="<?php echo url('css/bootstrap.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/bootstrap-material-design.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/ripples.min.css'); ?>" type="text/css" rel="stylesheet">
@@ -160,75 +160,35 @@
         <table class="table table-striped table-hover">
           <thead>
           <tr>
-            <th class="col-md-2">NIM Siswa</th>
+            <th>NIM Siswa</th>
             <th>Nama Siswa</th>
-            <th class="col-md-2">Banyak Pinjaman</th>
-            <th class="col-md-4">Action</th>
+            <th>Banyak Pinjaman</th>
+	          <th>Terakhir Login</th>
+            <th>Action</th>
           </tr>
           </thead>
           
           <tbody>
-          <tr>
-            <td style="vertical-align: middle">1011</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle">12</td>
-            <td style="vertical-align: middle">
-              <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-              <a class="btn btn-default action"><i class="fa fa-trash-o"></i> Hapus</a>
-            </td>
-          </tr>
           
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle">12</td>
-            <td style="vertical-align: middle">
-              <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-              <a class="btn btn-default action"><i class="fa fa-trash-o"></i> Hapus</a>
-            </td>
-          </tr>
+          <?php foreach ($viewData['list_member']['data'] as $member){ ?>
+	          <tr>
+		          <td style="vertical-align: middle"><?php echo $member['nim']; ?></td>
+		          <td style="vertical-align: middle"><?php echo $member['name']; ?></td>
+		          <td style="vertical-align: middle"><?php echo $member['jumlah_pinjaman']; ?></td>
+		          <td style="vertical-align: middle"><?php echo $member['last_login']; ?></td>
+		          <td style="vertical-align: middle">
+			          <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
+			          <a class="btn btn-default action"><i class="fa fa-trash-o"></i> Hapus</a>
+		          </td>
+	          </tr>
+          <?php } ?>
           
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle">12</td>
-            <td style="vertical-align: middle">
-              <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-              <a class="btn btn-default action"><i class="fa fa-trash-o"></i> Hapus</a>
-            </td>
-          </tr>
-          
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle">12</td>
-            <td style="vertical-align: middle">
-              <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-              <a class="btn btn-default action"><i class="fa fa-trash-o"></i> Hapus</a>
-            </td>
-          </tr>
-          
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle">12</td>
-            <td style="vertical-align: middle">
-              <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-              <a class="btn btn-default action"><i class="fa fa-trash-o"></i> Hapus</a>
-            </td>
-          </tr>
-          
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle">12</td>
-            <td style="vertical-align: middle">
-              <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-              <a class="btn btn-default action"><i class="fa fa-trash-o"></i> Hapus</a>
-            </td>
-          </tr>
           </tbody>
         </table>
+	      
+	      <div class="pagination">
+		      <?php echo $viewData['list_member_2']->render(); ?>
+	      </div>
       </div>
     </div>
   </div>
