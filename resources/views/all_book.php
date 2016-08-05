@@ -190,7 +190,7 @@
 				      <h5>Penerbit <?php echo $buku->penerbit; ?></h5>
 			      </div>
 			      <div class="action col-md-2">
-				      <a href="#" class="btn btn-default col-md-12"><i class="fa fa-pencil-square-o"></i> Edit</a>
+				      <a href="<?php echo url('admin/kelola_buku').'/'.$buku->buku_id?>" class="btn btn-default col-md-12"><i class="fa fa-pencil-square-o"></i> Kelola</a>
 				      <a href="#" class="btn btn-default col-md-12"><i class="fa fa-trash-o"></i> Hapus</a>
 			      </div>
 		      </div>

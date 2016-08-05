@@ -15,10 +15,10 @@ class PrintBookDataController extends Controller
 		echo QrCode::size(100)->generate('1');
 	}
 	
-	public function displayGeneralPage(){
+	public function displayGeneralPage($id_buku){
 		$pinjamanBukuModel = new PinjamBuku();
 		
-		$idBuku = 37;
+		$idBuku = $id_buku;
 		
 		$pinjamanBuku = $pinjamanBukuModel->where('id_buku', '=', $idBuku)
 																			->orderBy('jatuh_tempo', 'desc')
@@ -37,5 +37,14 @@ class PrintBookDataController extends Controller
 		$viewData['pinjaman_buku_2'] = $pinjamanBuku2;
 		
 		return view('manage_book')->with('viewData', $viewData);
+	}
+	
+	public function filterPeminjamBuku(Request $request){
+		$idBuku = $request->input('id_buku');
+		$namaMember = $request->input('name');
+		$statusPinjam = $request->input('status_pinjam');
+		$sort = $request->input('sort');
+		
+		
 	}
 }
