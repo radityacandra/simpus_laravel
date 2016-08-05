@@ -141,7 +141,7 @@
 			</div>
 			<div class="panel-body">
 				<div class="col-md-3">
-					<button class="btn btn-default"><i class="fa fa-book"> Lihat Informasi</i></button>
+					<a class="btn btn-default" href="<?php echo url('detail').'/'.$viewData['id_buku']; ?>"><i class="fa fa-book"> Lihat Informasi</i></a>
 				</div>
 				<div class="col-md-3">
 					<button class="btn btn-default"><i class="fa fa-edit"> Kelola Informasi</i></button>
@@ -170,12 +170,14 @@
 				
 				<div class="row">
 					<form class="col-md-12 form-horizontal">
+						<input type="hidden" name="submit" value="true">
+						<input type="hidden" name="id_buku" value="<?php echo $viewData['id_buku']; ?>">
 						<div class="col-md-2" style="float:right;">
 							<button class="btn btn-default"><i class="fa fa-search"> Tampilkan</i></button>
 						</div>
 						
 						<div class="col-md-2" style="float: right;">
-							<select class="form-control">
+							<select class="form-control" name="sort">
 								<option>Tanpa Pengurutan</option>
 								<option>Nama Peminjam</option>
 								<option>Tanggal Pinjam</option>
@@ -183,7 +185,7 @@
 						</div>
 						
 						<div class="col-md-2" style="float: right; margin-right: 1%;">
-							<select class="form-control">
+							<select class="form-control" name="status_pinjam">
 								<option>Semua Status</option>
 								<option>Pending</option>
 								<option>Aktif</option>
@@ -191,8 +193,8 @@
 							</select>
 						</div>
 						
-						<div class="col-md-2" style="float: right; margin-right: 1%;">
-							<input type="text" placeholder="Cari Nama" class="form-control">
+						<div class="col-md-3" style="float: right; margin-right: 1%;">
+							<input type="text" name="name" placeholder="Cari Nama" class="form-control">
 						</div>
 					</form>
 				</div>
@@ -212,54 +214,23 @@
 							</thead>
 							
 							<tbody>
-							<tr>
-								<td>132</td>
-								<td>Raditya Chandra Buana</td>
-								<td>01-01-2016</td>
-								<td>07-01-2016</td>
-								<td>Aktif</td>
-								<td><a class="btn btn-default notif">beritahu siswa</a></td>
-							</tr>
-							
-							<tr>
-								<td>132</td>
-								<td>Raditya Chandra Buana</td>
-								<td>01-01-2016</td>
-								<td>07-01-2016</td>
-								<td>Aktif</td>
-								<td><a class="btn btn-default notif">beritahu siswa</a></td>
-							</tr>
-							
-							<tr>
-								<td>132</td>
-								<td>Raditya Chandra Buana</td>
-								<td>01-01-2016</td>
-								<td>07-01-2016</td>
-								<td>Aktif</td>
-								<td><a class="btn btn-default notif">beritahu siswa</a></td>
-							</tr>
-							
-							<tr>
-								<td>132</td>
-								<td>Raditya Chandra Buana</td>
-								<td>01-01-2016</td>
-								<td>07-01-2016</td>
-								<td>Aktif</td>
-								<td><a class="btn btn-default notif">beritahu siswa</a></td>
-							</tr>
-							
-							<tr>
-								<td>132</td>
-								<td>Raditya Chandra Buana</td>
-								<td>01-01-2016</td>
-								<td>07-01-2016</td>
-								<td>Aktif</td>
-								<td><a class="btn btn-default notif">beritahu siswa</a></td>
-							</tr>
+							<?php foreach ($viewData['pinjaman_buku']['data'] as $pinjaman){; ?>
+								<tr>
+									<td><?php echo $pinjaman['kode_pinjam']; ?></td>
+									<td><?php echo $pinjaman['detail_member_info']['name']; ?></td>
+									<td><?php echo $pinjaman['created_at']; ?></td>
+									<td><?php echo $pinjaman['jatuh_tempo']; ?></td>
+									<td>Aktif</td>
+									<td><a class="btn btn-default notif">beritahu siswa</a></td>
+								</tr>
+							<?php } ?>
 							</tbody>
 						</table>
+						
+						<div class="pagination">
+							<?php echo $viewData['pinjaman_buku_2']->render(); ?>
+						</div>
 					</div>
-					
 				</div>
 			</div>
 		</div>

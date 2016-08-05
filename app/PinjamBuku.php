@@ -10,4 +10,7 @@ class PinjamBuku extends Model
 
   public $timestamps = true;
   
+	public function detailMemberInfo(){
+		return $this->belongsTo('App\User', 'id_peminjam', 'id');
+	}
 }

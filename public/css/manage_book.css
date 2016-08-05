@@ -66,3 +66,5 @@ ul.pagination   { float: right; }
 table tbody tr td { vertical-align: middle !important; }
 
 .notif { margin: 0; }
+
+.pagination { float: right; }
