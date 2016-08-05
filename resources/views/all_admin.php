@@ -138,7 +138,7 @@
   <div class="col-md-10">
     <div class="panel panel-default">
       <div class="panel-body" style="margin-top: 1%;">
-        <label class="col-md-2" style="padding-top: 1%;">Cari Anggota</label>
+        <label class="col-md-2" style="padding-top: 1%;">Cari Admin</label>
         <div class="col-md-4">
           <input type="text" name="kategori" class="form-control" placeholder="anggota..">
         </div>
@@ -168,61 +168,24 @@
           </thead>
 
           <tbody>
-          <tr>
-            <td style="vertical-align: middle">1011</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle">12</td>
-            <td style="vertical-align: middle">
-              <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle">12</td>
-            <td style="vertical-align: middle">
-              <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle">12</td>
-            <td style="vertical-align: middle">
-              <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle">12</td>
-            <td style="vertical-align: middle">
-              <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle">12</td>
-            <td style="vertical-align: middle">
-              <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="vertical-align: middle">2022</td>
-            <td style="vertical-align: middle">Matematika</td>
-            <td style="vertical-align: middle">12</td>
-            <td style="vertical-align: middle">
-              <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-            </td>
-          </tr>
+          
+          <?php foreach ($viewData['list_admin'] as $admin){ ?>
+	          <tr>
+		          <td style="vertical-align: middle"><?php echo $admin['nip']; ?></td>
+		          <td style="vertical-align: middle"><?php echo $admin['name']; ?></td>
+		          <td style="vertical-align: middle"><?php echo $admin['created_at']; ?></td>
+		          <td style="vertical-align: middle">
+			          <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
+		          </td>
+	          </tr>
+          <?php } ?>
+          
           </tbody>
         </table>
+	      
+	      <div class="pagination">
+		      <?php echo $viewData['list_admin']->render(); ?>
+	      </div>
       </div>
     </div>
   </div>

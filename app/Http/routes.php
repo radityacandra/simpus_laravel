@@ -40,9 +40,7 @@ Route::post('/kategori/add', 'AddCategoryController@retrieveAddCategory');
 
 Route::get('/member', 'MemberController@displayAllMember');
 
-Route::get('/admin', function (){
-  return view('all_admin');
-});
+Route::get('/admin', 'AdminController@displayAllAdmin');
 
 Route::get('/member/add', 'AddMemberController@displayAddMemberPage');
 
