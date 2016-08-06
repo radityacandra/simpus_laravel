@@ -53,16 +53,25 @@ class MemberController extends Controller
 																					->diffForHumans();
 		
 		$listPinjaman = $pinjamanModel->where('id_peminjam', '=', $user_id)
+																	->with('detailBookInfo')
+																	->paginate(5)
+																	->toArray();
+		
+		$listPinjaman2 = $pinjamanModel->where('id_peminjam', '=', $user_id)
 																	->paginate(5);
 		
-		for ($i = 0; $i<sizeof($listPinjaman); $i++){
-			$listPinjaman[$i]->jatuh_tempo = \Carbon\Carbon::createFromTimestamp(strtotime($listPinjaman[$i]->jatuh_tempo))
-																											->diffForHumans();
+		for ($i = 0; $i<sizeof($listPinjaman['data']); $i++){
+			$listPinjaman['data'][$i]['jatuh_tempo'] = \Carbon\Carbon::createFromTimestamp(strtotime($listPinjaman['data'][$i]['jatuh_tempo']))
+																																->diffForHumans();
+			
+			$listPinjaman['data'][$i]['created_at'] = \Carbon\Carbon::createFromTimestamp(strtotime($listPinjaman['data'][$i]['created_at']))
+																															->format('l F jS Y');
 		}
 		
 		$viewData = array();
 		$viewData['member'] = $member;
 		$viewData['list_pinjaman'] = $listPinjaman;
+		$viewData['list_pinjaman_2'] = $listPinjaman2;
 		
 		return view('admin.detail_member')->with('viewData', $viewData);
 	}

@@ -245,7 +245,7 @@
 							<thead>
 							<tr>
 								<th>No. Pinjaman</th>
-								<th>Nama Siswa</th>
+								<th>Judul Buku</th>
 								<th>Tanggal Peminjaman</th>
 								<th>Tanggal Pengembalian</th>
 								<th>Status</th>
@@ -256,11 +256,11 @@
 							<tbody>
 							
 							
-							<?php foreach ($viewData['list_pinjaman'] as $pinjaman){ ?>
+							<?php foreach ($viewData['list_pinjaman']['data'] as $pinjaman){ ?>
 								<tr>
 									<td><?php echo $pinjaman['kode_pinjam']; ?></td>
-									<td><?php echo $viewData['member']['name']; ?></td>
-									<td><?php echo $pinjaman['created_at']->format('l F jS Y'); ?></td>
+									<td><?php echo $pinjaman['detail_book_info']['judul']; ?></td>
+									<td><?php echo $pinjaman['created_at']; ?></td>
 									<td><?php echo $pinjaman['jatuh_tempo']; ?></td>
 									<td>Aktif</td>
 									<td><a class="btn btn-default notif">beritahu siswa</a></td>
@@ -271,7 +271,7 @@
 						</table>
 						
 						<div class="pagination">
-							<?php echo $viewData['list_pinjaman']->render(); ?>
+							<?php echo $viewData['list_pinjaman_2']->render(); ?>
 						</div>
 					</div>
 				</div>
