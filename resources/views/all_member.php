@@ -177,7 +177,7 @@
 		          <td style="vertical-align: middle"><?php echo $member['jumlah_pinjaman']; ?></td>
 		          <td style="vertical-align: middle"><?php echo $member['last_login']; ?></td>
 		          <td style="vertical-align: middle">
-			          <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
+			          <a class="btn btn-default action" href="<?php echo url('/member/detail').'/'.$member['id']; ?>"><i class="fa fa-info"></i> Detail</a>
 			          <a class="btn btn-default action"><i class="fa fa-trash-o"></i> Hapus</a>
 		          </td>
 	          </tr>
