@@ -13,4 +13,8 @@ class PinjamBuku extends Model
 	public function detailMemberInfo(){
 		return $this->belongsTo('App\User', 'id_peminjam', 'id');
 	}
+	
+	public function detailBookInfo(){
+		return $this->belongsTo('App\Buku', 'id_buku', 'buku_id');
+	}
 }

@@ -13,8 +13,8 @@ class Buku extends Model
   protected $table = 'buku';
 
   public $timestamps = true;
-
-  public function hasCategory(){
-
+  
+  public function pinjamanBuku(){
+  	return $this->hasMany('App\PinjamBuku', 'id_buku', 'buku_id');
   }
 }
