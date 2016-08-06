@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\User;
+use App\PinjamBuku;
 
 class MemberController extends Controller
 {
@@ -39,5 +40,30 @@ class MemberController extends Controller
 		$viewData['list_member_2'] = $listMember2;
 		
 		return view('all_member')->with('viewData', $viewData);
+	}
+	
+	public function displayDetailMember($user_id){
+		$memberModel = new User();
+		$pinjamanModel = new PinjamBuku();
+		
+		$member = $memberModel->where('id', '=', $user_id)
+													->first();
+		
+		$member['last_login'] = \Carbon\Carbon::createFromTimestamp(strtotime($member['last_login']))
+																					->diffForHumans();
+		
+		$listPinjaman = $pinjamanModel->where('id_peminjam', '=', $user_id)
+																	->paginate(5);
+		
+		for ($i = 0; $i<sizeof($listPinjaman); $i++){
+			$listPinjaman[$i]->jatuh_tempo = \Carbon\Carbon::createFromTimestamp(strtotime($listPinjaman[$i]->jatuh_tempo))
+																											->diffForHumans();
+		}
+		
+		$viewData = array();
+		$viewData['member'] = $member;
+		$viewData['list_pinjaman'] = $listPinjaman;
+		
+		return view('admin.detail_member')->with('viewData', $viewData);
 	}
 }

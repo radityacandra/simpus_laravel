@@ -40,6 +40,8 @@ Route::post('/kategori/add', 'AddCategoryController@retrieveAddCategory');
 
 Route::get('/member', 'MemberController@displayAllMember');
 
+Route::get('/member/detail/{user_id}', 'MemberController@displayDetailMember');
+
 Route::get('/admin', 'AdminController@displayAllAdmin');
 
 Route::get('/member/add', 'AddMemberController@displayAddMemberPage');
