@@ -239,7 +239,7 @@
         <h4>Mengirimkan Data</h4>
       </div>
       <div class="modal-body">
-        <p>test</p>
+	      <img src="<?php echo url('img/loader.gif')?>" alt="Uploading...."/>
       </div>
     </div>
   </div>
@@ -332,7 +332,7 @@
       var deskripsi_buku = document.getElementById("deskripsi_buku").value;
       var kategori_baru = document.getElementById("kategori_baru").value;
 
-      $.post("http://localhost/simperpus/tambah_buku",
+      $.post("http://localhost/simpus_laravel/public/tambah_buku",
           {
             judul_buku: judul_buku,
             penulis_buku: penulis_buku,
@@ -343,7 +343,7 @@
             deskripsi_buku: deskripsi_buku
           }, function (data, status) {
             $('#modal').modal('toggle');
-            window.location.href = 'http://www.google.com';
+            window.location.href = 'http://localhost/simpus_laravel/public/semua_buku';
           });
     });
   });

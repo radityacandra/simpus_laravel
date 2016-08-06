@@ -230,7 +230,7 @@
         <h4>Mengirimkan Data</h4>
       </div>
       <div class="modal-body">
-        <p>test</p>
+	      <img src="<?php echo url('img/loader.gif')?>" alt="Uploading...."/>
       </div>
     </div>
   </div>
@@ -286,7 +286,7 @@
       var alamat_rumah = document.getElementById("alamat_rumah").value;
       var token = document.getElementById("token").value;
       
-      $.post("http://localhost/simperpus/member/add",
+      $.post("http://localhost/simpus_laravel/public/member/add",
           {
             nama_siswa: nama_siswa,
             nim_siswa: nim_siswa,
@@ -298,7 +298,7 @@
             _token: token
           }, function (data, status) {
             $('#modal').modal('toggle');
-            window.location.href = 'http://www.google.com';
+            window.location.href = 'http://localhost/simpus_laravel/public/member';
           });
     });
   });
