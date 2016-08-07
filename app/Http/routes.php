@@ -54,9 +54,7 @@ Route::get('admin/test_qr', 'PrintBookDataController@testQR');
 
 Route::get('admin/kelola_buku/{id_buku}', 'PrintBookDataController@displayGeneralPage');
 
-Route::get('admin/message', function (){
-	return view('admin.all_message');
-});
+Route::get('admin/message', 'MessageAdminController@displayAllMessage');
 
 Route::get('admin/message/new', function (){
 	return view('admin.new_message');

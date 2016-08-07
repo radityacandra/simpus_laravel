@@ -122,6 +122,40 @@
 				</div>
 			</div>
 		</li>
+		
+		<li>
+			<div class="panel-group" id="accordion5" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingFive">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion5" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+								<i class="fa fa-comments-o"></i> Perpesanan
+							</a>
+						</h4>
+					</div>
+					<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+						<ul class="list-group" style="color: #000000; ">
+							<li><a href="<?php echo url('admin/message') ?>"><i class="fa fa-comments-o"></i> Semua Pesan</a></li>
+							<li><a href="<?php echo url('admin/message/new') ?>"><i class="fa fa-plus"></i> Buat Pesan Baru</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		<li>
+			<div class="panel-group" id="accordion6" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingSix">
+						<h4 class="panel-title">
+							<a role="button" href="<?php echo url('admin/pinjaman'); ?>" aria-expanded="false" aria-controls="collapseSix">
+								<i class="fa fa-book"></i> Perpesanan
+							</a>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</li>
 	</ul>
 </div>
 
@@ -135,7 +169,7 @@
 			</div>
 			
 			<div class="panel-body">
-				Ditemukan 8 tiket percakapan
+				Ditemukan <?php echo sizeof($viewData['list_message']); ?> tiket percakapan
 				<table class="table table-striped table-hover vertical-align">
 					<thead>
 					<tr class="bg-info">
@@ -149,48 +183,24 @@
 					</thead>
 					
 					<tbody>
-					<tr>
-						<td>#12</td>
-						<td>17 April 2016</td>
-						<td><a href="#">Perayaan Ulang Tahun</a></td>
-						<td>Dibuka</td>
-						<td>Menunggu balasan admin</td>
-						<td><a href="#" class="btn btn-default">Lihat</a></td>
-					</tr>
 					
-					<tr>
-						<td>#12</td>
-						<td>17 April 2016</td>
-						<td><a href="#">Perayaan Ulang Tahun</a></td>
-						<td>Dibuka</td>
-						<td>Menunggu balasan admin</td>
-						<td><a href="#" class="btn btn-default">Lihat</a></td>
-					</tr>
+					<?php foreach ($viewData['list_message'] as $message){ ?>
+						<tr>
+							<td>#<?php echo $message->ticket_id; ?></td>
+							<td><?php echo $message->created_at; ?></td>
+							<td><a href="#"><?php echo $message->subject; ?></a></td>
+							<td><?php echo $message->status; ?></td>
+							<td><?php echo $message->response; ?></td>
+							<td><a href="#" class="btn btn-default">Lihat</a></td>
+						</tr>
+					<?php } ?>
 					
-					<tr>
-						<td>#12</td>
-						<td>17 April 2016</td>
-						<td><a href="#">Perayaan Ulang Tahun</a></td>
-						<td>Dibuka</td>
-						<td>Menunggu balasan admin</td>
-						<td><a href="#" class="btn btn-default">Lihat</a></td>
-					</tr>
 					</tbody>
 				</table>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="modal" id="modal" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button class="close" type="button" data-dismiss="modal" aria-hidden="true"></button>
-				<h4>Mengirimkan Data</h4>
-			</div>
-			<div class="modal-body">
-				<p>test</p>
+				
+				<div class="pagination">
+					<?php echo $viewData['list_message']->render(); ?>
+				</div>
 			</div>
 		</div>
 	</div>
