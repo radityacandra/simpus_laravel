@@ -12,4 +12,12 @@ class MessageContainer extends Model
 	public function hasMessageSubject(){
 		return $this->belongsTo('App\Message', 'ticket_id', 'ticket_id');
 	}
+	
+	public function senderProfile(){
+		return $this->belongsTo('App\User', 'from_id', 'id');
+	}
+	
+	public function receiverProfile(){
+		return $this->belongsTo('App\User', 'to_id', 'id');
+	}
 }

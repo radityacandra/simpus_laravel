@@ -122,6 +122,40 @@
 				</div>
 			</div>
 		</li>
+		
+		<li>
+			<div class="panel-group" id="accordion5" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingFive">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion5" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+								<i class="fa fa-comments-o"></i> Perpesanan
+							</a>
+						</h4>
+					</div>
+					<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+						<ul class="list-group" style="color: #000000; ">
+							<li><a href="<?php echo url('admin/message') ?>"><i class="fa fa-comments-o"></i> Semua Pesan</a></li>
+							<li><a href="<?php echo url('admin/message/new') ?>"><i class="fa fa-plus"></i> Buat Pesan Baru</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		<li>
+			<div class="panel-group" id="accordion6" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingSix">
+						<h4 class="panel-title">
+							<a role="button" href="<?php echo url('admin/pinjaman'); ?>" aria-expanded="false" aria-controls="collapseSix">
+								<i class="fa fa-book"></i> Perpesanan
+							</a>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</li>
 	</ul>
 </div>
 
@@ -129,53 +163,40 @@
 <div id="content">
 	<!--search result table-->
 	<div class="col-md-10">
-		<div class="panel panel-default" style="margin-top: 1%;">
-			<div class="panel-heading" style="background-color: #2AABD2; color: #FFFFFF; padding-bottom: 2%;">
-				<img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-1" style="display: block; margin: 0;">
-				<strong>Raditya Chandra</strong>
-				<strong style="float: right;">17 April 2016</strong><br>
-				<strong>Member Perpustakaan</strong>
-			</div>
-			
-			<div class="panel-body">
-				Hi! apakah saya bisa meminta file website yang ada di folder public_html mantan host saya?
-				<br><br><br><br>
-				----------------------------<br>
-				IP Address: 202.43.93.117
-			</div>
-		</div>
 		
-		<div class="panel panel-default">
-			<div class="panel-heading" style="background-color: #009688; color: #FFFFFF; padding-bottom: 4%;">
-				<img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-1" style="display: block; margin: 0; float: right;">
-				<strong style="float: right;">Raditya Chandra</strong>
-				<strong style="float: left;">17 April 2016</strong><br>
-				<strong style="float:right;">Admin Perpustakaan</strong>
-			</div>
-			
-			<div class="panel-body" style="text-align: right">
-					Hi! apakah saya bisa meminta file website yang ada di folder public_html mantan host saya?
-					<br><br><br><br>
-					----------------------------<br>
-					IP Address: 202.43.93.117
-			</div>
-		</div>
+		<?php foreach ($viewData['list_message'] as $message){
+			if ($message['sender_profile']['role'] == 'member'){ ?>
+				<div class="panel panel-default" style="margin-top: 1%;">
+					<div class="panel-heading" style="background-color: #2AABD2; color: #FFFFFF; padding-bottom: 2%;">
+						<img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-1" style="display: block; margin: 0;">
+						<strong><?php echo $message['sender_profile']['name']; ?></strong>
+						<strong style="float: right;"><?php echo $message['created_at']; ?></strong><br>
+						<strong><?php echo $message['sender_profile']['role']; ?></strong>
+					</div>
+					
+					<div class="panel-body">
+						<?php echo $message['body']; ?>
+						<br><br><br><br>
+					</div>
+				</div>
+		<?php	} else { ?>
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background-color: #009688; color: #FFFFFF; padding-bottom: 4%;">
+						<img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-1" style="display: block; margin: 0; float: right;">
+						<strong style="float: right;"><?php echo $message['sender_profile']['name']; ?></strong>
+						<strong style="float: left;"><?php echo $message['created_at']; ?></strong><br>
+						<strong style="float:right;"><?php echo $message['sender_profile']['role']; ?></strong>
+					</div>
+					
+					<div class="panel-body" style="text-align: right">
+						<?php echo $message['body']; ?>
+						<br><br><br><br>
+					</div>
+				</div>
+		<?php	}
+		}
+		?>
 		
-		<div class="panel panel-default">
-			<div class="panel-heading" style="background-color: #2AABD2; color: #FFFFFF; padding-bottom: 2%;">
-				<img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-1" style="display: block; margin: 0;">
-				<strong>Raditya Chandra</strong>
-				<strong style="float: right;">17 April 2016</strong><br>
-				<strong>Member Perpustakaan</strong>
-			</div>
-			
-			<div class="panel-body">
-				Hi! apakah saya bisa meminta file website yang ada di folder public_html mantan host saya?
-				<br><br><br><br>
-				----------------------------<br>
-				IP Address: 202.43.93.117
-			</div>
-		</div>
 	</div>
 </div>
 

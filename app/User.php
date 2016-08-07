@@ -27,4 +27,12 @@ class User extends Authenticatable
 	public function punyaPinjaman(){
 		return $this->hasMany('App\PinjamBuku', 'id_peminjam', 'id');
 	}
+	
+	public function sentMessage(){
+		return $this->hasMany('App\MessageContainer', 'from_id', 'id');
+	}
+	
+	public function receivedMessage(){
+		return $this->hasMany('App\MessageContainer', 'to_id', 'id');
+	}
 }

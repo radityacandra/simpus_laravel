@@ -56,13 +56,9 @@ Route::get('admin/kelola_buku/{id_buku}', 'PrintBookDataController@displayGenera
 
 Route::get('admin/message', 'MessageAdminController@displayAllMessage');
 
-Route::get('admin/message/new', function (){
-	return view('admin.new_message');
-});
+Route::get('admin/message/new', 'MessageAdminController@displayNewMessage');
 
-Route::get('admin/message/detail', function (){
-	return view('admin.detail_message');
-});
+Route::get('admin/message/detail/{ticket_id}', 'MessageAdminController@displayDetailMessage');
 
 Route::get('admin/pinjaman', function (){
 	return view('admin.all_pinjaman');

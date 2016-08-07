@@ -188,10 +188,10 @@
 						<tr>
 							<td>#<?php echo $message->ticket_id; ?></td>
 							<td><?php echo $message->created_at; ?></td>
-							<td><a href="#"><?php echo $message->subject; ?></a></td>
+							<td><a href="<?php echo url('admin/message/detail').'/'.$message->ticket_id; ?>"><?php echo $message->subject; ?></a></td>
 							<td><?php echo $message->status; ?></td>
 							<td><?php echo $message->response; ?></td>
-							<td><a href="#" class="btn btn-default">Lihat</a></td>
+							<td><a href="<?php echo url('admin/message/detail').'/'.$message->ticket_id; ?>" class="btn btn-default">Lihat</a></td>
 						</tr>
 					<?php } ?>
 					
