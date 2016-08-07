@@ -65,3 +65,11 @@ Route::get('admin/message/new', function (){
 Route::get('admin/message/detail', function (){
 	return view('admin.detail_message');
 });
+
+Route::get('admin/pinjaman', function (){
+	return view('admin.all_pinjaman');
+});
+
+Route::get('admin/pinjaman/detail', function (){
+	return view('admin.detail_pinjaman');
+});
