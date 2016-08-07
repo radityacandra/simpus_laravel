@@ -53,3 +53,15 @@ Route::get('admin/home', 'AdminHomeController@displayAdminHome');
 Route::get('admin/test_qr', 'PrintBookDataController@testQR');
 
 Route::get('admin/kelola_buku/{id_buku}', 'PrintBookDataController@displayGeneralPage');
+
+Route::get('admin/message', function (){
+	return view('admin.all_message');
+});
+
+Route::get('admin/message/new', function (){
+	return view('admin.new_message');
+});
+
+Route::get('admin/message/detail', function (){
+	return view('admin.detail_message');
+});
