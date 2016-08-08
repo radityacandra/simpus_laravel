@@ -122,6 +122,40 @@
 				</div>
 			</div>
 		</li>
+		
+		<li>
+			<div class="panel-group" id="accordion5" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingFive">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion5" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+								<i class="fa fa-comments-o"></i> Perpesanan
+							</a>
+						</h4>
+					</div>
+					<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+						<ul class="list-group" style="color: #000000; ">
+							<li><a href="<?php echo url('admin/message') ?>"><i class="fa fa-comments-o"></i> Semua Pesan</a></li>
+							<li><a href="<?php echo url('admin/message/new') ?>"><i class="fa fa-plus"></i> Buat Pesan Baru</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		<li>
+			<div class="panel-group" id="accordion6" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingSix">
+						<h4 class="panel-title">
+							<a role="button" href="<?php echo url('admin/pinjaman'); ?>" aria-expanded="false" aria-controls="collapseSix">
+								<i class="fa fa-book"></i> Pinjaman
+							</a>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</li>
 	</ul>
 </div>
 
@@ -150,35 +184,35 @@
 			
 			<div class="panel-body">
 				<div class="col-md-12">
-					<h4>Nomor Pinjaman: #14192 <label class="label-info" style="color: white; padding: 1%;">Status Aktif</label></h4>
+					<h4>Nomor Pinjaman: #<?php echo $viewData['pinjaman']['kode_pinjam']; ?> <label class="label-info" style="color: white; padding: 1%;">Status <?php echo $viewData['pinjaman']['status']; ?></label></h4>
 				</div>
 				
 				<div class="col-md-12">
 					<h4>Masa Peminjaman</h4>
 					<div class="progress">
-						<div class="progress-bar progress-bar-info" style="width: 40%"></div>
+						<div class="progress-bar progress-bar-info" style="width: <?php echo $viewData['pinjaman']['progress']; ?>"></div>
 					</div>
 				</div>
 				
 				<div class="col-md-6">
 					<h4>Peminjaman Mulai</h4>
-					<h4>17 April 2016</h4>
+					<h4><?php echo $viewData['pinjaman']['created_at']; ?></h4>
 				</div>
 				
 				<div class="col-md-6">
 					<h4>Peminjaman Selesai</h4>
-					<h4>17 Mei 2016</h4>
+					<h4><?php echo $viewData['pinjaman']['jatuh_tempo']; ?></h4>
 				</div>
 				
-				<div class="col-md-12">
-					<h4>Nama Buku: Pintar Berbahasa Inggris Kelas X</h4>
+				<div class="col-md-12" style="margin-top: 1%;">
+					<h4>Nama Buku: <?php echo $viewData['pinjaman']['detail_book_info']['judul']; ?></h4>
 				</div>
 				
-				<div class="col-md-12">
-					<h4>Nama Peminjam: Raditya Chandra Buana</h4>
+				<div class="col-md-12" style="margin-top: 1%;">
+					<h4>Nama Peminjam: <?php echo $viewData['pinjaman']['detail_member_info']['name']; ?></h4>
 				</div>
 				
-				<div class="col-md-12">
+				<div class="col-md-12" style="margin-top: 1%;">
 					<a class="btn btn-default">Beritahu Siswa</a>
 				</div>
 			</div>

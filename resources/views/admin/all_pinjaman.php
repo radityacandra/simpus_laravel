@@ -154,11 +154,11 @@
 						<tr>
 							<td>#<?php echo $pinjaman['kode_pinjam']; ?></td>
 							<td><?php echo $pinjaman['created_at']; ?></td>
-							<td><a href="#"><?php echo $pinjaman['detail_book_info']['judul']; ?></a></td>
+							<td><a href="<?php echo url('admin/pinjaman/detail').'/'.$pinjaman['kode_pinjam']; ?>"><?php echo $pinjaman['detail_book_info']['judul']; ?></a></td>
 							<td><?php echo $pinjaman['detail_member_info']['name']; ?></td>
 							<td><?php echo $pinjaman['jatuh_tempo']; ?></td>
 							<td><?php echo $pinjaman['status']; ?></td>
-							<td><a href="#" class="btn btn-default">Lihat</a></td>
+							<td><a href="<?php echo url('admin/pinjaman/detail').'/'.$pinjaman['kode_pinjam']; ?>" class="btn btn-default">Lihat</a></td>
 						</tr>
 					<?php } ?>
 					
