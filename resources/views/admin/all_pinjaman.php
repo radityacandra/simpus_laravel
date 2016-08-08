@@ -149,37 +149,25 @@
 					</thead>
 					
 					<tbody>
-					<tr>
-						<td>#12</td>
-						<td>17 April 2016</td>
-						<td><a href="#">Perayaan Ulang Tahun</a></td>
-						<td>Dibuka</td>
-						<td>Menunggu balasan admin</td>
-						<td>Aktif</td>
-						<td><a href="#" class="btn btn-default">Lihat</a></td>
-					</tr>
 					
-					<tr>
-						<td>#12</td>
-						<td>17 April 2016</td>
-						<td><a href="#">Perayaan Ulang Tahun</a></td>
-						<td>Dibuka</td>
-						<td>Menunggu balasan admin</td>
-						<td>Overdue</td>
-						<td><a href="#" class="btn btn-default">Lihat</a></td>
-					</tr>
+					<?php foreach ($viewData['list_pinjaman']['data'] as $pinjaman){ ?>
+						<tr>
+							<td>#<?php echo $pinjaman['kode_pinjam']; ?></td>
+							<td><?php echo $pinjaman['created_at']; ?></td>
+							<td><a href="#"><?php echo $pinjaman['detail_book_info']['judul']; ?></a></td>
+							<td><?php echo $pinjaman['detail_member_info']['name']; ?></td>
+							<td><?php echo $pinjaman['jatuh_tempo']; ?></td>
+							<td><?php echo $pinjaman['status']; ?></td>
+							<td><a href="#" class="btn btn-default">Lihat</a></td>
+						</tr>
+					<?php } ?>
 					
-					<tr>
-						<td>#12</td>
-						<td>17 April 2016</td>
-						<td><a href="#">Perayaan Ulang Tahun</a></td>
-						<td>Dibuka</td>
-						<td>Menunggu balasan admin</td>
-						<td>Pending</td>
-						<td><a href="#" class="btn btn-default">Lihat</a></td>
-					</tr>
 					</tbody>
 				</table>
+				
+				<div class="pagination">
+					<?php echo $viewData['list_pinjaman_2']->render(); ?>
+				</div>
 			</div>
 		</div>
 	</div>
