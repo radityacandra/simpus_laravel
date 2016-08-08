@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Pencarian Spesifik Sistem Informasi Perpustakaan</title>
+  <title>Semua Buku - Sistem Informasi Perpustakaan</title>
   <link href="<?php echo url('css/bootstrap.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/bootstrap-material-design.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/ripples.min.css'); ?>" type="text/css" rel="stylesheet">
@@ -25,7 +25,7 @@
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
           <li><a href="<?php echo url('home'); ?>">Beranda</a></li>
-          <li class="active"><a href="javascript:void(0)">Pencarian Spesifik</a></li>
+          <li><a href="<?php echo url('search'); ?>">Pencarian Spesifik</a></li>
           <li><a href="javascript:void(0)">Pinjaman Saya</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -74,7 +74,7 @@
 					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 						<ul class="list-group" style="color: #000000; ">
 							<li><a href="<?php echo url('semua_buku'); ?>"><i class="fa fa-book"></i> Kelola Buku</a></li>
-							<li><a href="<?php echo url('daftar_bus'); ?>"><i class="fa fa-plus"></i> Tambah Data Buku</a></li>
+							<li><a href="<?php echo url('tambah_buku'); ?>"><i class="fa fa-plus"></i> Tambah Data Buku</a></li>
 						</ul>
 					</div>
 				</div>
@@ -160,11 +160,13 @@
 </div>
 
 <!--body-->
-<div id="content">
+<div id="content" style="margin-top: 1%;">
   <div class="col-md-10">
     <div class="panel panel-default">
-      <div class="panel-body" style="margin-top: 1%;">
-        <h3>Filter Hasil</h3>
+	    <div class="panel-heading" style="background-color: #009688; color: #FFFFFF;">
+		    Filter Hasil
+	    </div>
+      <div class="panel-body">
         <form>
           <div class="form-group col-md-6">
             <label class="col-md-3" style="padding-top:1%;">Penulis</label>
@@ -204,9 +206,10 @@
   <!--search result table-->
   <div class="col-md-10 col-md-offset-2">
     <div class="panel panel-default">
-      <div class="panel-body" style="">
-        <h1>Semua Buku Perpustakaan</h1>
-	      
+	    <div class="panel-heading" style="background-color: #009688; color: #FFFFFF;">
+		    Semua Buku Perpustakaan
+	    </div>
+      <div class="panel-body">
 	      <?php foreach($viewData['list_buku'] as $buku){ ?>
 		      <div class="container-book col-md-12" style="border-bottom: rgba(0,0,0,0.2) solid 1px; padding-bottom: 1%; margin-top: 1%;">
 			      <img src="<?php echo url($buku->thumb_cover_ptr); ?>" class="col-md-2">

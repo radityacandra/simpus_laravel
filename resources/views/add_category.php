@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Pencarian Spesifik Sistem Informasi Perpustakaan</title>
+  <title>Tambah Kategori Buku - Sistem Informasi Perpustakaan</title>
   <link href="<?php echo url('css/bootstrap.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/bootstrap-material-design.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/ripples.min.css'); ?>" type="text/css" rel="stylesheet">
@@ -25,7 +25,7 @@
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
           <li><a href="<?php echo url('home'); ?>">Beranda</a></li>
-          <li class="active"><a href="javascript:void(0)">Pencarian Spesifik</a></li>
+          <li><a href="<?php echo url('search'); ?>">Pencarian Spesifik</a></li>
           <li><a href="javascript:void(0)">Pinjaman Saya</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -74,7 +74,7 @@
 					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 						<ul class="list-group" style="color: #000000; ">
 							<li><a href="<?php echo url('semua_buku'); ?>"><i class="fa fa-book"></i> Kelola Buku</a></li>
-							<li><a href="<?php echo url('daftar_bus'); ?>"><i class="fa fa-plus"></i> Tambah Data Buku</a></li>
+							<li><a href="<?php echo url('tambah_buku'); ?>"><i class="fa fa-plus"></i> Tambah Data Buku</a></li>
 						</ul>
 					</div>
 				</div>
