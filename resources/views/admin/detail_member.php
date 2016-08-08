@@ -122,6 +122,40 @@
 				</div>
 			</div>
 		</li>
+		
+		<li>
+			<div class="panel-group" id="accordion5" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingFive">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion5" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+								<i class="fa fa-comments-o"></i> Perpesanan
+							</a>
+						</h4>
+					</div>
+					<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+						<ul class="list-group" style="color: #000000; ">
+							<li><a href="<?php echo url('admin/message') ?>"><i class="fa fa-comments-o"></i> Semua Pesan</a></li>
+							<li><a href="<?php echo url('admin/message/new') ?>"><i class="fa fa-plus"></i> Buat Pesan Baru</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		<li>
+			<div class="panel-group" id="accordion6" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingSix">
+						<h4 class="panel-title">
+							<a role="button" href="<?php echo url('admin/pinjaman'); ?>" aria-expanded="false" aria-controls="collapseSix">
+								<i class="fa fa-book"></i> Pinjaman
+							</a>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</li>
 	</ul>
 </div>
 

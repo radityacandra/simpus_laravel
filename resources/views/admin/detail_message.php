@@ -149,7 +149,7 @@
 					<div class="panel-heading" role="tab" id="headingSix">
 						<h4 class="panel-title">
 							<a role="button" href="<?php echo url('admin/pinjaman'); ?>" aria-expanded="false" aria-controls="collapseSix">
-								<i class="fa fa-book"></i> Perpesanan
+								<i class="fa fa-book"></i> Pinjaman
 							</a>
 						</h4>
 					</div>
