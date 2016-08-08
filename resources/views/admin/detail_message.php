@@ -180,7 +180,7 @@
 					</div>
 				</div>
 		<?php	} else { ?>
-				<div class="panel panel-default">
+				<div class="panel panel-default" style="margin-top: 1%;">
 					<div class="panel-heading" style="background-color: #009688; color: #FFFFFF; padding-bottom: 4%;">
 						<img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-1" style="display: block; margin: 0; float: right;">
 						<strong style="float: right;"><?php echo $message['sender_profile']['name']; ?></strong>

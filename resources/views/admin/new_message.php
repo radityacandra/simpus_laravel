@@ -7,6 +7,7 @@
 	<link href="<?php echo url('css/ripples.min.css'); ?>" type="text/css" rel="stylesheet">
 	<link href="<?php echo url('css/font-awesome.min.css'); ?>" type="text/css" rel="stylesheet">
 	<link href="<?php echo url('css/admin/all_message.css'); ?>" type="text/css" rel="stylesheet">
+	<link href="<?php echo url('js/jquery-ui-1.12.0/jquery-ui.min.css'); ?>" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -135,25 +136,25 @@
 			</div>
 			
 			<div class="panel-body">
-				<form>
+				<form method="post">
 					<div class="row">
 						<div class="form-group">
 							<div class="col-md-3">
 								<label for="name">Nama</label>
-								<input name="name" class="form-control" type="text" disabled value="Raditya Chandra B.">
+								<input type="text" name="sender_name" class="form-control" disabled value="Rusty Kautzer">
 							</div>
 							<div class="col-md-3">
 								<label for="email">Email</label>
-								<input name="email" class="form-control" type="text" disabled value="radityacandra@gmail.com">
+								<input type="text" name="sender_email" class="form-control" disabled value="cara79@crist.com">
 							</div>
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="form-group">
-							<div class="col-md-6">
+							<div class="col-md-6 ui-widget">
 								<label for="destination">Kepada</label>
-								<input name="destination" class="form-control" type="text">
+								<input name="destination" id="destination" class="form-control" type="text">
 							</div>
 						</div>
 					</div>
@@ -171,7 +172,7 @@
 						<div class="form-group">
 							<div class="col-md-10">
 								<label for="body">Pesan</label>
-								<textarea class="form-control" rows="5"></textarea>
+								<textarea class="form-control" name="body" rows="5"></textarea>
 							</div>
 						</div>
 					</div>
@@ -181,12 +182,15 @@
 							<div class="col-md-6">
 								<label for="attachment">Attachment (Opsional)</label>
 								<input type="text" readonly="" class="form-control" placeholder="Pilih File">
-								<input type="file" id="attachment" multiple="">
+								<input type="file" name="attachment" id="attachment" multiple="">
 								
 								<p>Ekstensi file yang diijinkan: .gif, .png, .jpg, .doc, .zip, .rar, .gz, .jpeg, .txt, .xls, .7z, .pdf, .docx, .htm, .html, .csv, .gif, .png, .jpg, .doc, .zip, .rar, .gz, .jpeg, .txt, .xls, .7z, .pdf, .docx, .htm, .html, .csv</p>
 							</div>
 						</div>
 					</div>
+					
+					<input type="hidden" name="sender_name" class="form-control" value="Rusty Kautzer">
+					<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 					
 					<div class="row">
 						<div class="form-group">
@@ -206,9 +210,19 @@
 <script type="text/javascript" src="<?php echo url('js/material.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/ripples.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/bootstrap.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo url('js/jquery.wallform.js')?>"></script>
+<script type="text/javascript" src="<?php echo url('js/jquery.wallform.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo url('js/jquery-ui-1.12.0/jquery-ui.min.js'); ?>"></script>
 <script type="text/javascript">
 	$.material.init();
+</script>
+
+<script type="text/javascript">
+	$(function () {
+		var availableName = <?php echo $viewData['dataset_name']; ?>;
+		$("#destination").autocomplete({
+			source: availableName
+		});
+	});
 </script>
 
 </body>

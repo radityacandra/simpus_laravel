@@ -58,6 +58,8 @@ Route::get('admin/message', 'MessageAdminController@displayAllMessage');
 
 Route::get('admin/message/new', 'MessageAdminController@displayNewMessage');
 
+Route::post('admin/message/new', 'MessageAdminController@handleSubmitMessage');
+
 Route::get('admin/message/detail/{ticket_id}', 'MessageAdminController@displayDetailMessage');
 
 Route::get('admin/pinjaman', function (){
