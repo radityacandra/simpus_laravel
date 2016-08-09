@@ -165,6 +165,11 @@ return [
 	       * Laravel QR code service provider
 	       */
 		    SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+	    
+	      /*
+	       * Laravel DomPDF service provider
+	       */
+	      Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -213,6 +218,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 		    'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+	      'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];
