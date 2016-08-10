@@ -65,3 +65,5 @@ Route::get('admin/message/detail/{ticket_id}', 'MessageAdminController@displayDe
 Route::get('admin/pinjaman', 'PinjamanAdminController@displayAllPinjaman');
 
 Route::get('admin/pinjaman/detail/{kode_pinjam}', 'PinjamanAdminController@detailPinjaman');
+
+Route::get('admin/report/member', 'PrinterAdminController@printMemberReport');

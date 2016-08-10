@@ -1,0 +1,29 @@
+.content    { position: absolute;
+    top:13%;
+    text-align: center; }
+
+.content h3 { margin: 0; padding:0; border: 0; }
+.content h5 { margin: 0; padding:0; border: 0; }
+
+.table { width: 100%;
+    border-collapse:collapse;
+    border:1px solid #000000;
+    margin-top: 20px;
+    padding:0; }
+td,th   { padding-top:5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin:0;
+    border: 1px solid #000000; }
+th { background-color: #4CAF50;
+    color: white; }
+
+.content-page-break  { position: absolute;
+    text-align: center; }
+
+.table-page-break { width: 100%;
+    border-collapse:collapse;
+    border:1px solid #000000;
+    margin-top: 20px;
+    padding:0; }

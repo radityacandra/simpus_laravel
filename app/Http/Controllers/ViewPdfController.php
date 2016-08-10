@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Buku;
-use Illuminate\Http\Request;
 
+use PDF;
+use Illuminate\Http\Request;
 use App\Http\Requests;
 
 class ViewPdfController extends Controller

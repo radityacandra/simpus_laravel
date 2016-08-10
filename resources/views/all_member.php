@@ -175,7 +175,7 @@
         </div>
         
         <div class="col-md-3">
-          <button class="btn btn-default col-md-12"><i class="fa fa-print"></i> Cetak</button>
+          <a href="<?php echo url('admin/report/member') ?>" class="btn btn-default col-md-12"><i class="fa fa-print"></i> Cetak</a>
         </div>
       </div>
     </div>
