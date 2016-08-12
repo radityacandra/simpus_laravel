@@ -71,3 +71,11 @@ Route::get('admin/report/member', 'PrinterAdminController@printMemberReport');
 Route::get('member/dashboard', function (){
 	return view('member.dashboard_member');
 });
+
+Route::get('member/settings', function (){
+	return view('member.profile_setting');
+});
+
+Route::get('member/settings/password', function (){
+	return view('member.manage_password');
+});
