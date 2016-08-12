@@ -67,3 +67,7 @@ Route::get('admin/pinjaman', 'PinjamanAdminController@displayAllPinjaman');
 Route::get('admin/pinjaman/detail/{kode_pinjam}', 'PinjamanAdminController@detailPinjaman');
 
 Route::get('admin/report/member', 'PrinterAdminController@printMemberReport');
+
+Route::get('member/dashboard', function (){
+	return view('member.dashboard_member');
+});
