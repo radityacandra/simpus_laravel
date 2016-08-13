@@ -72,9 +72,9 @@ Route::get('admin/report/member', 'PrinterAdminController@printMemberReport');
 
 Route::get('member/dashboard', 'member\DashboardMemberController@displayDashboardMember');
 
-Route::get('member/settings', function (){
-	return view('member.profile_setting');
-});
+Route::get('member/settings', 'member\ProfileSettingController@displayProfileSetting');
+
+Route::post('member/settings', 'member\ProfileSettingController@handleUpdateProfile');
 
 Route::get('member/settings/password', function (){
 	return view('member.manage_password');
