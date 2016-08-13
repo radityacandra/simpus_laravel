@@ -103,11 +103,8 @@ class MessageAdminController extends Controller
 		$messageModel->updated_at = \Carbon\Carbon::now();
 		$messageModel->subject = $subject;
 		$messageModel->status = "open";
-		if ($fromUser['role'] == 'member'){
-			$messageModel->response = "from member";
-		} elseif ($fromUser['role'] == 'admin') {
-			$messageModel->response = "from admin";
-		}
+		$messageModel->response = "from admin";
+		$messageModel->associate_member = $toUser['id'];
 		$messageModel->save();
 		
 		$ticketId = $messageModel->select('ticket_id')

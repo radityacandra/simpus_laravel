@@ -12,11 +12,13 @@
 */
 
 Route::get('/', function () {
-  return view('login');
+  return redirect('login');
 });
-Route::get('/login', function(){
-  return view('login');
-});
+Route::get('/login', 'LoginAuthenticateController@displayLoginPage');
+
+Route::post('/login', 'LoginAuthenticateController@handleAuthentication');
+
+Route::get('/logout', 'LoginAuthenticateController@handleLogout');
 	
 Route::get('/home', 'HomeMemberController@displayHomeView');
 
@@ -68,9 +70,7 @@ Route::get('admin/pinjaman/detail/{kode_pinjam}', 'PinjamanAdminController@detai
 
 Route::get('admin/report/member', 'PrinterAdminController@printMemberReport');
 
-Route::get('member/dashboard', function (){
-	return view('member.dashboard_member');
-});
+Route::get('member/dashboard', 'member\DashboardMemberController@displayDashboardMember');
 
 Route::get('member/settings', function (){
 	return view('member.profile_setting');
