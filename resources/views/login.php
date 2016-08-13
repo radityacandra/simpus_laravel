@@ -57,16 +57,18 @@
       <div id="login" class="col-md-6" style="background-color: #2b669a">
         <h1>Login</h1>
 
-        <form>
+        <form method="post">
           <label class="control-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+          <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
 
           <label for="inputPassword" class="control-label">Password</label>
-          <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+          <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
 
           <div class="form-group">
             <button type="submit" class="btn btn-primary col-md-12">Login</button>
           </div>
+	        
+	        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
         </form>
       </div>
     </div>
