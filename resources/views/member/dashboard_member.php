@@ -32,10 +32,10 @@
 					<li class="dropdown">
 						<a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Raditya Chandra Buana<b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="javascript:void(0)">Profil</a></li>
-							<li><a href="javascript:void(0)">Ubah Password</a></li>
+							<li><a href="<?php echo url('member/settings'); ?>">Profil</a></li>
+							<li><a href="<?php echo url('member/settings/password'); ?>">Ubah Password</a></li>
 							<li class="divider"></li>
-							<li><a href="<?php echo url('login'); ?>">Logout</a></li>
+							<li><a href="<?php echo url('logout'); ?>">Logout</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -56,10 +56,10 @@
 					<div class="panel-body">
 						<img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-3">
 						<div class="col-md-8">
-							<h5>Raditya Chandra Buana</h5>
-							<h5>Jl KH. Isom Bancaan Tengah Salatiga</h5>
-							<h5><a href="mailto:radityacandra@gmail.com">radityacandra@gmail.com</a></h5>
-							<h5>085727666352</h5>
+							<h5><?php echo $viewData['user']->name; ?></h5>
+							<h5><?php echo $viewData['user']->alamat_rumah; ?></h5>
+							<h5><a href="mailto:<?php echo $viewData['user']->email; ?>"><?php echo $viewData['user']->email; ?></a></h5>
+							<h5><?php echo $viewData['user']->nomor_hp; ?></h5>
 						</div>
 					</div>
 				</div>
@@ -71,9 +71,9 @@
 						Overview
 					</div>
 					<div class="panel-body">
-						<h5>Pinjaman: <a href="#">1 (12) - Tampilkan >></a></h5>
-						<h5>Pemberitahuan Pinjaman: <a href="#">5 - Tampilkan >></a></h5>
-						<h5>Tiket: <a href="#">0 (8) - Tampilkan >></a></h5>
+						<h5>Pinjaman: <a href="#"><?php echo $viewData['total_pinjaman']['notif']; ?> (<?php echo $viewData['total_pinjaman']['all']; ?>) - Tampilkan >></a></h5>
+						<h5>Pemberitahuan Pinjaman: <a href="#"><?php echo $viewData['total_pinjaman']['notif']; ?> - Tampilkan >></a></h5>
+						<h5>Tiket: <a href="#"><?php echo $viewData['total_message']['open']; ?> (<?php echo $viewData['total_message']['all']; ?>) - Tampilkan >></a></h5>
 					</div>
 				</div>
 			</div>
@@ -83,7 +83,7 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading" style="background-color: #009688; color: #FFFFFF;">
-						Tiket <label class="label">0</label>
+						Tiket <label class="label"><?php echo $viewData['total_message']['open']; ?></label>
 					</div>
 					<div class="panel-body">
 						<div class="col-md-offset-8">
@@ -95,7 +95,7 @@
 							<thead class="bg-info">
 							<tr>
 								<th>Tanggal</th>
-								<th>Tanggal Jatuh Tempo</th>
+								<th>Tanggal Tiket Ditutup</th>
 								<th>Subjek</th>
 								<th>Status</th>
 								<th>Update Terbaru</th>
@@ -104,14 +104,20 @@
 							</thead>
 							
 							<tbody>
-							<tr>
-								<td style="vertical-align: middle">17 April 2016</td>
-								<td style="vertical-align: middle">Raditya Chandra Buana</td>
-								<td style="vertical-align: middle">Tidak bisa lihat PDF</td>
-								<td style="vertical-align: middle">Aktif</td>
-								<td style="vertical-align: middle">18 April 2016 10:53</td>
-								<td style="vertical-align: middle"><a class="btn btn-default">Lihat</a></td>
-							</tr>
+							
+							<?php if (sizeof($viewData['list_message'])>0){
+								foreach ($viewData['list_message'] as $message){ ?>
+									<tr>
+										<td style="vertical-align: middle"><?php echo $message->created_at->format('j F Y'); ?></td>
+										<td style="vertical-align: middle"><?php echo $message->created_at->addDays(3)->format('j F Y'); ?></td>
+										<td style="vertical-align: middle"><?php echo $message->subject; ?></td>
+										<td style="vertical-align: middle"><?php echo $message->status; ?></td>
+										<td style="vertical-align: middle"><?php echo $message->updated_at->diffForHumans(); ?></td>
+										<td style="vertical-align: middle"><a class="btn btn-default">Lihat</a></td>
+									</tr>
+							<?php	}
+							} else { echo '<h5 style="text-align: center">Tidak ada tiket yang aktif saat ini</h5>'; } ?>
+							
 							</tbody>
 						</table>
 					</div>
@@ -123,7 +129,7 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading" style="background-color: #009688; color: #FFFFFF;">
-						<strong>Peminjaman</strong> Jatuh Tempo <label class="label label-danger">0</label>
+						<strong>Peminjaman</strong> Jatuh Tempo <label class="label label-danger"><?php echo $viewData['total_pinjaman']['notif']; ?></label>
 					</div>
 					<div class="panel-body">
 												
@@ -139,29 +145,37 @@
 							</thead>
 							
 							<tbody>
-							<tr>
-								<td style="vertical-align: middle">17 April 2016</td>
-								<td style="vertical-align: middle">24 April 2016</td>
-								<td style="vertical-align: middle">Mahir Kimia Kelas XI</td>
-								<td style="vertical-align: middle"><label class="label label-info">Aktif</label></td>
-								<td style="vertical-align: middle">Rp 0,00</td>
-							</tr>
 							
-							<tr>
-								<td style="vertical-align: middle">17 April 2016</td>
-								<td style="vertical-align: middle">24 April 2016</td>
-								<td style="vertical-align: middle">Mahir Kimia Kelas XI</td>
-								<td style="vertical-align: middle"><label class="label label-danger">Overdue</label></td>
-								<td style="vertical-align: middle">Rp 13.000,25</td>
-							</tr>
+							<?php if (sizeof($viewData['list_pinjaman'])>0){
+								foreach ($viewData['list_pinjaman'] as $pinjaman){
+									if ($pinjaman->keterlambatan > 0){ ?>
+										<tr>
+											<td style="vertical-align: middle"><?php echo $pinjaman->created_at->format('j F Y'); ?></td>
+											<td style="vertical-align: middle"><?php echo $pinjaman->jatuh_tempo->format('j F Y'); ?></td>
+											<td style="vertical-align: middle"><?php echo $pinjaman->detailBookInfo->judul; ?></td>
+											<td style="vertical-align: middle"><label class="label label-danger">Overdue</label></td>
+											<td style="vertical-align: middle">Rp <?php echo $pinjaman->keterlambatan*1500; ?></td>
+										</tr>
+									<?php } elseif($pinjaman->keterlambatan == -1){ ?>
+										<tr>
+											<td style="vertical-align: middle"><?php echo $pinjaman->created_at->format('j F Y'); ?></td>
+											<td style="vertical-align: middle"><?php echo $pinjaman->jatuh_tempo->format('j F Y'); ?></td>
+											<td style="vertical-align: middle"><?php echo $pinjaman->detailBookInfo->judul; ?></td>
+											<td style="vertical-align: middle"><label class="label label-warning">Last day</label></td>
+											<td style="vertical-align: middle">Rp 0,00</td>
+										</tr>
+									<?php } elseif($pinjaman->keterlambatan == -2){ ?>
+										<tr>
+											<td style="vertical-align: middle"><?php echo $pinjaman->created_at->format('j F Y'); ?></td>
+											<td style="vertical-align: middle"><?php echo $pinjaman->jatuh_tempo->format('j F Y'); ?></td>
+											<td style="vertical-align: middle"><?php echo $pinjaman->detailBookInfo->judul; ?></td>
+											<td style="vertical-align: middle"><label class="label label-info">Aktif</label></td>
+											<td style="vertical-align: middle">Rp 0,00</td>
+										</tr>
+									<?php	}
+								}
+							} ?>
 							
-							<tr>
-								<td style="vertical-align: middle">17 April 2016</td>
-								<td style="vertical-align: middle">24 April 2016</td>
-								<td style="vertical-align: middle">Mahir Kimia Kelas XI</td>
-								<td style="vertical-align: middle"><label class="label label-warning">last day</label></td>
-								<td style="vertical-align: middle">Rp 0,00</td>
-							</tr>
 							</tbody>
 						</table>
 					</div>
