@@ -20,7 +20,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="javascript:void(0)">Brand</a>
+				<a class="navbar-brand" href="<?php echo url('member/dashboard'); ?>">Brand</a>
 			</div>
 			<div class="navbar-collapse collapse navbar-responsive-collapse">
 				<ul class="nav navbar-nav">
@@ -70,17 +70,19 @@
 				<strong>Informasi Profil</strong> Publik
 			</div>
 			<div class="panel-body">
-				<form class="form-horizontal">
+				<form class="form-horizontal" id="formuser" method="post" enctype="multipart/form-data">
 					<div class="form-group">
 						<div class="col-md-12">
 							<label for="profile_picture">Foto Profil</label>
 						</div>
 						
-						<img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-2 col-xs-12">
+						<img id="currentimg" src="<?php echo url($viewData['user']->profile_picture_ptr); ?>" class="col-md-2 col-xs-12">
+						<div id="preview" style='display:none'></div>
+						<img id='imageloadstatus' style='display:none' src="<?php echo url('img/loader.gif')?>" alt="Uploading...." class="col-md-2 col-xs-12"/>
 						
-						<div class="col-md-6">
-							<a class="btn btn-default">Upload foto baru</a>
-							<input type="file" name="profile_picture" id="profile_picture" multiple="">
+						<div class="col-md-6" id="imgloadbutton">
+							<input type="text" readonly="" name="profile_picture[]" placeholder="Upload foto baru" class="btn btn-default">
+							<input type="file" name="profile_picture" id="profile_picture">
 							<label class="control-label" style="text-align: left;">You can also drag and drop a picture from your computer.</label>
 						</div>
 					</div>
@@ -88,41 +90,58 @@
 					<div class="form-group">
 						<div class="col-md-8">
 							<label for="input_name">Nama</label>
-							<input type="text" name="name" class="form-control" value="Raditya Chandra Buana">
+							<input type="text" id="name" name="name" class="form-control" value="<?php echo $viewData['user']->name; ?>">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<div class="col-md-8">
 							<label for="input_email">Alamat Email</label>
-							<input type="text" name="email" class="form-control" value="radityacandra@gmail.com">
+							<input type="text" id="email" name="email" class="form-control" value="<?php echo $viewData['user']->email; ?>">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<div class="col-md-8">
 							<label for="address">Alamat Rumah</label>
-							<textarea class="form-control" name="address" rows="3">Jl KH. Isom No. 05 RT 05 RW 05 Bancaan Tengah, Salatiga</textarea>
+							<textarea class="form-control" id="address" name="address" rows="3"><?php echo $viewData['user']->alamat_rumah; ?></textarea>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<div class="col-md-8">
 							<label for="no_telp">Nomor Telepon</label>
-							<input type="text" name="no_telp" class="form-control" value="radityacandra@gmail.com">
+							<input type="text" id="no_telp" name="no_telp" class="form-control" value="<?php echo $viewData['user']->nomor_hp; ?>">
 						</div>
 					</div>
 					
-					<button type="submit" class="btn btn-default">Perbarui Profil</button>
-					<div class="form-group">
-						<div class="col-md-12">
-							<label class="control-label">We store your personal data in the Indonesian. See our <a href="#">privacy policy</a> for more information.</label>
-						</div>
-					</div>
+					<input type="hidden" id="_token" name="_token" value="<?php echo csrf_token(); ?>">
+					
 				</form>
+				
+				<button id="submitBtn" class="btn btn-default">Perbarui Profil</button>
+				<div class="form-group">
+					<div class="col-md-12">
+						<label class="control-label">We store your personal data in the Indonesian. See our <a href="#">privacy policy</a> for more information.</label>
+					</div>
+				</div>
 			</div>
 		</div>
 	
+	</div>
+</div>
+
+<div class="modal" id="modal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" type="button" data-dismiss="modal" aria-hidden="true"></button>
+				<h4>Mengirimkan Data</h4>
+			</div>
+			<div class="modal-body">
+				<img src="<?php echo url('img/loader.gif')?>" alt="Uploading...."/>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -134,6 +153,60 @@
 <script type="text/javascript">
 	$.material.init();
 </script>
+<script type="text/javascript">
+	//upload ebook image cover handler
+	$(document).ready(function () {
+		$('#profile_picture').on('change', function () {
+			var A = $('#imageloadstatus');
+			var B = $('#imageloadbutton');
+			var C = $('#preview');
+			var D = $('#currentimg');
+			console.log('coba');
+			$('#formuser').ajaxForm({
+				target: '#preview',
+				beforeSubmit: function () {
+					A.show();
+					B.hide();
+					D.hide();
+				},
+				success: function () {
+					A.hide();
+					B.show();
+					C.show();
+					D.hide();
+				},
+				error: function () {
+					A.hide();
+					B.show();
+				}
+			}).submit();
+		});
+	});
+</script>
 
+<script type="text/javascript">
+	//if the button is clicked, we don't need to send the file again because they have been sent before by ajax
+	$(document).ready(function () {
+		$("#submitBtn").click(function () {
+			$('#modal').modal('show');
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var address = document.getElementById("address").value;
+			var no_telp = document.getElementById("no_telp").value;
+			var _token = document.getElementById("_token").value;
+			
+			$.post("http://localhost/simpus_laravel/public/member/settings",
+					{
+						name: name,
+						email: email,
+						address: address,
+						no_telp: no_telp,
+						_token: _token
+					}, function (data, status) {
+						$('#modal').modal('toggle');
+					});
+		});
+	});
+</script>
 </body>
 </html>
