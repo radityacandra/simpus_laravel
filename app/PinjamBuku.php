@@ -10,6 +10,8 @@ class PinjamBuku extends Model
 
   public $timestamps = true;
   
+	protected $dates = ['created_at', 'updated_at', 'jatuh_tempo'];
+	
 	public function detailMemberInfo(){
 		return $this->belongsTo('App\User', 'id_peminjam', 'id');
 	}
