@@ -13,7 +13,7 @@ use App\Http\Requests;
 class LoginAuthenticateController extends Controller
 {
 	public function displayLoginPage(){
-		$this->dispatch(new PutNotificationPinjamBuku());
+		//$this->dispatch(new PutNotificationPinjamBuku());
 		return view('login');
 	}
 	
