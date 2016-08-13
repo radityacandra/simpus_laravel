@@ -1,7 +1,7 @@
 html{
-    min-height:100%;
-    position:relative;
-}
+                                      min-height:100%;
+                                      position:relative;
+                                  }
 
 body{
     height:100%;
@@ -31,7 +31,7 @@ body{
 
 /*sidebar*/
 .sidebar ul  { margin: 0;
-                padding: 0; }
+    padding: 0; }
 .sidebar li { list-style: none;
     border-bottom: #C3C3C3 solid 1px;
     padding: 5%; }
@@ -58,3 +58,18 @@ body{
 .developer  { display: block;
     float:right; }
 .developer h5 a { color: #FFFFFF }
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #FFFFFF;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #FFFFFF;
+    opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #FFFFFF;
+    opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:    #FFFFFF;
+}
