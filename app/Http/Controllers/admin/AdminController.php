@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Auth;
+use App\Http\Controllers\Controller;
 
 use App\User;
 
@@ -16,9 +18,12 @@ class AdminController extends Controller
 		$listAdmin = $adminModel->where('role', '=', 'admin')
 														->paginate(15);
 		
+		$user = Auth::user();
+		
 		$viewData = array();
 		$viewData['list_admin'] = $listAdmin;
+		$viewData['user'] = $user;
 		
-		return view('all_admin')->with('viewData', $viewData);
+		return view('admin.all_admin')->with('viewData', $viewData);
 	}
 }

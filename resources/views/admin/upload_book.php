@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
 <head>
-  <title>Tambah Data Member - Sistem Informasi Perpustakaan</title>
+  <title>Tambah Data Buku - Sistem Informasi Perpustakaan</title>
   <link href="<?php echo url('css/bootstrap.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/bootstrap-material-design.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/ripples.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/font-awesome.min.css'); ?>" type="text/css" rel="stylesheet">
-  <link href="<?php echo url('css/add_member.css'); ?>" type="text/css" rel="stylesheet">
+  <link href="<?php echo url('css/upload_book.css'); ?>" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+        <a class="navbar-brand" href="<?php echo url('admin/home'); ?>">Brand</a>
       </div>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
@@ -30,12 +30,12 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Raditya Chandra Buana<b class="caret"></b></a>
+            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $viewData['user']->name; ?><b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="javascript:void(0)">Profil</a></li>
-              <li><a href="javascript:void(0)">Ubah Password</a></li>
+              <li><a href="<?php echo url('member/settings'); ?>">Profil</a></li>
+              <li><a href="<?php echo url('member/settings/password'); ?>">Ubah Password</a></li>
               <li class="divider"></li>
-              <li><a href="<?php echo url('login'); ?>">Logout</a></li>
+              <li><a href="<?php echo url('logout'); ?>">Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -165,39 +165,39 @@
   <div class="col-md-10">
     <div class="panel panel-default">
       <div class="panel-body" style="margin-top: 1%;">
-        <form class="form-horizontal" method="post" action="http://localhost:8000/member/add" enctype="multipart/form-data" id="formaddmember">
+        <form class="form-horizontal" method="post" action="http://localhost:8000/tambah_buku" enctype="multipart/form-data" id="formaddbook">
           <fieldset>
-            <legend><h1>Tambah Anggota Perpustakaan</h1></legend>
+            <legend><h1>Tambah Data Buku</h1></legend>
             <div class="form-group">
-              <label class="col-md-2">Nama Siswa</label>
+              <label class="col-md-2">Nama Buku</label>
               <div class="col-md-8">
-                <input type="text" name="nama_siswa" id="nama_siswa" class="form-control col-md-10">
+                <input type="text" name="judul_buku" id="judul_buku" class="form-control col-md-10">
               </div>
             </div>
-            
+
             <div class="form-group">
-              <label class="col-md-2">NIM Siswa</label>
+              <label class="col-md-2">Penulis Buku</label>
               <div class="col-md-8">
-                <input type="text" name="nim_siswa" id="nim_siswa" class="form-control col-md-10">
+                <input type="text" name="penulis_buku" id="penulis_buku" class="form-control col-md-10">
               </div>
             </div>
-            
+
             <div class="form-group">
-              <label class="col-md-2">Alamat E-mail</label>
+              <label class="col-md-2">Penerbit Buku</label>
               <div class="col-md-8">
-                <input type="text" name="alamat_email" id="alamat_email" class="form-control col-md-10">
+                <input type="text" name="penerbit_buku" id="penerbit_buku" class="form-control col-md-10">
               </div>
             </div>
-            
+
             <div class="form-group">
-              <label class="col-md-2">Nomor Telepon (HP)</label>
+              <label class="col-md-2">Tahun Terbit</label>
               <div class="col-md-8">
-                <input type="text" name="no_telp" id="no_telp" class="form-control col-md-10">
+                <input type="text" name="tahun_terbit" id="tahun_terbit" class="form-control col-md-10">
               </div>
             </div>
-            
+
             <div class="form-group">
-              <label class="col-md-2">Gambar Profil</label>
+              <label class="col-md-2">Gambar Cover</label>
               <div id="preview" style='display:none' class="col-md-4"></div>
               <div class="col-md-4" id="imageloadbutton">
                 <input type="text" readonly="" name="img_cover[]" placeholder="Pilih Gambar Cover.." class="form-control col-md-10">
@@ -205,38 +205,47 @@
               </div>
               <div id='imageloadstatus' style='display:none'><img src="<?php echo url('img/loader.gif')?>" alt="Uploading...."/></div>
             </div>
-            
+
+            <div class="form-group">
+              <label class="col-md-2">File PDF</label>
+              <div id="filepreview" style="display: none" class="col-md-4">
+                <div class="panel panel-default">
+                  <div class="panel-body" id="namaPdf">
+                    <img src="<?php echo url('img/ic-pdf.png'); ?>" class="col-md-4">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4" id="fileloadbutton">
+                <input type="text" readonly="" name="file_pdf[]" placeholder="Pilih PDF ebook.." class="form-control col-md-10">
+                <input id="filePdf" type="file" name="file_pdf">
+              </div>
+              <div id="fileuploadstatus" style="display: none"><img src="<?php echo url('img/loader.gif')?>" alt="Uploading...."/></div>
+            </div>
+
             <div class="form-group">
               <div class="col-md-12">
-                <label class="col-md-2">Kelas Saat Ini</label>
+                <label class="col-md-2">Kategori Buku</label>
                 <div class="col-md-4">
-                  <select id="kelas_siswa" class="form-control" name="kelas_siswa">
-                    <option>X-1</option>
-                    <option>X-2</option>
-                    <option>X-3</option>
-                    <option>XI IA-1</option>
-                    <option>XI IA-2</option>
-                    <option>XI IA-3</option>
-                    <option>XI IS-1</option>
-                    <option>XII IA-1</option>
-                    <option>XII IA-2</option>
-                    <option>XII IA-3</option>
+                  <select id="kategori_buku" class="form-control" name="kategori_buku">
+                    <option>Matematika</option>
+                    <option>Bahasa Indonesia</option>
+                    <option>Bahasa Inggris</option>
                   </select>
                 </div>
                 <div class="col-md-4">
-                  <input type="text" name="kelas_baru" placeholder="Kelas Baru" id="kelas_baru" class="form-control">
+                  <input type="text" name="kategori_baru" placeholder="Kategori Baru" id="kategori_baru" class="form-control">
                 </div>
               </div>
             </div>
-            
+
             <div class="form-group">
-              <label class="col-md-2">Alamat Rumah</label>
+              <label class="col-md-2">Deskripsi Buku</label>
               <div class="col-md-8">
-                <textarea class="form-control" rows="3" name="alamat_rumah" id="alamat_rumah"></textarea>
+                <textarea class="form-control" rows="3" name="deskripsi_buku" id="deskripsi_buku"></textarea>
               </div>
             </div>
-            
-            <input name="_token" type="hidden" value="<?php echo $token; ?>" id="token">
+
+            <input name="_token" type="hidden" value="<?php echo $viewData['token']; ?>" id="token">
           </fieldset>
         </form>
         <div class="form-group" style="margin: 0 2%;">
@@ -279,7 +288,7 @@
       var B = $('#imageloadbutton');
       var C = $('#preview');
       console.log('coba');
-      $('#formaddmember').ajaxForm({
+      $('#formaddbook').ajaxForm({
         target: '#preview',
         beforeSubmit: function () {
           A.show();
@@ -300,32 +309,68 @@
 </script>
 
 <script type="text/javascript">
+  $(document).ready(function () {
+    $('#filePdf').on('change', function () {
+      var A = $('#fileuploadstatus');
+      var B = $('#fileloadbutton');
+      var C = $('#filepreview');
+      var file_pdf = document.getElementById("filePdf").value;
+      if (file_pdf) {
+        var startIndex = (file_pdf.indexOf('\\') >= 0 ? file_pdf.lastIndexOf('\\') : file_pdf.lastIndexOf('/'));
+        var filename = file_pdf.substring(startIndex);
+        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+          filename = filename.substring(1);
+        }
+        file_pdf = filename;
+      }
+      $('#formaddbook').ajaxForm({
+        target: '#filepreview',
+        beforeSubmit: function () {
+          A.show();
+          B.hide();
+        },
+        success: function () {
+          A.hide();
+          console.log("success");
+          B.hide();
+          C.show();
+          $("#namaPdf").append('<p style="vertical-align: middle">'+file_pdf+'</p>');
+        },
+        error: function () {
+          A.hide();
+          B.show();
+        }
+      }).submit();
+    });
+  });
+</script>
+
+<script type="text/javascript">
   //if the button is clicked, we don't need to send the file again because they have been sent before by ajax
   $(document).ready(function () {
     $("#submitBtn").click(function () {
       $('#modal').modal('show');
-      var nama_siswa = document.getElementById("nama_siswa").value;
-      var nim_siswa = document.getElementById("nim_siswa").value;
-      var alamat_email = document.getElementById("alamat_email").value;
-      var no_telp = document.getElementById("no_telp").value;
-      var kelas_siswa = document.getElementById("kelas_siswa").value;
-      var kelas_baru = document.getElementById("kelas_baru").value;
-      var alamat_rumah = document.getElementById("alamat_rumah").value;
+      var judul_buku = document.getElementById("judul_buku").value;
+      var penulis_buku = document.getElementById("penulis_buku").value;
+      var penerbit_buku = document.getElementById("penerbit_buku").value;
+      var tahun_terbit = document.getElementById("tahun_terbit").value;
+      var kategori_buku = document.getElementById("kategori_buku").value;
       var token = document.getElementById("token").value;
-      
-      $.post("http://localhost/simpus_laravel/public/member/add",
+      var deskripsi_buku = document.getElementById("deskripsi_buku").value;
+      var kategori_baru = document.getElementById("kategori_baru").value;
+
+      $.post("http://localhost/simpus_laravel/public/tambah_buku",
           {
-            nama_siswa: nama_siswa,
-            nim_siswa: nim_siswa,
-            alamat_email: alamat_email,
-            no_telp: no_telp,
-            kelas_siswa: kelas_siswa,
-            kelas_baru: kelas_baru,
-            alamat_rumah: alamat_rumah,
-            _token: token
+            judul_buku: judul_buku,
+            penulis_buku: penulis_buku,
+            penerbit_buku: penerbit_buku,
+            tahun_terbit: tahun_terbit,
+            kategori_buku: kategori_buku,
+            _token: token,
+            deskripsi_buku: deskripsi_buku
           }, function (data, status) {
             $('#modal').modal('toggle');
-            window.location.href = 'http://localhost/simpus_laravel/public/member';
+            window.location.href = 'http://localhost/simpus_laravel/public/semua_buku';
           });
     });
   });

@@ -20,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+        <a class="navbar-brand" href="<?php echo url('admin/home'); ?>">Brand</a>
       </div>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
@@ -30,12 +30,12 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Raditya Chandra Buana<b class="caret"></b></a>
+            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $viewData['user']->name; ?><b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="javascript:void(0)">Profil</a></li>
-              <li><a href="javascript:void(0)">Ubah Password</a></li>
+              <li><a href="<?php echo url('member/settings'); ?>">Profil</a></li>
+              <li><a href="<?php echo url('member/settings/password'); ?>">Ubah Password</a></li>
               <li class="divider"></li>
-              <li><a href="<?php echo url('login'); ?>">Logout</a></li>
+              <li><a href="<?php echo url('logout'); ?>">Logout</a></li>
             </ul>
           </li>
         </ul>

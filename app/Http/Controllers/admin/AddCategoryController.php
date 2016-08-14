@@ -1,17 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
+use Auth;
 
 use App\Http\Requests;
 use App\BukuKategori;
 use App\Kategori;
+use App\Http\Controllers\Controller;
 
 class AddCategoryController extends Controller
 {
   public function displayAddCategoryView(){
-    return view('add_category');
+  	$user = Auth::user();
+	  
+	  $viewData = array();
+	  $viewData['user'] = $user;
+	  
+    return view('admin.add_category')->with('viewData', $viewData);
   }
   
   public function retrieveAddCategory(Request $request){

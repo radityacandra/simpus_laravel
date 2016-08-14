@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
 <head>
-  <title>Semua Data Administrator - Sistem Informasi Perpustakaan</title>
+  <title>Dashboard Admin - Sistem Informasi Perpustakaan</title>
   <link href="<?php echo url('css/bootstrap.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/bootstrap-material-design.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/ripples.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/font-awesome.min.css'); ?>" type="text/css" rel="stylesheet">
-  <link href="<?php echo url('css/all_admin.css'); ?>" type="text/css" rel="stylesheet">
+  <link href="<?php echo url('css/dashboard_admin.css'); ?>" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -20,22 +20,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+        <a class="navbar-brand" href="<?php echo url('admin/home'); ?>">Brand</a>
       </div>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
           <li><a href="<?php echo url('home'); ?>">Beranda</a></li>
           <li><a href="<?php echo url('search'); ?>">Pencarian Spesifik</a></li>
-          <li><a href="javascript:void(0)">Pinjaman Saya</a></li>
+          <li><a href="<?php echo url('home'); ?>">Pinjaman Saya</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Raditya Chandra Buana<b class="caret"></b></a>
+            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $viewData['user']->name; ?><b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="javascript:void(0)">Profil</a></li>
-              <li><a href="javascript:void(0)">Ubah Password</a></li>
+              <li><a href="<?php echo url('member/settings'); ?>">Profil</a></li>
+              <li><a href="<?php echo url('member/settings/password'); ?>">Ubah Password</a></li>
               <li class="divider"></li>
-              <li><a href="<?php echo url('login'); ?>">Logout</a></li>
+              <li><a href="<?php echo url('logout'); ?>">Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -163,58 +163,101 @@
 <div id="content">
   <!--search result table-->
   <div class="col-md-10">
-    <div class="panel panel-default">
-      <div class="panel-body" style="margin-top: 1%;">
-        <label class="col-md-2" style="padding-top: 1%;">Cari Admin</label>
-        <div class="col-md-4">
-          <input type="text" name="kategori" class="form-control" placeholder="anggota..">
+    <h1>Selamat Datang, Raditya Chandra Buana!</h1>
+    <div class="row">
+      <div class="col-md-4" style="margin-top: 1%;">
+        <div class="panel panel-default" style="cursor: pointer;" onclick="window.location='<?php echo url('tambah_buku'); ?>';">
+          <div class="panel-body">
+            <div class="col-md-12">
+              <img src="<?php echo url('img/ic-addbook.png'); ?>" class="col-md-12">
+            </div>
+            <h3 style="text-align: center">Tambah Data Buku</h3>
+          </div>
         </div>
+      </div>
 
-        <div class="col-md-3">
-          <button class="btn btn-default col-md-12"><i class="fa fa-search"></i> Cari</button>
+      <div class="col-md-4" style="margin-top: 1%;">
+        <div class="panel panel-default" style="cursor: pointer;" onclick="window.location='<?php echo url('member/add'); ?>';">
+          <div class="panel-body">
+            <div class="col-md-12">
+              <img src="<?php echo url('img/ic-adduser.png'); ?>" class="col-md-12">
+            </div>
+            <h3 style="text-align: center">Tambah Data Anggota</h3>
+          </div>
         </div>
+      </div>
 
-        <div class="col-md-3">
-          <button class="btn btn-default col-md-12"><i class="fa fa-print"></i> Cetak</button>
+      <div class="col-md-4" style="margin-top: 1%;">
+        <div class="panel panel-default" style="cursor: pointer;" onclick="window.location='<?php echo url('kategori'); ?>';">
+          <div class="panel-body">
+            <div class="col-md-12">
+              <img src="<?php echo url('img/ic-category.png'); ?>" class="col-md-12">
+            </div>
+            <h3 style="text-align: center">Data Semua Kategori</h3>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="col-md-10">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <table class="table table-striped table-hover">
-          <thead>
-          <tr>
-            <th class="col-md-2">NIP</th>
-            <th>Nama Admin</th>
-            <th class="col-md-2">Tanggal Bergabung</th>
-            <th class="col-md-2">Action</th>
-          </tr>
-          </thead>
+    <div class="row">
+      <div class="col-md-4" style="margin-top: 1%;">
+        <div class="panel panel-default">
+          <div class="panel-heading">Paling Banyak Dibaca</div>
+          <div class="panel-body">
+            <table class="table table-hover">
+              <tbody>
+              
+              <?php foreach ($viewData['buku_popular'] as $buku){ ?>
+	              <tr>
+		              <td><?php echo $buku['judul']; ?></td>
+		              <td><?php echo $buku['view']; ?></td>
+	              </tr>
+              <?php } ?>
+              
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
-          <tbody>
-          
-          <?php foreach ($viewData['list_admin'] as $admin){ ?>
-	          <tr>
-		          <td style="vertical-align: middle"><?php echo $admin['nip']; ?></td>
-		          <td style="vertical-align: middle"><?php echo $admin['name']; ?></td>
-		          <td style="vertical-align: middle"><?php echo $admin['created_at']; ?></td>
-		          <td style="vertical-align: middle">
-			          <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-		          </td>
-	          </tr>
-          <?php } ?>
-          
-          </tbody>
-        </table>
-	      
-	      <div class="pagination">
-		      <?php echo $viewData['list_admin']->render(); ?>
-	      </div>
+      <div class="col-md-4" style="margin-top: 1%;">
+        <div class="panel panel-default">
+          <div class="panel-heading">Siswa Yang Terakhir Login</div>
+          <div class="panel-body">
+            <table class="table table-hover">
+	            
+	            <?php foreach ($viewData['recent_login'] as $user){ ?>
+		            <tr>
+			            <td><?php echo $user['name']; ?></td>
+			            <td><?php echo $user['last_login']; ?></td>
+		            </tr>
+	            <?php } ?>
+	            
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" style="margin-top: 1%;">
+        <div class="panel panel-default">
+          <div class="panel-heading">Kategori Dengan Buku Paling Banyak</div>
+          <div class="panel-body">
+            <table class="table table-hover">
+	            
+	            <?php foreach ($viewData['buku_kategori'] as $kategori){ ?>
+		            <tr>
+			            <td><?php echo $kategori['kategori']; ?></td>
+			            <td><?php echo $kategori['total']." Buku"; ?></td>
+		            </tr>
+	            <?php } ?>
+	            
+            </table>
+          </div>
+        </div>
       </div>
     </div>
+
+
   </div>
 </div>
 

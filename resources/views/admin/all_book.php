@@ -20,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+        <a class="navbar-brand" href="<?php echo url('admin/home'); ?>">Brand</a>
       </div>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
@@ -30,12 +30,12 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Raditya Chandra Buana<b class="caret"></b></a>
+            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $viewData['user']->name; ?><b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="javascript:void(0)">Profil</a></li>
-              <li><a href="javascript:void(0)">Ubah Password</a></li>
+              <li><a href="<?php echo url('member/settings'); ?>">Profil</a></li>
+              <li><a href="<?php echo url('member/settings/password'); ?>">Ubah Password</a></li>
               <li class="divider"></li>
-              <li><a href="<?php echo url('login'); ?>">Logout</a></li>
+              <li><a href="<?php echo url('logout'); ?>">Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -202,33 +202,31 @@
         </form>
       </div>
     </div>
-  </div>
-  <!--search result table-->
-  <div class="col-md-10 col-md-offset-2">
-    <div class="panel panel-default">
-	    <div class="panel-heading" style="background-color: #009688; color: #FFFFFF;">
-		    Semua Buku Perpustakaan
-	    </div>
-      <div class="panel-body">
-	      <?php foreach($viewData['list_buku'] as $buku){ ?>
-		      <div class="container-book col-md-12" style="border-bottom: rgba(0,0,0,0.2) solid 1px; padding-bottom: 1%; margin-top: 1%;">
-			      <img src="<?php echo url($buku->thumb_cover_ptr); ?>" class="col-md-2">
-			      <div class="meta-book col-md-8">
-				      <h4><?php echo $buku->judul; ?></h4>
-				      <h5>Tahun terbit <?php echo $buku->tahun_terbit; ?></h5>
-				      <h5>Penulis <?php echo $buku->penulis; ?></h5>
-				      <h5>Penerbit <?php echo $buku->penerbit; ?></h5>
-			      </div>
-			      <div class="action col-md-2">
-				      <a href="<?php echo url('admin/kelola_buku').'/'.$buku->buku_id?>" class="btn btn-default col-md-12"><i class="fa fa-pencil-square-o"></i> Kelola</a>
-				      <a href="#" class="btn btn-default col-md-12"><i class="fa fa-trash-o"></i> Hapus</a>
-			      </div>
-		      </div>
-	      <?php } ?>
-	      
-	      <?php echo $viewData['list_buku']->render(); ?>
-      </div>
-    </div>
+	
+	  <div class="panel panel-default">
+		  <div class="panel-heading" style="background-color: #009688; color: #FFFFFF;">
+			  Semua Buku Perpustakaan
+		  </div>
+		  <div class="panel-body">
+			  <?php foreach($viewData['list_buku'] as $buku){ ?>
+				  <div class="container-book col-md-12" style="border-bottom: rgba(0,0,0,0.2) solid 1px; padding-bottom: 1%; margin-top: 1%;">
+					  <img src="<?php echo url($buku->thumb_cover_ptr); ?>" class="col-md-2">
+					  <div class="meta-book col-md-8">
+						  <h4><?php echo $buku->judul; ?></h4>
+						  <h5>Tahun terbit <?php echo $buku->tahun_terbit; ?></h5>
+						  <h5>Penulis <?php echo $buku->penulis; ?></h5>
+						  <h5>Penerbit <?php echo $buku->penerbit; ?></h5>
+					  </div>
+					  <div class="action col-md-2">
+						  <a href="<?php echo url('admin/kelola_buku').'/'.$buku->buku_id?>" class="btn btn-default col-md-12"><i class="fa fa-pencil-square-o"></i> Kelola</a>
+						  <a href="#" class="btn btn-default col-md-12"><i class="fa fa-trash-o"></i> Hapus</a>
+					  </div>
+				  </div>
+			  <?php } ?>
+			
+			  <?php echo $viewData['list_buku']->render(); ?>
+		  </div>
+	  </div>
   </div>
 </div>
 

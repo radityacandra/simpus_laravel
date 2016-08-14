@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
 <head>
-  <title>Semua Kategori - Sistem Informasi Perpustakaan</title>
+  <title>Semua Data Administrator - Sistem Informasi Perpustakaan</title>
   <link href="<?php echo url('css/bootstrap.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/bootstrap-material-design.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/ripples.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/font-awesome.min.css'); ?>" type="text/css" rel="stylesheet">
-  <link href="<?php echo url('css/all_category.css'); ?>" type="text/css" rel="stylesheet">
+  <link href="<?php echo url('css/all_admin.css'); ?>" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+        <a class="navbar-brand" href="<?php echo url('admin/home'); ?>">Brand</a>
       </div>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
@@ -30,12 +30,12 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Raditya Chandra Buana<b class="caret"></b></a>
+            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $viewData['user']->name; ?><b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="javascript:void(0)">Profil</a></li>
-              <li><a href="javascript:void(0)">Ubah Password</a></li>
+              <li><a href="<?php echo url('member/settings'); ?>">Profil</a></li>
+              <li><a href="<?php echo url('member/settings/password'); ?>">Ubah Password</a></li>
               <li class="divider"></li>
-              <li><a href="<?php echo url('login'); ?>">Logout</a></li>
+              <li><a href="<?php echo url('logout'); ?>">Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -165,9 +165,9 @@
   <div class="col-md-10">
     <div class="panel panel-default">
       <div class="panel-body" style="margin-top: 1%;">
-        <label class="col-md-2" style="padding-top: 1%;">Cari Kategori</label>
+        <label class="col-md-2" style="padding-top: 1%;">Cari Admin</label>
         <div class="col-md-4">
-          <input type="text" name="kategori" class="form-control" placeholder="kategori..">
+          <input type="text" name="kategori" class="form-control" placeholder="anggota..">
         </div>
 
         <div class="col-md-3">
@@ -187,26 +187,32 @@
         <table class="table table-striped table-hover">
           <thead>
           <tr>
-            <th class="col-md-2">ID Kategori</th>
-            <th>Nama Kategori</th>
+            <th class="col-md-2">NIP</th>
+            <th>Nama Admin</th>
+            <th class="col-md-2">Tanggal Bergabung</th>
             <th class="col-md-2">Action</th>
           </tr>
           </thead>
 
           <tbody>
           
-          <?php foreach ($viewData['list_kategori'] as $kategori){ ?>
+          <?php foreach ($viewData['list_admin'] as $admin){ ?>
 	          <tr>
-		          <td style="vertical-align: middle"><?php echo $kategori['id']; ?></td>
-		          <td style="vertical-align: middle"><?php echo $kategori['nama']; ?></td>
-		          <td style="vertical-align: middle"><a class="btn btn-default"><i class="fa fa-trash-o"></i> Hapus</a></td>
+		          <td style="vertical-align: middle"><?php echo $admin['nip']; ?></td>
+		          <td style="vertical-align: middle"><?php echo $admin['name']; ?></td>
+		          <td style="vertical-align: middle"><?php echo $admin['created_at']; ?></td>
+		          <td style="vertical-align: middle">
+			          <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
+		          </td>
 	          </tr>
           <?php } ?>
           
           </tbody>
         </table>
 	      
-	      <?php echo $viewData['list_kategori']->render(); ?>
+	      <div class="pagination">
+		      <?php echo $viewData['list_admin']->render(); ?>
+	      </div>
       </div>
     </div>
   </div>

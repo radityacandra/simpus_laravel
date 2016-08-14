@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Helper\RandomString;
+use App\Http\Controllers\Controller;
+use Auth;
 
 use App\User;
 
@@ -13,7 +15,13 @@ class AddMemberController extends Controller
 {
   public function displayAddMemberPage(){
     $randomString = RandomString::randomString(20);
-    return view('add_member')->with('token', $randomString);
+	  $user = Auth::user();
+	  
+	  $viewData = array();
+	  $viewData['token'] = $randomString;
+	  $viewData['user'] = $user;
+	  
+    return view('admin.add_member')->with('viewData', $viewData);
   }
 
   public function retrieveMemberData(Request $request){

@@ -28,45 +28,45 @@ Route::get('/detail/{buku_id}', 'DetailBookController@displayDetailBookView');
 
 Route::get('/view_pdf/{buku_id}', 'ViewPdfController@displayViewPdf');
 
-Route::get('/tambah_buku', 'UploadBookController@displayUploadBook');
+Route::get('/tambah_buku', 'admin\UploadBookController@displayUploadBook');
 
-Route::post('/tambah_buku', 'UploadBookController@retrieveBookData');
+Route::post('/tambah_buku', 'admin\UploadBookController@retrieveBookData');
 
-Route::get('/semua_buku', 'AdminBookController@displayListBook');
+Route::get('/semua_buku', 'admin\AdminBookController@displayListBook');
 
-Route::get('/kategori', 'KategoriController@displayAllCategory');
+Route::get('/kategori', 'admin\KategoriController@displayAllCategory');
 
-Route::get('/kategori/add', 'AddCategoryController@displayAddCategoryView');
+Route::get('/kategori/add', 'admin\AddCategoryController@displayAddCategoryView');
 
-Route::post('/kategori/add', 'AddCategoryController@retrieveAddCategory');
+Route::post('/kategori/add', 'admin\AddCategoryController@retrieveAddCategory');
 
-Route::get('/member', 'MemberController@displayAllMember');
+Route::get('/member', 'admin\MemberController@displayAllMember');
 
-Route::get('/member/detail/{user_id}', 'MemberController@displayDetailMember');
+Route::get('/member/detail/{user_id}', 'admin\MemberController@displayDetailMember');
 
-Route::get('/admin', 'AdminController@displayAllAdmin');
+Route::get('/admin', 'admin\AdminController@displayAllAdmin');
 
-Route::get('/member/add', 'AddMemberController@displayAddMemberPage');
+Route::get('/member/add', 'admin\AddMemberController@displayAddMemberPage');
 
-Route::post('/member/add', 'AddMemberController@retrieveMemberData');
+Route::post('/member/add', 'admin\AddMemberController@retrieveMemberData');
 
-Route::get('admin/home', 'AdminHomeController@displayAdminHome');
+Route::get('admin/home', 'admin\AdminHomeController@displayAdminHome');
 
-Route::get('admin/test_qr', 'PrintBookDataController@testQR');
+Route::get('admin/test_qr', 'admin\PrintBookDataController@testQR');
 
-Route::get('admin/kelola_buku/{id_buku}', 'PrintBookDataController@displayGeneralPage');
+Route::get('admin/kelola_buku/{id_buku}', 'admin\PrintBookDataController@displayGeneralPage');
 
-Route::get('admin/message', 'MessageAdminController@displayAllMessage');
+Route::get('admin/message', 'admin\MessageAdminController@displayAllMessage');
 
-Route::get('admin/message/new', 'MessageAdminController@displayNewMessage');
+Route::get('admin/message/new', 'admin\MessageAdminController@displayNewMessage');
 
-Route::post('admin/message/new', 'MessageAdminController@handleSubmitMessage');
+Route::post('admin/message/new', 'admin\MessageAdminController@handleSubmitMessage');
 
-Route::get('admin/message/detail/{ticket_id}', 'MessageAdminController@displayDetailMessage');
+Route::get('admin/message/detail/{ticket_id}', 'admin\MessageAdminController@displayDetailMessage');
 
-Route::get('admin/pinjaman', 'PinjamanAdminController@displayAllPinjaman');
+Route::get('admin/pinjaman', 'admin\PinjamanAdminController@displayAllPinjaman');
 
-Route::get('admin/pinjaman/detail/{kode_pinjam}', 'PinjamanAdminController@detailPinjaman');
+Route::get('admin/pinjaman/detail/{kode_pinjam}', 'admin\PinjamanAdminController@detailPinjaman');
 
 Route::get('admin/report/member', 'PrinterAdminController@printMemberReport');
 

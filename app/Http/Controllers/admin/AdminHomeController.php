@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Buku;
 use App\BukuKategori;
 use App\User;
 use DB;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Auth;
 
 use App\Http\Requests;
 
@@ -37,11 +39,15 @@ class AdminHomeController extends Controller
 																			->orderBy('total', 'desc')
 																			->get()
 																			->toArray();
+		
+		$user = Auth::user();
+		
 		$viewData = array();
 		$viewData['buku_popular'] = $bukuPopular;
 		$viewData['recent_login'] = $recentLogin;
 		$viewData['buku_kategori'] = $bukuKategori;
+		$viewData['user'] = $user;
 		
-		return view('dashboard_admin')->with('viewData', $viewData);
+		return view('admin.dashboard_admin')->with('viewData', $viewData);
 	}
 }

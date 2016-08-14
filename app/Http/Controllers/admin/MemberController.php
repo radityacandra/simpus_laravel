@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use Auth;
 
 use App\User;
 use App\PinjamBuku;
@@ -35,11 +37,14 @@ class MemberController extends Controller
 			unset($listMember['data'][$i]['punya_pinjaman']);
 		}
 		
+		$user = Auth::user();
+		
 		$viewData = array();
 		$viewData['list_member'] = $listMember;
 		$viewData['list_member_2'] = $listMember2;
+		$viewData['user'] = $user;
 		
-		return view('all_member')->with('viewData', $viewData);
+		return view('admin.all_member')->with('viewData', $viewData);
 	}
 	
 	public function displayDetailMember($user_id){
@@ -68,10 +73,13 @@ class MemberController extends Controller
 																															->format('l F jS Y');
 		}
 		
+		$user = Auth::user();
+		
 		$viewData = array();
 		$viewData['member'] = $member;
 		$viewData['list_pinjaman'] = $listPinjaman;
 		$viewData['list_pinjaman_2'] = $listPinjaman2;
+		$viewData['user'] = $user;
 		
 		return view('admin.detail_member')->with('viewData', $viewData);
 	}

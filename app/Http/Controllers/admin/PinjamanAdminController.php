@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Auth;
+use App\Http\Controllers\Controller;
 
 use App\PinjamBuku;
 
@@ -43,9 +45,12 @@ class PinjamanAdminController extends Controller
 			
 		}
 		
+		$user = Auth::user();
+		
 		$viewData = array();
 		$viewData['list_pinjaman'] = $listPinjaman;
 		$viewData['list_pinjaman_2'] = $listPinjaman2;
+		$viewData['user'] = $user;
 		
 		return view('admin.all_pinjaman')->with('viewData', $viewData);
 	}
@@ -77,8 +82,11 @@ class PinjamanAdminController extends Controller
 		$pinjaman['created_at'] = $pinjaman['created_at']->format('l F jS Y');
 		$pinjaman['jatuh_tempo'] = $pinjaman['jatuh_tempo']->format('l F jS Y');
 		
+		$user = Auth::user();
+		
 		$viewData = array();
 		$viewData['pinjaman'] = $pinjaman;
+		$viewData['user'] = $user;
 		
 		return view('admin.detail_pinjaman')->with('viewData', $viewData);
 	}

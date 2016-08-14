@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Message;
 use App\MessageContainer;
 use App\User;
+use App\Http\Controllers\Controller;
+use Auth;
 
 use App\Http\Requests;
 
@@ -15,8 +17,11 @@ class MessageAdminController extends Controller
 		$messageModel = new Message();
 		$listMessage = $messageModel->paginate(15);
 		
+		$user = Auth::user();
+		
 		$viewData = array();
 		$viewData['list_message'] = $listMessage;
+		$viewData['user'] = $user;
 		
 		return view('admin.all_message')->with('viewData', $viewData);
 	}
@@ -31,8 +36,11 @@ class MessageAdminController extends Controller
 																					->get()
 																					->toArray();
 		
+		$user = Auth::user();
+		
 		$viewData = array();
 		$viewData['list_message'] = $listMessage;
+		$viewData['user'] = $user;
 		
 		return view('admin.detail_message')->with('viewData', $viewData);
 	}
@@ -50,8 +58,11 @@ class MessageAdminController extends Controller
 		}
 		$arrayOfName = json_encode($arrayOfName);
 		
+		$user = Auth::user();
+		
 		$viewData = array();
 		$viewData['dataset_name'] = $arrayOfName;
+		$viewData['user'] = $user;
 		
 		return view('admin.new_message')->with('viewData', $viewData);
 	}

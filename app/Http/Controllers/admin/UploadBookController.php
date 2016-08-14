@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Helper\RandomString;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Validator;
+use Auth;
 use App\Http\Requests;
 use League\Flysystem\Config;
 
@@ -16,8 +18,13 @@ class UploadBookController extends Controller
 {
   public function displayUploadBook(){
     $randomString = RandomString::randomString(20);
+	  $user = Auth::user();
+	  
+	  $viewData = array();
+	  $viewData['token'] = $randomString;
+	  $viewData['user'] = $user;
 
-    return view('upload_book')->with('token', $randomString);
+    return view('admin.upload_book')->with('viewData', $viewData);
   }
 
 

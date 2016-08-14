@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Dashboard Admin - Sistem Informasi Perpustakaan</title>
+	<title>Dashboard Member - Sistem Informasi Perpustakaan</title>
 	<link href="<?php echo url('css/bootstrap.min.css'); ?>" type="text/css" rel="stylesheet">
 	<link href="<?php echo url('css/bootstrap-material-design.min.css'); ?>" type="text/css" rel="stylesheet">
 	<link href="<?php echo url('css/ripples.min.css'); ?>" type="text/css" rel="stylesheet">
@@ -20,7 +20,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="javascript:void(0)">Brand</a>
+				<a class="navbar-brand" href="<?php echo url('member/dashboard'); ?>">Brand</a>
 			</div>
 			<div class="navbar-collapse collapse navbar-responsive-collapse">
 				<ul class="nav navbar-nav">
@@ -30,7 +30,7 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
-						<a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Raditya Chandra Buana<b class="caret"></b></a>
+						<a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $viewData['user']->name; ?><b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="<?php echo url('member/settings'); ?>">Profil</a></li>
 							<li><a href="<?php echo url('member/settings/password'); ?>">Ubah Password</a></li>
@@ -54,7 +54,7 @@
 						Informasi <strong>Akun</strong>
 					</div>
 					<div class="panel-body">
-						<img src="<?php echo url('img/thumbnail-placeholder.png'); ?>" class="col-md-3">
+						<img src="<?php echo url($viewData['user']->profile_picture_ptr); ?>" class="col-md-3">
 						<div class="col-md-8">
 							<h5><?php echo $viewData['user']->name; ?></h5>
 							<h5><?php echo $viewData['user']->alamat_rumah; ?></h5>
