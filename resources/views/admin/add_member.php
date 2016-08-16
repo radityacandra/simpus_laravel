@@ -165,7 +165,7 @@
   <div class="col-md-10">
     <div class="panel panel-default">
       <div class="panel-body" style="margin-top: 1%;">
-        <form class="form-horizontal" method="post" action="http://localhost:8000/member/add" enctype="multipart/form-data" id="formaddmember">
+        <form class="form-horizontal" method="post" action="<?php echo url('member/add'); ?>" enctype="multipart/form-data" id="formaddmember">
           <fieldset>
             <legend><h1>Tambah Anggota Perpustakaan</h1></legend>
             <div class="form-group">
@@ -313,7 +313,7 @@
       var alamat_rumah = document.getElementById("alamat_rumah").value;
       var token = document.getElementById("token").value;
       
-      $.post("http://localhost/simpus_laravel/public/member/add",
+      $.post("<?php echo url('member/add'); ?>",
           {
             nama_siswa: nama_siswa,
             nim_siswa: nim_siswa,
@@ -325,7 +325,7 @@
             _token: token
           }, function (data, status) {
             $('#modal').modal('toggle');
-            window.location.href = 'http://localhost/simpus_laravel/public/member';
+            window.location.href = '<?php echo url('member'); ?>';
           });
     });
   });

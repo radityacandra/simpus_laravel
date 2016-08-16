@@ -165,7 +165,7 @@
   <div class="col-md-10">
     <div class="panel panel-default">
       <div class="panel-body" style="margin-top: 1%;">
-        <form class="form-horizontal" method="post" action="http://localhost:8000/tambah_buku" enctype="multipart/form-data" id="formaddbook">
+        <form class="form-horizontal" method="post" action="<?php echo url('tambah_buku'); ?>" enctype="multipart/form-data" id="formaddbook">
           <fieldset>
             <legend><h1>Tambah Data Buku</h1></legend>
             <div class="form-group">
@@ -359,7 +359,7 @@
       var deskripsi_buku = document.getElementById("deskripsi_buku").value;
       var kategori_baru = document.getElementById("kategori_baru").value;
 
-      $.post("http://localhost/simpus_laravel/public/tambah_buku",
+      $.post("<?php echo url('tambah_buku'); ?>",
           {
             judul_buku: judul_buku,
             penulis_buku: penulis_buku,
@@ -370,7 +370,7 @@
             deskripsi_buku: deskripsi_buku
           }, function (data, status) {
             $('#modal').modal('toggle');
-            window.location.href = 'http://localhost/simpus_laravel/public/semua_buku';
+            window.location.href = '<?php echo url('semua_buku'); ?>';
           });
     });
   });
