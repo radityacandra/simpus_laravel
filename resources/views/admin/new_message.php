@@ -175,11 +175,11 @@
 						<div class="form-group">
 							<div class="col-md-3">
 								<label for="name">Nama</label>
-								<input type="text" name="sender_name" class="form-control" disabled value="Rusty Kautzer">
+								<input type="text" name="sender_name" class="form-control" disabled value="<?php echo $viewData['user']->name; ?>">
 							</div>
 							<div class="col-md-3">
 								<label for="email">Email</label>
-								<input type="text" name="sender_email" class="form-control" disabled value="cara79@crist.com">
+								<input type="text" name="sender_email" class="form-control" disabled value="<?php echo $viewData['user']->email; ?>">
 							</div>
 						</div>
 					</div>
@@ -223,7 +223,7 @@
 						</div>
 					</div>
 					
-					<input type="hidden" name="sender_name" class="form-control" value="Rusty Kautzer">
+					<input type="hidden" name="sender_name" class="form-control" value="<?php echo $viewData['user']->name; ?>">
 					<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 					
 					<div class="row">
