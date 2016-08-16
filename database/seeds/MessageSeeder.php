@@ -20,7 +20,8 @@ class MessageSeeder extends Seeder
 			'updated_at'  => \Carbon\Carbon::now(),
 			'subject'     => 'Tidak Bisa Download PDF',
 			'status'      => 'open',
-			'response'    => 'from member'
+			'response'    => 'from member',
+			'associate_member'  => 1
 		]);
 	}
 }
