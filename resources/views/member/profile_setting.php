@@ -195,7 +195,7 @@
 			var no_telp = document.getElementById("no_telp").value;
 			var _token = document.getElementById("_token").value;
 			
-			$.post("http://localhost/simpus_laravel/public/member/settings",
+			$.post("<?php echo url('member/settings') ?>",
 					{
 						name: name,
 						email: email,

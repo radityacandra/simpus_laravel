@@ -54,8 +54,10 @@ class PrinterAdminController extends Controller
 		$viewData['list_member'] = $pageContainer;
 		$viewData['current_date'] = $currentDate;
 		
-		$pdf = PDF::loadView('report.all_member', ['viewData' => $viewData]);
+		//$pdf = PDF::loadView('report.all_member', ['viewData' => $viewData]);
 		
-		return $pdf->stream();
+		return PDF::loadFile('http://www.github.com')->inline('github.pdf');
+		
+		//return $pdf->stream();
 	}
 }
