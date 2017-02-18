@@ -78,6 +78,10 @@ Route::group(['middleware'  => 'auth'], function (){
 Route::group(['middleware'  => 'auth'], function (){
 	Route::get('member/dashboard', 'member\DashboardMemberController@displayDashboardMember');
 	
+	Route::get('member/ticket', 'member\TicketController@displayAllTicket');
+	
+	Route::get('member/ticket/{idTicket}', 'member\TicketController@displayDetailTicket');
+	
 	Route::get('member/settings', 'member\ProfileSettingController@displayProfileSetting');
 	
 	Route::post('member/settings', 'member\ProfileSettingController@handleUpdateProfile');

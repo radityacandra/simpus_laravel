@@ -87,7 +87,7 @@
 					</div>
 					<div class="panel-body">
 						<div class="col-md-offset-8">
-							<a class="btn btn-default"><i class="fa fa-list"></i> Lihat Semua</a>
+							<a class="btn btn-default" href="<?php echo url('member/ticket') ?>"><i class="fa fa-list"></i> Lihat Semua</a>
 							<a class="btn btn-default"><i class="fa fa-comment"></i> Kirim Tiket</a>
 						</div>
 						
@@ -113,7 +113,7 @@
 										<td style="vertical-align: middle"><?php echo $message->subject; ?></td>
 										<td style="vertical-align: middle"><?php echo $message->status; ?></td>
 										<td style="vertical-align: middle"><?php echo $message->updated_at->diffForHumans(); ?></td>
-										<td style="vertical-align: middle"><a class="btn btn-default">Lihat</a></td>
+										<td style="vertical-align: middle"><a class="btn btn-default" href="<?php echo url('member/ticket').'/'.$message->ticket_id ?>">Lihat</a></td>
 									</tr>
 							<?php	}
 							} else { echo '<h5 style="text-align: center">Tidak ada tiket yang aktif saat ini</h5>'; } ?>
