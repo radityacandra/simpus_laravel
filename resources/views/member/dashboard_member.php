@@ -88,7 +88,7 @@
 					<div class="panel-body">
 						<div class="col-md-offset-8">
 							<a class="btn btn-default" href="<?php echo url('member/ticket') ?>"><i class="fa fa-list"></i> Lihat Semua</a>
-							<a class="btn btn-default"><i class="fa fa-comment"></i> Kirim Tiket</a>
+							<a class="btn btn-default" href="<?php echo url('member/ticket/new') ?>"><i class="fa fa-comment"></i> Kirim Tiket</a>
 						</div>
 						
 						<table class="table table-striped table-hover">

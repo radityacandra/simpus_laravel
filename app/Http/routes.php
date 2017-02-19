@@ -80,6 +80,10 @@ Route::group(['middleware'  => 'auth'], function (){
 	
 	Route::get('member/ticket', 'member\TicketController@displayAllTicket');
 	
+	Route::get('member/ticket/new', 'member\TicketController@newTicket');
+	
+	Route::post('member/ticket/new', 'member\TicketController@saveNewTicket');
+	
 	Route::get('member/ticket/{idTicket}', 'member\TicketController@displayDetailTicket');
 	
 	Route::get('member/settings', 'member\ProfileSettingController@displayProfileSetting');
