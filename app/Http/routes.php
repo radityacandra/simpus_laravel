@@ -72,6 +72,8 @@ Route::group(['middleware'  => 'auth'], function (){
 	Route::get('admin/pinjaman/detail/{kode_pinjam}', 'admin\PinjamanAdminController@detailPinjaman');
 	
 	Route::get('admin/report/member', 'PrinterAdminController@printMemberReport');
+	
+	Route::get('admin/report/idbuku/{buku_id}', 'ViewPdfController@identitasBuku');
 });
 
 //member private area

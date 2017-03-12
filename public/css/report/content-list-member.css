@@ -1,6 +1,4 @@
-.content    { position: absolute;
-    top:13%;
-    text-align: center; }
+.content    { text-align: center; }
 
 .content h3 { margin: 0; padding:0; border: 0; }
 .content h5 { margin: 0; padding:0; border: 0; }

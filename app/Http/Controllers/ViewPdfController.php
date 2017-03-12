@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Buku;
 
 use PDF;
+use QrCode;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
@@ -21,5 +22,24 @@ class ViewPdfController extends Controller
 											]);
 		
 		return view('pdf_view')->with('buku', $buku);
+	}
+	
+	public function identitasBuku($buku_id){
+		$bukuModel = new Buku();
+		
+		$viewData['buku'] = $bukuModel->where('buku_id', '=', $buku_id)
+											->first();
+		
+		$pdf = PDF::loadView('admin.cetak.identitas_buku', $viewData);
+		return $pdf->stream();
+	}
+	
+	public function kartuBuku($buku_id){
+		$bukuModel = new Buku();
+		
+		$viewData['buku'] = $bukuModel->where('buku_id', '=', $buku_id)
+				->first();
+		
+		
 	}
 }

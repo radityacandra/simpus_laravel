@@ -177,7 +177,7 @@
 					<button class="btn btn-default"><i class="fa fa-print"> Cetak Kartu Buku</i></button>
 				</div>
 				<div class="col-md-3">
-					<button class="btn btn-default"><i class="fa fa-print"> Cetak Kartu Tempel</i></button>
+					<button class="btn btn-default" type="button" onclick="kartuTempel(<?php echo $viewData['id_buku'] ?>)"><i class="fa fa-print"> Cetak Kartu Tempel</i></button>
 				</div>
 			</div>
 		</div>
@@ -285,6 +285,13 @@
 <script type="text/javascript" src="<?php echo url('js/jquery.wallform.js')?>"></script>
 <script type="text/javascript">
 	$.material.init();
+</script>
+
+<script type="text/javascript">
+	function kartuTempel(idBuku) {
+		window.open("<?php echo url('admin/report/idbuku') ?>/"+idBuku, "_blank");
+		return false;
+	}
 </script>
 
 </body>

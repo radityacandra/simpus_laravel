@@ -1,19 +1,19 @@
 .logo   { width: 10%;
     float:left;
     display: block;
-    position: absolute;
     margin-left: 5%; }
 
 .instance   { float: left;
     text-align: center;
-    width:100%;
-    position:absolute;
+    width:80%;
     display: block;
     margin-top: 1%; }
 .instance h4 { margin: 0; padding: 0;  border:0;}
 .instance h5 { margin: 0; padding: 0;  border:0;}
 .instance h6 { margin: 0; padding: 0;  border:0;}
 
-.separate-line  { margin-top: 11%;
-    border-style: double;
-    position: relative; }
+.separate-line {
+    clear: both;
+    position: relative;
+    border:solid black 2px;
+}

@@ -16,9 +16,7 @@
 		<h5>Jalan Kartini Nomor 01 Telp. (0298)327095/Fax. (0298)327096</h5>
 		<h6>Website: sman1salatiga.sch.id; Email: sman1salatiga@gmail.com</h6>
 	</div>
-	
 	<div class="separate-line"></div>
-	<div class="separate-line-2"></div>
 </div>
 
 <?php for($page = 0; $page<sizeof($viewData['list_member']); $page++){
