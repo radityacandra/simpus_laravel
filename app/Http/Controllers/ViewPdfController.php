@@ -40,6 +40,7 @@ class ViewPdfController extends Controller
 		$viewData['buku'] = $bukuModel->where('buku_id', '=', $buku_id)
 				->first();
 		
-		
+		$pdf = PDF::loadView('admin.cetak.kartu_buku', $viewData);
+		return $pdf->stream();
 	}
 }

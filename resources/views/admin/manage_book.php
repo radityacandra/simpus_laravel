@@ -174,7 +174,7 @@
 					<button class="btn btn-default"><i class="fa fa-edit"> Kelola Informasi</i></button>
 				</div>
 				<div class="col-md-3">
-					<button class="btn btn-default"><i class="fa fa-print"> Cetak Kartu Buku</i></button>
+					<button class="btn btn-default" type="button" onclick="kartuBuku(<?php echo $viewData['id_buku'] ?>)"><i class="fa fa-print"> Cetak Kartu Buku</i></button>
 				</div>
 				<div class="col-md-3">
 					<button class="btn btn-default" type="button" onclick="kartuTempel(<?php echo $viewData['id_buku'] ?>)"><i class="fa fa-print"> Cetak Kartu Tempel</i></button>
@@ -290,6 +290,13 @@
 <script type="text/javascript">
 	function kartuTempel(idBuku) {
 		window.open("<?php echo url('admin/report/idbuku') ?>/"+idBuku, "_blank");
+		return false;
+	}
+</script>
+
+<script type="text/javascript">
+	function kartuBuku(idBuku) {
+		window.open("<?php echo url('admin/report/kartubuku') ?>/"+idBuku, "_blank");
 		return false;
 	}
 </script>
