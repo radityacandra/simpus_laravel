@@ -30,13 +30,14 @@ body{
 .img div img  { width:100%; height:auto; display: block; float: left; }
 
 /*sidebar*/
-.sidebar     { margin-top: 1%; }
-.sidebar ul  { border: #31b0d5 solid 2px;
-    padding: 0; }
-.sidebar li { list-style: none;
-    border-bottom: #C3C3C3 solid 1px; }
-.sidebar li:hover { background-color: rgba(153, 153, 153, 1) !important;
-    color: #FFFFFF; }
+.sidebar     { margin-top: 1%;
+    background-color: white  }
+.nav a:hover, .nav li.active > a {
+    color: #000 !important;
+}
+.nav li > a:hover > span {
+    color: #000 !important;
+}
 .panel-group  { margin-bottom: 0 !important; }
 .list-group  { border: 0 !important; }
 .list-group li  { padding: 4px 4px 4px 8px; }
