@@ -71,6 +71,8 @@ Route::group(['middleware'  => 'auth'], function (){
 	
 	Route::get('admin/pinjaman/detail/{kode_pinjam}', 'admin\PinjamanAdminController@detailPinjaman');
 	
+	Route::get('admin/pinjaman/tambah', 'admin\PinjamanAdminController@buatPeminjaman');
+	
 	Route::get('admin/report/member', 'PrinterAdminController@printMemberReport');
 	
 	Route::get('admin/report/idbuku/{buku_id}', 'ViewPdfController@identitasBuku');
@@ -97,4 +99,15 @@ Route::group(['middleware'  => 'auth'], function (){
 	Route::get('member/settings/password', function (){
 		return view('member.manage_password');
 	});
+});
+
+//ajax api area
+Route::group(['middleware'  => 'auth'], function (){
+	Route::get('api/member/all', 'admin\PinjamanAdminController@ajaxSemuaMember');
+	
+	Route::get('api/member/{idUser}', 'admin\PinjamanAdminController@ajaxInfoPeminjam');
+	
+	Route::get('api/buku/all', 'admin\PinjamanAdminController@ajaxSemuaBuku');
+	
+	Route::get('api/buku/{idBuku}', 'admin\PinjamanAdminController@ajaxInfoBuku');
 });
