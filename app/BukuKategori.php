@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class BukuKategori extends Model
 {
-  protected $table = 'buku_kategori';
+    protected $table = 'buku_kategori';
 
-  public $timestamps = true;
-  
+    public $timestamps = true;
+
 }

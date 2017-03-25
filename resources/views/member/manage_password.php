@@ -63,7 +63,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="col-md-9">
 		<div class="panel panel-default">
 			<div class="panel-heading" style="background-color: #009688; color: #FFFFFF;">
@@ -75,7 +75,7 @@
 						<h5>Silahkan masukkan password lama dan baru anda apabila anda ingin mengganti password. Ingat, password baru anda tidak akan diketahui oleh siapapun.</h5>
 					</div>
 				</div>
-				
+
 				<form class="form-horizontal">
 					<div class="form-group">
 						<div class="col-md-8">
@@ -83,21 +83,21 @@
 							<input type="password" name="password" class="form-control">
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<div class="col-md-8">
 							<label for="password_new">Password Baru</label>
 							<input type="password" name="password_new" class="form-control">
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<div class="col-md-8">
 							<label for="input_email">Konfirmasi Password Baru</label>
 							<input type="password" name="confirm_password" class="form-control">
 						</div>
 					</div>
-					
+
 					<button type="submit" class="btn btn-default">Perbarui Password</button>
 					<div class="form-group">
 						<div class="col-md-12">
@@ -107,7 +107,7 @@
 				</form>
 			</div>
 		</div>
-		
+
 		<div class="panel panel-default">
 			<div class="panel-heading" style="background-color: #009688; color: #FFFFFF;">
 				Lupa Password
@@ -118,7 +118,7 @@
 						<h5>Silahkan masukkan konfirmasi alamat email yang anda gunakan pada akun ini. Password baru akan dikirimkan melalui alamat email tersebut apabila memang cocok.</h5>
 					</div>
 				</div>
-				
+
 				<form class="form-horizontal">
 					<div class="form-group">
 						<div class="col-md-8">
@@ -143,7 +143,7 @@
 <script type="text/javascript" src="<?php echo url('js/material.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/ripples.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/bootstrap.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo url('js/jquery.wallform.js')?>"></script>
+<script type="text/javascript" src="<?php echo url('js/jquery.wallform.js') ?>"></script>
 <script type="text/javascript">
 	$.material.init();
 </script>

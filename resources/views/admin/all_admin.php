@@ -7,7 +7,7 @@
   <link href="<?php echo url('css/ripples.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/font-awesome.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/all_admin.css'); ?>" type="text/css" rel="stylesheet">
-	<link href="<?php echo url('js/navgoco/jquery.navgoco.css') ?>" type="text/css" rel="stylesheet">
+  <link href="<?php echo url('js/navgoco/jquery.navgoco.css') ?>" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -47,66 +47,66 @@
 
 <!--sidebar-->
 <div class="col-md-2 sidebar">
-	<ul class="nav">
-		<li>
-			<a href="<?php echo url('admin/home'); ?>">
-				<i class="fa fa-user"></i> Halaman Admin
-			</a>
-		</li>
-		
-		<li>
-			<a href="#">
-				<i class="fa fa-book"></i> E-Book
-			</a>
-			<ul>
-				<li><a href="<?php echo url('semua_buku'); ?>"><i class="fa fa-book"></i> Kelola Buku</a></li>
-				<li><a href="<?php echo url('tambah_buku'); ?>"><i class="fa fa-plus"></i> Tambah Data Buku</a></li>
-			</ul>
-		</li>
-		
-		<li>
-			<a href="#">
-				<i class="fa fa-object-group"></i> Kategori
-			</a>
-			
-			<ul>
-				<li><a href="<?php echo url('kategori'); ?>"><i class="fa fa-object-group"></i> Kelola Kategori</a></li>
-				<li><a href="<?php echo url('kategori/add'); ?>"><i class="fa fa-plus"></i> Tambah Kategori</a></li>
-			</ul>
-		</li>
-		
-		<li>
-			<a href="#">
-				<i class="fa fa-users"></i> Keanggotaan
-			</a>
-			<ul>
-				<li><a href="<?php echo url('member') ?>"><i class="fa fa-users"></i> Kelola Member</a></li>
-				<li class="active"><a href="<?php echo url('admin') ?>"><i class="fa fa-users"></i> Kelola Admin</a></li>
-				<li><a href="<?php echo url('member/add') ?>"><i class="fa fa-plus"></i> Tambah Member</a></li>
-				<li><a href="<?php echo url('member/add') ?>"><i class="fa fa-plus"></i> Tambah Admin</a></li>
-			</ul>
-		</li>
-		
-		<li>
-			<a href="#">
-				<i class="fa fa-comments-o"></i> Perpesanan
-			</a>
-			<ul>
-				<li><a href="<?php echo url('admin/message') ?>"><i class="fa fa-comments-o"></i> Semua Pesan</a></li>
-				<li><a href="<?php echo url('admin/message/new') ?>"><i class="fa fa-plus"></i> Buat Pesan Baru</a></li>
-			</ul>
-		</li>
-		
-		<li>
-			<a href="#">
-				<i class="fa fa-book"></i> Pinjaman
-			</a>
-			<ul>
-				<li><a href="<?php echo url('admin/pinjaman'); ?>"><i class="fa fa-book"></i> Semua Pinjaman</a></li>
-				<li><a href="<?php echo url('admin/pinjaman/tambah'); ?>"><i class="fa fa-plus"></i> Buat Pinjaman Baru</a></li>
-			</ul>
-		</li>
-	</ul>
+  <ul class="nav">
+    <li>
+      <a href="<?php echo url('admin/home'); ?>">
+        <i class="fa fa-user"></i> Halaman Admin
+      </a>
+    </li>
+
+    <li>
+      <a href="#">
+        <i class="fa fa-book"></i> E-Book
+      </a>
+      <ul>
+        <li><a href="<?php echo url('semua_buku'); ?>"><i class="fa fa-book"></i> Kelola Buku</a></li>
+        <li><a href="<?php echo url('tambah_buku'); ?>"><i class="fa fa-plus"></i> Tambah Data Buku</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#">
+        <i class="fa fa-object-group"></i> Kategori
+      </a>
+
+      <ul>
+        <li><a href="<?php echo url('kategori'); ?>"><i class="fa fa-object-group"></i> Kelola Kategori</a></li>
+        <li><a href="<?php echo url('kategori/add'); ?>"><i class="fa fa-plus"></i> Tambah Kategori</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#">
+        <i class="fa fa-users"></i> Keanggotaan
+      </a>
+      <ul>
+        <li><a href="<?php echo url('member') ?>"><i class="fa fa-users"></i> Kelola Member</a></li>
+        <li class="active"><a href="<?php echo url('admin') ?>"><i class="fa fa-users"></i> Kelola Admin</a></li>
+        <li><a href="<?php echo url('member/add') ?>"><i class="fa fa-plus"></i> Tambah Member</a></li>
+        <li><a href="<?php echo url('member/add') ?>"><i class="fa fa-plus"></i> Tambah Admin</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#">
+        <i class="fa fa-comments-o"></i> Perpesanan
+      </a>
+      <ul>
+        <li><a href="<?php echo url('admin/message') ?>"><i class="fa fa-comments-o"></i> Semua Pesan</a></li>
+        <li><a href="<?php echo url('admin/message/new') ?>"><i class="fa fa-plus"></i> Buat Pesan Baru</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#">
+        <i class="fa fa-book"></i> Pinjaman
+      </a>
+      <ul>
+        <li><a href="<?php echo url('admin/pinjaman'); ?>"><i class="fa fa-book"></i> Semua Pinjaman</a></li>
+        <li><a href="<?php echo url('admin/pinjaman/tambah'); ?>"><i class="fa fa-plus"></i> Buat Pinjaman Baru</a></li>
+      </ul>
+    </li>
+  </ul>
 </div>
 
 <!--body-->
@@ -145,24 +145,24 @@
           </thead>
 
           <tbody>
-          
-          <?php foreach ($viewData['list_admin'] as $admin){ ?>
-	          <tr>
-		          <td style="vertical-align: middle"><?php echo $admin['nip']; ?></td>
-		          <td style="vertical-align: middle"><?php echo $admin['name']; ?></td>
-		          <td style="vertical-align: middle"><?php echo $admin['created_at']; ?></td>
-		          <td style="vertical-align: middle">
-			          <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
-		          </td>
-	          </tr>
-          <?php } ?>
-          
+
+          <?php foreach ($viewData['list_admin'] as $admin) {?>
+            <tr>
+              <td style="vertical-align: middle"><?php echo $admin['nip']; ?></td>
+              <td style="vertical-align: middle"><?php echo $admin['name']; ?></td>
+              <td style="vertical-align: middle"><?php echo $admin['created_at']; ?></td>
+              <td style="vertical-align: middle">
+                <a class="btn btn-default action"><i class="fa fa-info"></i> Detail</a>
+              </td>
+            </tr>
+          <?php }?>
+
           </tbody>
         </table>
-	      
-	      <div class="pagination">
-		      <?php echo $viewData['list_admin']->render(); ?>
-	      </div>
+
+        <div class="pagination">
+          <?php echo $viewData['list_admin']->render(); ?>
+        </div>
       </div>
     </div>
   </div>
@@ -186,7 +186,7 @@
 <script type="text/javascript" src="<?php echo url('js/material.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/ripples.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/bootstrap.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo url('js/jquery.wallform.js')?>"></script>
+<script type="text/javascript" src="<?php echo url('js/jquery.wallform.js') ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/navgoco/jquery.cookie.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/navgoco/jquery.navgoco.min.js') ?>"></script>
 
@@ -195,7 +195,7 @@
 </script>
 
 <script type="text/javascript">
-	$('.nav').navgoco();
+  $('.nav').navgoco();
 </script>
 
 </body>

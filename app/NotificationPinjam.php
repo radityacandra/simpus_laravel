@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class NotificationPinjam extends Model
 {
-  protected $table = 'notification_pinjam';
+    protected $table = 'notification_pinjam';
 
-  public $timestamps = true;
-  
+    public $timestamps = true;
+
 }

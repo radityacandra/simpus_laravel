@@ -1,3 +1,7 @@
+<?php if ($errors->any()) {
+    // echo implode('', $errors->all('<div>:message</div>'));
+}
+?>
 <!doctype html>
 <html>
 <head>
@@ -55,7 +59,7 @@
 				<i class="fa fa-user"></i> Halaman Admin
 			</a>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-book"></i> E-Book
@@ -65,18 +69,18 @@
 				<li><a href="<?php echo url('tambah_buku'); ?>"><i class="fa fa-plus"></i> Tambah Data Buku</a></li>
 			</ul>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-object-group"></i> Kategori
 			</a>
-		
+
 			<ul>
 				<li><a href="<?php echo url('kategori'); ?>"><i class="fa fa-object-group"></i> Kelola Kategori</a></li>
 				<li><a href="<?php echo url('kategori/add'); ?>"><i class="fa fa-plus"></i> Tambah Kategori</a></li>
 			</ul>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-users"></i> Keanggotaan
@@ -88,7 +92,7 @@
 				<li><a href="<?php echo url('member/add') ?>"><i class="fa fa-plus"></i> Tambah Admin</a></li>
 			</ul>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-comments-o"></i> Perpesanan
@@ -98,7 +102,7 @@
 				<li><a href="<?php echo url('admin/message/new') ?>"><i class="fa fa-plus"></i> Buat Pesan Baru</a></li>
 			</ul>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-book"></i> Pinjaman
@@ -118,7 +122,7 @@
 			<div class="panel-heading" style="background-color: #009688; color: #FFFFFF;">
 				Form Penambahan Pinjaman
 			</div>
-			
+
 			<div class="panel-body">
 				<form class="form-horizontal" method="post">
 					<div class="form-group">
@@ -129,43 +133,41 @@
 							<h4>: #1234</h4>
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<div class="col-md-4 col-xs-6">
 							<h5>ID Peminjam</h5>
 						</div>
 						<div class="col-md-8 col-xs-6">
-							<select id="peminjam" class="form-control">
+							<select id="peminjam" class="form-control" name="peminjam">
 								<option></option>
-								<?php foreach ($members as $member){ ?>
+								<?php foreach ($members as $member) {?>
 									<option value="<?php echo $member->id ?>"><?php echo $member->name ?></option>
-								<?php } ?>
+								<?php }?>
 							</select>
 						</div>
 					</div>
-					
+
 					<div class="form-group" style="background: lightgray; padding-top: 10px; display: none;" id="infopeminjam">
-						
 					</div>
-					
+
 					<div class="form-group">
 						<div class="col-md-4 col-xs-6">
 							<h5>ID Buku</h5>
 						</div>
 						<div class="col-md-8 col-xs-6">
-							<select id="buku" name="id_buku" class="form-control" multiple>
+							<select id="buku" name="buku[]" class="form-control" multiple>
 								<option></option>
-								<?php foreach ($bukus as $buku){ ?>
+								<?php foreach ($bukus as $buku) {?>
 									<option value="<?php echo $buku->buku_id ?>"><?php echo $buku->judul ?></option>
-								<?php } ?>
+								<?php }?>
 							</select>
 						</div>
 					</div>
-					
+
 					<div class="form-group" style="background: lightgray; padding-top: 10px; display: none;" id="infobuku">
-						
 					</div>
-					
+
 					<div class="form-group">
 						<div class="col-md-4 col-xs-6">
 							<h5>Tanggal Peminjaman</h5>
@@ -174,7 +176,7 @@
 							<input type="date" class="form-control" name="tgl_pinjam">
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<div class="col-md-4 col-xs-6">
 							<h5>Tanggal Pengembalian</h5>
@@ -183,7 +185,7 @@
 							<input type="date" class="form-control" name="tgl_kembali">
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<div class="col-md-4 col-xs-6">
 							<h5>Pustakawan-In-Charge</h5>
@@ -193,7 +195,9 @@
 							<input type="hidden" name="pic">
 						</div>
 					</div>
-					
+
+					<?php echo csrf_field() ?>
+
 					<div class="form-group">
 						<div class="col-md-4">
 							<button type="submit" class="btn btn-default col-md-12 col-xs-12">Buat Pinjaman</button>
@@ -222,7 +226,7 @@
 <script type="text/javascript">
 	function displayInfoPeminjam(idMember) {
 		$.ajax({
-			url : "<?php echo url('api/member')?>/"+idMember,
+			url : "<?php echo url('api/member') ?>/"+idMember,
 			dataType : 'json',
 			success: function (data) {
 				$("#infopeminjam").css("display", "block");
@@ -307,7 +311,7 @@
 									<img src="<?php echo url('/') ?>/'+data.thumb_cover_ptr+'" class="col-md-12 pull-right">\
 							</div>\
 							';
-				
+
 				$("#infobuku").append(content);
 			}
 		})
@@ -341,7 +345,7 @@
 		$("#infobuku").css("display", "block");
 		$("#infobuku").empty();
 		var selected = $("#buku").val();
-		
+
 		for (var i = 0; i < selected.length; i++){
 			displayInfoBuku(selected[i]);
 		}

@@ -53,7 +53,7 @@
 				<i class="fa fa-user"></i> Halaman Admin
 			</a>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-book"></i> E-Book
@@ -63,18 +63,18 @@
 				<li><a href="<?php echo url('tambah_buku'); ?>"><i class="fa fa-plus"></i> Tambah Data Buku</a></li>
 			</ul>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-object-group"></i> Kategori
 			</a>
-			
+
 			<ul>
 				<li><a href="<?php echo url('kategori'); ?>"><i class="fa fa-object-group"></i> Kelola Kategori</a></li>
 				<li><a href="<?php echo url('kategori/add'); ?>"><i class="fa fa-plus"></i> Tambah Kategori</a></li>
 			</ul>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-users"></i> Keanggotaan
@@ -86,7 +86,7 @@
 				<li><a href="<?php echo url('member/add') ?>"><i class="fa fa-plus"></i> Tambah Admin</a></li>
 			</ul>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-comments-o"></i> Perpesanan
@@ -96,7 +96,7 @@
 				<li><a href="<?php echo url('admin/message/new') ?>"><i class="fa fa-plus"></i> Buat Pesan Baru</a></li>
 			</ul>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-book"></i> Pinjaman
@@ -117,7 +117,7 @@
 			<div class="panel-heading" style="background-color: #009688; color: #FFFFFF;">
 				Panel Pengelolaan Pinjaman
 			</div>
-			
+
 			<div class="panel-body">
 				<a class="btn btn-default"><i class="fa fa-sign-in"></i> Acc Pinjaman</a>
 				<a class="btn btn-default"><i class="fa fa-check-square-o"></i> Selesaikan Pinjaman</a>
@@ -125,43 +125,43 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="col-md-10">
 		<div class="panel panel-default">
 			<div class="panel-heading" style="background-color: #009688; color: #FFFFFF;">
 				Detail Pinjaman
 			</div>
-			
+
 			<div class="panel-body">
 				<div class="col-md-12">
 					<h4>Nomor Pinjaman: #<?php echo $viewData['pinjaman']['kode_pinjam']; ?> <label class="label-info" style="color: white; padding: 1%;">Status <?php echo $viewData['pinjaman']['status']; ?></label></h4>
 				</div>
-				
+
 				<div class="col-md-12">
 					<h4>Masa Peminjaman</h4>
 					<div class="progress">
 						<div class="progress-bar progress-bar-info" style="width: <?php echo $viewData['pinjaman']['progress']; ?>"></div>
 					</div>
 				</div>
-				
+
 				<div class="col-md-6">
 					<h4>Peminjaman Mulai</h4>
 					<h4><?php echo $viewData['pinjaman']['created_at']; ?></h4>
 				</div>
-				
+
 				<div class="col-md-6">
 					<h4>Peminjaman Selesai</h4>
 					<h4><?php echo $viewData['pinjaman']['jatuh_tempo']; ?></h4>
 				</div>
-				
+
 				<div class="col-md-12" style="margin-top: 1%;">
 					<h4>Nama Buku: <?php echo $viewData['pinjaman']['detail_book_info']['judul']; ?></h4>
 				</div>
-				
+
 				<div class="col-md-12" style="margin-top: 1%;">
 					<h4>Nama Peminjam: <?php echo $viewData['pinjaman']['detail_member_info']['name']; ?></h4>
 				</div>
-				
+
 				<div class="col-md-12" style="margin-top: 1%;">
 					<a class="btn btn-default">Beritahu Siswa</a>
 				</div>
@@ -174,7 +174,7 @@
 <script type="text/javascript" src="<?php echo url('js/material.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/ripples.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/bootstrap.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo url('js/jquery.wallform.js')?>"></script>
+<script type="text/javascript" src="<?php echo url('js/jquery.wallform.js') ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/navgoco/jquery.cookie.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/navgoco/jquery.navgoco.min.js') ?>"></script>
 

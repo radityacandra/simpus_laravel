@@ -54,7 +54,7 @@
 				<i class="fa fa-user"></i> Halaman Admin
 			</a>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-book"></i> E-Book
@@ -64,18 +64,18 @@
 				<li><a href="<?php echo url('tambah_buku'); ?>"><i class="fa fa-plus"></i> Tambah Data Buku</a></li>
 			</ul>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-object-group"></i> Kategori
 			</a>
-			
+
 			<ul>
 				<li><a href="<?php echo url('kategori'); ?>"><i class="fa fa-object-group"></i> Kelola Kategori</a></li>
 				<li><a href="<?php echo url('kategori/add'); ?>"><i class="fa fa-plus"></i> Tambah Kategori</a></li>
 			</ul>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-users"></i> Keanggotaan
@@ -87,7 +87,7 @@
 				<li><a href="<?php echo url('member/add') ?>"><i class="fa fa-plus"></i> Tambah Admin</a></li>
 			</ul>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-comments-o"></i> Perpesanan
@@ -97,7 +97,7 @@
 				<li><a href="<?php echo url('admin/message/new') ?>"><i class="fa fa-plus"></i> Buat Pesan Baru</a></li>
 			</ul>
 		</li>
-		
+
 		<li>
 			<a href="#">
 				<i class="fa fa-book"></i> Pinjaman
@@ -153,13 +153,13 @@
         </form>
       </div>
     </div>
-	
+
 	  <div class="panel panel-default">
 		  <div class="panel-heading" style="background-color: #009688; color: #FFFFFF;">
 			  Semua Buku Perpustakaan
 		  </div>
 		  <div class="panel-body">
-			  <?php foreach($viewData['list_buku'] as $buku){ ?>
+			  <?php foreach ($viewData['list_buku'] as $buku) {?>
 				  <div class="container-book col-md-12" style="border-bottom: rgba(0,0,0,0.2) solid 1px; padding-bottom: 1%; margin-top: 1%;">
 					  <img src="<?php echo url($buku->thumb_cover_ptr); ?>" class="col-md-2">
 					  <div class="meta-book col-md-8">
@@ -169,12 +169,12 @@
 						  <h5>Penerbit <?php echo $buku->penerbit; ?></h5>
 					  </div>
 					  <div class="action col-md-2">
-						  <a href="<?php echo url('admin/kelola_buku').'/'.$buku->buku_id?>" class="btn btn-default col-md-12"><i class="fa fa-pencil-square-o"></i> Kelola</a>
+						  <a href="<?php echo url('admin/kelola_buku') . '/' . $buku->buku_id ?>" class="btn btn-default col-md-12"><i class="fa fa-pencil-square-o"></i> Kelola</a>
 						  <a href="#" class="btn btn-default col-md-12"><i class="fa fa-trash-o"></i> Hapus</a>
 					  </div>
 				  </div>
-			  <?php } ?>
-			
+			  <?php }?>
+
 			  <?php echo $viewData['list_buku']->render(); ?>
 		  </div>
 	  </div>
@@ -199,7 +199,7 @@
 <script type="text/javascript" src="<?php echo url('js/material.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/ripples.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/bootstrap.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo url('js/jquery.wallform.js')?>"></script>
+<script type="text/javascript" src="<?php echo url('js/jquery.wallform.js') ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/navgoco/jquery.cookie.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo url('js/navgoco/jquery.navgoco.min.js') ?>"></script>
 <script type="text/javascript">
