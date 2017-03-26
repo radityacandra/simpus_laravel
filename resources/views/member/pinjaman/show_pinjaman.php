@@ -130,7 +130,11 @@
                                 </div>
                             </div>
                         <?php }} else {?>
-                            <h4>Tidak ada peminjaman yang sedang aktif</div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 style="text-align: center;">(Tidak ada peminjaman yang sedang aktif)</h4>
+                                </div>
+                            </div>
                         <?php }?>
                     </div>
                 </div>
