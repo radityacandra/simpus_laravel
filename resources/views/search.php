@@ -12,28 +12,28 @@
 <body>
 <!--navbar-->
 <div class="bs-component">
-	<div class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="<?php echo url('member/dashboard'); ?>">Brand</a>
-			</div>
-			<div class="navbar-collapse collapse navbar-responsive-collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="<?php echo url('home'); ?>">Beranda</a></li>
-					<li class="active"><a href="<?php echo url('search'); ?>">Pencarian Spesifik</a></li>
-					<li><a href="<?php echo url('home'); ?>">Pinjaman Saya</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<?php echo url('login'); ?>">Login</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+  <div class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<?php echo url('member/dashboard'); ?>">Brand</a>
+      </div>
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="<?php echo url('home'); ?>">Beranda</a></li>
+          <li class="active"><a href="<?php echo url('search'); ?>">Pencarian Spesifik</a></li>
+          <li><a href="<?php echo url('member/pinjaman'); ?>">Pinjaman Saya</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="<?php echo url('login'); ?>">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!--body-->
@@ -44,8 +44,8 @@
       <div class="panel-heading" style="text-align: center; background-color: #009688; color: #FFFFFF;">Pencarian</div>
       <div class="panel-body">
         <form method="get"">
-	        <input type="hidden" name="submit" value="true">
-	        
+          <input type="hidden" name="submit" value="true">
+
           <label class="search-label">Judul Buku</label>
           <input type="text" name="judul_buku" placeholder="Ketikkan Judul..." class="form-control">
 
@@ -80,27 +80,28 @@
           </tr>
           </thead>
           <tbody>
-          
+
           <?php
-          $counter = 1;
-          foreach ($viewData['result_buku'] as $buku){ ?>
-	          <tr>
-		          <td><?php echo $counter; ?></td>
-		          <td><?php echo $buku->judul; ?></td>
-		          <td><?php echo $buku->tahun_terbit; ?></td>
-		          <td><?php echo $buku->penulis; ?></td>
-		          <td><?php echo $buku->penerbit; ?></td>
-		          <td><a class="btn btn-primary lihat" href="<?php echo url('detail/'.$buku->buku_id); ?>">Lihat</a></td>
-	          </tr>
+$counter = 1;
+foreach ($viewData['result_buku'] as $buku) {
+    ?>
+            <tr>
+              <td><?php echo $counter; ?></td>
+              <td><?php echo $buku->judul; ?></td>
+              <td><?php echo $buku->tahun_terbit; ?></td>
+              <td><?php echo $buku->penulis; ?></td>
+              <td><?php echo $buku->penerbit; ?></td>
+              <td><a class="btn btn-primary lihat" href="<?php echo url('detail/' . $buku->buku_id); ?>">Lihat</a></td>
+            </tr>
           <?php
-	          $counter++;
-          }
-          ?>
-          
+$counter++;
+}
+?>
+
           </tbody>
         </table>
-	      
-	      <?php echo $viewData['result_buku']->render(); ?>
+
+        <?php echo $viewData['result_buku']->render(); ?>
       </div>
     </div>
   </div>
