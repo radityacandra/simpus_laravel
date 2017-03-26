@@ -91,7 +91,7 @@
                         Daftar Peminjaman Buku Sedang Aktif
                     </div>
                     <div class="panel-body">
-                        <?php foreach ($peminjaman as $itemPeminjaman) {?>
+                        <?php if (sizeof($peminjaman) > 0) {foreach ($peminjaman as $itemPeminjaman) {?>
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="col-xs-4">
@@ -129,6 +129,8 @@
                                     </div>
                                 </div>
                             </div>
+                        <?php }} else {?>
+                            <h4>Tidak ada peminjaman yang sedang aktif</div>
                         <?php }?>
                     </div>
                 </div>
