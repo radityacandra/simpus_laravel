@@ -105,6 +105,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('member/pinjaman', 'member\PinjamanController@index');
 
     Route::get('member/pinjaman/baru/{idBuku}', 'member\PinjamanController@buatPeminjaman');
+
+    Route::post('member/pinjaman/baru', 'member\PinjamanController@handlePeminjaman');
 });
 
 //ajax api area

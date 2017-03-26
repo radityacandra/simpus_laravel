@@ -170,12 +170,19 @@
                     </div>
                 </div>
             </div>
+            <form action="<?php echo url('member/pinjaman/baru') ?>" method="post">
+                <input name="id_buku" type="hidden" value="<?php echo $idBuku ?>">
+                </input>
+                <input name="member" type="hidden" value="<?php echo $user->id ?>">
+                </input>
+                <?php echo csrf_field() ?>
+            </form>
             <div class="col-md-offset-1 col-md-10 row">
                 <div class="pull-right">
-                    <button class="btn btn-default">
+                    <button class="btn btn-default" id="btnpinjam">
                         Pinjam
                     </button>
-                    <button class="btn btn-danger" style="color: #fff; background-color: #d9534f; border-color: #d43f3a;">
+                    <button class="btn btn-danger" id="btnback" style="color: #fff; background-color: #d9534f; border-color: #d43f3a;">
                         Batal
                     </button>
                 </div>
@@ -193,6 +200,16 @@
         </script>
         <script type="text/javascript">
             $.material.init();
+        </script>
+        <script type="text/javascript">
+            $("#btnpinjam").click(function(){
+            	$("form").submit();
+        	});
+        </script>
+        <script type="text/javascript">
+            $("#btnback").click(function(){
+        		window.location.href = "<?php echo url('/detail/'.$idBuku) ?>"
+        	});
         </script>
     </body>
 </html>
