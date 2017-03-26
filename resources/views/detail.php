@@ -12,28 +12,28 @@
 <body>
 <!--navbar-->
 <div class="bs-component">
-	<div class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="<?php echo url('member/dashboard'); ?>">Brand</a>
-			</div>
-			<div class="navbar-collapse collapse navbar-responsive-collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="<?php echo url('home'); ?>">Beranda</a></li>
-					<li class="active"><a href="<?php echo url('search'); ?>">Pencarian Spesifik</a></li>
-					<li><a href="<?php echo url('home'); ?>">Pinjaman Saya</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<?php echo url('login'); ?>">Login</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+  <div class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<?php echo url('member/dashboard'); ?>">Brand</a>
+      </div>
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="<?php echo url('home'); ?>">Beranda</a></li>
+          <li><a href="<?php echo url('search'); ?>">Pencarian Spesifik</a></li>
+          <li><a href="<?php echo url('member/pinjaman'); ?>">Pinjaman Saya</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="<?php echo url('login'); ?>">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!--body-->
@@ -42,8 +42,12 @@
   <div class="col-md-3" id="search-box">
     <div class="panel panel-default">
       <div class="panel-body">
-        <a class="btn btn-primary col-md-12" href="<?php echo url('view_pdf/'.$buku['buku_id']); ?>"><h4><i class="fa fa-book" aria-hidden="true"></i> Lihat PDF</h4></a>
-        <a class="btn btn-primary col-md-12 green" href="#"><h4><i class="fa fa-home" aria-hidden="true"></i> Pinjam</h4><h6>(Tidak Tersedia)</h6></a>
+        <a class="btn btn-primary col-md-12" href="<?php echo url('view_pdf/' . $buku['buku_id']); ?>"><h4><i class="fa fa-book" aria-hidden="true"></i> Lihat PDF</h4></a>
+        <?php if ($buku['pinjam_langsung'] == 'Ya') {?>
+          <a class="btn btn-primary col-md-12 green" href="<?php echo url('/member/pinjaman/baru/' . $buku['buku_id']) ?>"><h4><i class="fa fa-home" aria-hidden="true"></i> Pinjam</h4></a>
+        <?php } else {?>
+          <a class="btn btn-primary col-md-12 green" style="background-color: #26de00;" disabled><h4><i class="fa fa-home" aria-hidden="true"></i> Pinjam</h4><h6>(Tidak Tersedia)</h6></a>
+        <?php }?>
         <a class="btn btn-primary col-md-12 red" href="<?php echo url('search'); ?>"><h4>Kembali ke pencarian</h4></a>
       </div>
     </div>
@@ -65,12 +69,12 @@
               <td class="col-md-1"><h4>=</h4></td>
               <td><h4><?php echo $buku['judul']; ?></h4></td>
             </tr>
-	
-	          <tr>
-		          <td class="col-md-4"><h4>Abstrak</h4></td>
-		          <td class="col-md-1"><h4>=</h4></td>
-		          <td><h4><?php echo $buku['abstrak']; ?></h4></td>
-	          </tr>
+
+            <tr>
+              <td class="col-md-4"><h4>Abstrak</h4></td>
+              <td class="col-md-1"><h4>=</h4></td>
+              <td><h4><?php echo $buku['abstrak']; ?></h4></td>
+            </tr>
 
             <tr>
               <td class="col-md-4"><h4>Nama Pengarang</h4></td>

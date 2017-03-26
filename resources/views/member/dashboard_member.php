@@ -26,7 +26,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="<?php echo url('home'); ?>">Beranda</a></li>
 					<li><a href="<?php echo url('search'); ?>">Pencarian Spesifik</a></li>
-					<li><a href="<?php echo url('home'); ?>">Pinjaman Saya</a></li>
+					<li><a href="<?php echo url('member/pinjaman'); ?>">Pinjaman Saya</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">

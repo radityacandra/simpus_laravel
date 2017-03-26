@@ -26,7 +26,7 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="<?php echo url('home'); ?>">Beranda</a></li>
 					<li><a href="<?php echo url('search'); ?>">Pencarian Spesifik</a></li>
-					<li><a href="<?php echo url('home'); ?>">Pinjaman Saya</a></li>
+					<li><a href="<?php echo url('member/pinjaman'); ?>">Pinjaman Saya</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<?php echo url('login'); ?>">Login</a></li>
@@ -45,7 +45,7 @@
 				<div class="col-md-12" style="text-align: center">
 					<h2>Sistem Informasi Perpustakaan</h2>
 				</div>
-				
+
 				<div class="col-md-12">
 					<form>
 						<div class="col-md-8">
@@ -59,16 +59,16 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="col-md-offset-1 col-md-10 row">
 		<h3>Terakhir Ditambahkan</h3>
-		
+
 		<div class="grid">
-			
+
 			<?php
-			$bukuLatest = $viewData['buku_latest'];
-			foreach ($bukuLatest as $buku){ ?>
-				<div class="col-md-3 grid-latest" style="cursor: pointer;" onclick="window.location='<?php echo url('detail').'/'.$buku['buku_id']; ?>';">
+$bukuLatest = $viewData['buku_latest'];
+foreach ($bukuLatest as $buku) {?>
+				<div class="col-md-3 grid-latest" style="cursor: pointer;" onclick="window.location='<?php echo url('detail') . '/' . $buku['buku_id']; ?>';">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<div class="img col-md-12">
@@ -81,24 +81,24 @@
 						</div>
 					</div>
 				</div>
-			<?php } ?>
-		
+			<?php }?>
+
 		</div>
-		
+
 		<div class="col-md-12" style="margin-bottom: 2%;">
 			<a href="#" style="float: right;">Lihat Lebih Banyak>></a>
 		</div>
 	</div>
-	
+
 	<div class="col-md-offset-1 col-md-10 row">
 		<h3>Download Populer</h3>
-		
+
 		<div class="grid2">
-			
+
 			<?php
-			$bukuLatest = $viewData['buku_popular'];
-			foreach ($bukuLatest as $buku){ ?>
-				<div class="col-md-3 grid-popular" style="cursor: pointer;" onclick="window.location='<?php echo url('detail').'/'.$buku['buku_id']; ?>';">
+$bukuLatest = $viewData['buku_popular'];
+foreach ($bukuLatest as $buku) {?>
+				<div class="col-md-3 grid-popular" style="cursor: pointer;" onclick="window.location='<?php echo url('detail') . '/' . $buku['buku_id']; ?>';">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<div class="img col-md-12">
@@ -111,10 +111,10 @@
 						</div>
 					</div>
 				</div>
-			<?php } ?>
-		
+			<?php }?>
+
 		</div>
-		
+
 		<div class="col-md-12" style="margin-bottom: 2%;">
 			<a href="#" style="float: right;">Lihat Lebih Banyak>></a>
 		</div>

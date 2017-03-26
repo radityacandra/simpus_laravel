@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Halaman Depan Sistem Informasi Perpustakaan</title>
+  <title>Baca Online - Sistem Informasi Perpustakaan</title>
   <link href="<?php echo url('css/bootstrap.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/bootstrap-material-design.min.css'); ?>" type="text/css" rel="stylesheet">
   <link href="<?php echo url('css/ripples.min.css'); ?>" type="text/css" rel="stylesheet">
