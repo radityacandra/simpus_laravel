@@ -121,7 +121,7 @@
                                                 </h4>
                                             </div>
                                             <div class="col-xs-8">
-                                                <h4>
+                                                <h4 style="text-align: center;">
                                                     : <?php echo $itemPeminjaman->jatuh_tempo ?>
                                                 </h4>
                                             </div>
