@@ -45,7 +45,7 @@
                                     Pencarian Spesifik
                                 </a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="<?php echo url('home'); ?>">
                                     Pinjaman Saya
                                 </a>
