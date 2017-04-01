@@ -88,7 +88,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default" style="margin-top: 1%;">
                     <div class="panel-heading" style="background-color: #009688; color: #FFFFFF;">
-                        Daftar Peminjaman Buku Sedang Aktif
+                        Daftar Peminjaman Buku Saya
                     </div>
                     <div class="panel-body">
                         <?php if (sizeof($peminjaman) > 0) {
