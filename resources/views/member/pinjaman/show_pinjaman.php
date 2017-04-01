@@ -91,7 +91,9 @@
                         Daftar Peminjaman Buku Sedang Aktif
                     </div>
                     <div class="panel-body">
-                        <?php if (sizeof($peminjaman) > 0) {foreach ($peminjaman as $itemPeminjaman) {?>
+                        <?php if (sizeof($peminjaman) > 0) {
+    foreach ($peminjaman as $itemPeminjaman) {
+        ?>
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="col-xs-4">
@@ -110,7 +112,7 @@
                                             </div>
                                             <div class="col-xs-8">
                                                 <h4>
-                                                    : <?php echo $itemPeminjaman->created_at ?>
+                                                    : <?php echo date('Y-m-d', strtotime($itemPeminjaman->created_at)) ?>
                                                 </h4>
                                             </div>
                                         </div>
@@ -121,9 +123,24 @@
                                                 </h4>
                                             </div>
                                             <div class="col-xs-8">
-                                                <h4 style="text-align: center;">
-                                                    : <?php echo $itemPeminjaman->jatuh_tempo ?>
+                                                <h4>
+                                                    : <?php echo date('Y-m-d', strtotime($itemPeminjaman->jatuh_tempo)) ?>
                                                 </h4>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 1%">
+                                            <div class="col-xs-12">
+                                                <?php if ($itemPeminjaman->status_approval == 'Waiting For Approval') {?>
+                                                    <span class="label label-default">Menunggu Konfirmasi</span>
+                                                <?php } elseif ($itemPeminjaman->status_approval == 'Approved') {?>
+                                                    <span class="label label-primary">Aktif Peminjaman</span>
+                                                <?php }?>
+
+                                                <?php if ((new \Carbon\Carbon($itemPeminjaman->jatuh_tempo))->diffInDays(new \Carbon\Carbon(), false) > 0 && $itemPeminjaman->status_approval == 'Approved') {?>
+                                                    <span class="label label-danger">
+                                                        Overdue +<?php echo (new \Carbon\Carbon($itemPeminjaman->jatuh_tempo))->diffInDays(new \Carbon\Carbon(), false) ?> hari
+                                                    </span>
+                                                <?php }?>
                                             </div>
                                         </div>
                                     </div>

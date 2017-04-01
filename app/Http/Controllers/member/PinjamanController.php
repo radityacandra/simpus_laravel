@@ -57,12 +57,13 @@ class PinjamanController extends Controller
             $buku      = $bukuModel->where('buku_id', '=', $idBuku)
                 ->firstOrFail();
 
-            $peminjamanModel              = new Peminjaman();
-            $peminjamanModel->created_at  = \Carbon\Carbon::now();
-            $peminjamanModel->id_buku     = $buku->id_buku;
-            $peminjamanModel->id_peminjam = $user->id;
-            $peminjamanModel->jatuh_tempo = date("Y-m-d", strtotime("now +7 days"));
-            $peminjamanModel->mekanisme   = 'Langsung';
+            $peminjamanModel                  = new Peminjaman();
+            $peminjamanModel->created_at      = \Carbon\Carbon::now();
+            $peminjamanModel->id_buku         = $buku->buku_id;
+            $peminjamanModel->id_peminjam     = $user->id;
+            $peminjamanModel->jatuh_tempo     = date("Y-m-d", strtotime("now +7 days"));
+            $peminjamanModel->mekanisme       = 'Langsung';
+            $peminjamanModel->status_approval = 'Waiting For Approval';
             $peminjamanModel->save();
 
             return redirect('member/pinjaman');
