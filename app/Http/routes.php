@@ -69,11 +69,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('admin/pinjaman', 'admin\PinjamanAdminController@displayAllPinjaman');
 
-    Route::get('admin/pinjaman/detail/{kode_pinjam}', 'admin\PinjamanAdminController@detailPinjaman');
+    Route::get('admin/pinjaman/detail/{idPeminjaman}', 'admin\PinjamanAdminController@detailPeminjaman');
 
     Route::get('admin/pinjaman/tambah', 'admin\PinjamanAdminController@buatPeminjaman');
 
     Route::post('admin/pinjaman/tambah', 'admin\PinjamanAdminController@handleBuatPeminjaman');
+
+    Route::get('admin/pinjaman/approve/{idPeminjaman}', 'admin\PinjamanAdminController@approvePinjaman');
+
+    Route::get('admin/pinjaman/selesaikan/{idPeminjaman}', 'admin\PinjamanAdminController@selesaikanPinjaman');
 
     Route::get('admin/report/member', 'PrinterAdminController@printMemberReport');
 
